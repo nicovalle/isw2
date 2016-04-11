@@ -116,9 +116,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Sólo se podrán actualizar los datos de jugadores reales
+\item Si se consultan los jugadores, aparecen los nuevos datos 
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -131,9 +130,9 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Las jugadas deben ser las definidas por el administrador
+\item No pueden aparecer jugadas repetidas
+\item Toda jugada de un libro de jugadas tendrá una frecuencia asociada
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -146,9 +145,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item No aparecerán técnicos repetidos
+\item Cada técnico tendrá su libro de jugadas
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -161,9 +159,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Todas las jugadas de un libro de jugadas tendrán una frecuencia asociada mayor a 0
+\item La suma de las frecuencias asociadas de cada tipo de jugada (ofensiva, defensiva) será 100
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -176,9 +173,11 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item No se pueden crear desafíos sin tener equipos armados
+\item Quien inicia el desafío sólo podrá elegir participantes del sistema como oponentes
+\item En caso de que el oponente acepte el desafío, elegirá su equipo (o lo armará si no lo tiene) sin ver el equipo de quien inició el desafío.
+\item Una vez que estén los dos equipos elegidos, se realiza la simulación del desafío
+\item Si el oponente rechaza el desafío, se le avisa a quien lo inició y no se simula nada
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -191,9 +190,10 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item En un desafío no se pueden apostar más fichas de las que posee el usuario
+\item La cantidad de fichas apostadas debe ser positiva o nula
+\item Una vez que el jugador apostó las fichas, las mismas no están disponibles hasta que no termine el desafío en cuestión
+\item Si el jugador no tiene la cantidad de fichas necesarias para pagar el costo de la apuesta de un desafío, no podrá aceptarlo
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -221,9 +221,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Una vez que se modifique la cantidad de turnos de cada partido, todas las simulaciones futuras (incluidas las de desafíos iniciados y todavía no jugados) tendrán esa cantidad de turnos
+\item La cantidad de turnos debe ser positiva y finita
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -235,9 +234,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Las fórmulas de resolución tienen que ser funciones que no se indefinen para ningún punto del dominio
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -250,9 +247,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Se calcula un número aleatorio entre 0 y 1, si es menor que 0.5 empieza quien inició el desafío, y si es mayor el desafiado.
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -264,9 +259,9 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Los logs se corresponden con simulaciones 
+\item Durante de una simulacion, se genera el log.
+\item Todas las simulaciones tienen un log asociado.
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -278,9 +273,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Luego de una simulacion se aumenta la cantidad de fichas del ganador en el total del pozo.
+\item Luego de una simulacion se disminuye la cantida de fichas del perdedor en la cantidad apostada
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -292,9 +286,10 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item %CA
-\item %CA
-\item %CA
+\item Todos los jugadores de la tabla se corresponden con usuarios del sistema.
+\item Todo usuario está representado en la tabla
+\item las estadisticas de la tabla se corresponden a los resultados de las simulaciones.
+\item la tabla se puede ordenar por cantidad de fichas ganadas o por desafios ganados/perdidos
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
