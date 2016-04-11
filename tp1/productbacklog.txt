@@ -1,0 +1,148 @@
+REGISTRACIÓN Y AUTENTICACIÓN
+
+1) COMO participante QUIERO tener una cuenta PARA usar el sistema y tener asociada mi información
+
+1.1) registrar
+- al registrarse, no se pueden tener los mismos datos de nombre de usuario o mail de un usuario ya existente
+
+1.2) loggeo
+- el participante puede ingresar sus datos (nombre y contraseña) en un
+formulario
+- si los datos son correctos, el participante accede al sitio siempre con su cuenta
+- si son incorrectos, vuelve al formulario y se le da un mensaje
+- el mensaje incluye la posibilidad de que recupere la contraseña
+olvidada o que se registre
+- cuando se encuentra loggeado, el usuario verá su información asociada (equipos armados, posición en la tabla, cantidad de fichas, cap, etc.)
+
+
+
+
+ARMADO DE EQUIPOS
+- jugadores -
+2) COMO participante QUIERO armar un equipo (jugadores, jugador estrella y técnico) PARA competir contra otros
+- El participante accede a la lista de jugadores, y puede ordenar a los jugadores por nombre, precio, o estadística (FG, 3P, RPG, APG, BPG, SPG, TO, PPG, y altura)
+- No se puede terminar de armar un equipo sin haber elegido 5 jugadores, uno para cada posición
+- No se puede elegir 2 veces al mismo jugador
+- Mientras se eligen jugadores, se puede ver la conformación temporal del equipo, junto al costo total del mismo
+- Si el precio del equipo es mayor al cap del participante, se muestra un mensaje de error
+- Una vez armado el equipo, se elige un jugador estrella entre esos 5
+- Una vez elegido el jugador estrella, se muestran la lista de técnicos y el detalle de su libro de jugadas
+- Se puede ordenar a los técnicos en base a sus gustos (frecuencia asociada a cada jugada)
+
+
+3) COMO participante QUIERO tener una lista de mis equipos ya armados PARA ahorrar tiempo
+- El participante no verá equipos de otras personas
+- No faltará ningún equipo ya usado por el jugador
+- Se podrá ver el registro de partidos ganados y perdidos de cada equipo pasado
+
+
+4) COMO administrador QUIERO definir cuáles son los jugadores PARA que los participantes armen sus equipos
+- No se podrá ingresar ningún jugador dos veces
+- Todos los jugadores deberán tener todas las estadísticas completas
+- Si se consultan los jugadores, aparecen todos los cambios correctamente
+
+
+5) COMO administrador QUIERO poder actualizar las estadísticas y datos de los jugadores PARA ser fiel a la realidad
+- El jugador ya debe estar en el sistema
+- Si se consultan los datos de los jugadores, reflejarán la actualización
+
+
+6) COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea más fácil
+- Sólo se podrán actualizar los datos de jugadores reales
+- Si se consultan los jugadores, aparecen los nuevos datos 
+
+
+?) COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del jugador PARA equilibrar los valores de los equipos.
+
+
+
+7) COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber como va a dirigir
+- Las jugadas deben ser las definidas por el administrador
+- No pueden aparecer jugadas repetidas
+- Toda jugada de un libro de jugadas tendrá una frecuencia asociada
+
+
+8) COMO administrador QUIERO definir cuáles son los técnicos disponibles PARA que los participantes armen sus equipos
+- No aparecerán técnicos repetidos
+- Cada técnico tendrá su libro de jugadas
+
+
+9) COMO administrador QUIERO poder definir las jugadas disponibles de los técnicos PARA enriquecer la simulación
+- Todas las jugadas de un libro de jugadas tendrán una frecuencia asociada mayor a 0
+- La suma de las frecuencias asociadas de cada tipo de jugada (ofensiva, defensiva) será 100
+
+
+
+SIMULACIÓN
+
+
+10) COMO participante QUIERO poder crear y aceptar desafíos PARA medirme con otros participantes
+- No se pueden crear desafíos sin tener equipos armados
+- Quien inicia el desafío sólo podrá elegir participantes del sistema como oponentes
+- En caso de que el oponente acepte el desafío, elegirá su equipo (o lo armará si no lo tiene) sin ver el equipo de quien inició el desafío.
+- Una vez que estén los dos equipos elegidos, se realiza la simulación del desafío
+- Si el oponente rechaza el desafío, se le avisa a quien lo inició y no se simula nada
+(PREGUNTA: "Cada   participante   podrá   armar   equipos   y   postularlos   en   desafíos   contra   equipos   de   otros competidores" -> Al equipo o a un jugador?)
+
+
+11) COMO participante QUIERO apostar fichas PARA subir posiciones en la tabla
+- En un desafío no se pueden apostar más fichas de las que posee el usuario
+- La cantidad de fichas apostadas debe ser positiva o nula
+- Una vez que el jugador apostó las fichas, las mismas no están disponibles hasta que no termine el desafío en cuestión
+- Si el jugador no tiene la cantidad de fichas necesarias para pagar el costo de la apuesta de un desafío, no podrá aceptarlo
+
+
+12) COMO administrador QUIERO que los participantes puedan simular partidas PARA que jueguen entre sí
+? USER STORY? CRITERIO DE ACEPTACIÓN) COMO administrador QUIERO que los caps de los participantes se ajusten de acuerdo a los resultados de los partidos PARA premiar a los mejores participantes
+
+
+12-a) como administrador quiero que la simulacion sea una sucesion de turnos para ...
+
+12-b) como administrador quiero que un turno sea una sucesion de jugadas para ...
+
+12-b) como administrador quiero que una jugada sea una sucesion de acciones de los jugadores para...
+
+
+
+14) COMO administrador QUIERO poder ajustar la duración (en turnos) de las simulaciones PARA que el sistema sea flexible
+- Una vez que se modifique la cantidad de turnos de cada partido, todas las simulaciones futuras (incluidas las de desafíos iniciados y todavía no jugados) tendrán esa cantidad de turnos
+- La cantidad de turnos debe ser positiva y finita
+
+
+15) COMO administrador QUIERO poder modificar las fórmulas de resolución de acciones PARA ir ajustando el sistema a lo largo del tiempo
+- Las fórmulas de resolución tienen que ser funciones que no se indefinen para ningún punto del dominio
+
+
+
+16) COMO administrador QUIERO que el primer turno de cada simulación sea al azar PARA hacerlo justo
+- Se calcula un número aleatorio entre 0 y 1, si es menor que 0.5 empieza quien inició el desafío, y si es mayor el desafiado.
+
+
+
+17) COMO administrador QUIERO que quede un log y toda la información pertinente de cada simulación PARA que cualquier participante pueda consultarlo
+- Los logs se corresponden con simulaciones 
+- Durante de una simulacion, se genera el log.
+- Todas las simulaciones tienen un log asociado.
+
+
+
+RESULTADOS
+17) COMO administrador QUIERO que se repartan las fichas adecuadamente después de terminado el partido PARA calcular la nueva tabla de posiciones
+-Luego de una simulacion se aumenta la cantidad de fichas del ganador en el total del pozo.
+- Luego de una simulacion se disminuye la cantida de fichas del perdedor en la cantidad apostada
+
+18) COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros jugadores
+- Todos los jugadores de la tabla se corresponden con usuarios del sistema.
+- Todo usuario está representado en la tabla
+- las estadisticas de la tabla se corresponden a los resultados de las simulaciones.
+- la tabla se puede ordenar por cantidad de fichas ganadas o por desafios ganados/perdidos
+
+
+
+DUDAS:
+* user story de la simulacion?
+ una grande o una mas chica? que pasa si muchas stories son dependientes entre si?
+?) COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del jugador PARA equilibrar los valores de los equipos.
+?) USER STORY? CRITERIO DE ACEPTACIÓN) COMO administrador QUIERO que los caps de los participantes se ajusten de acuerdo a los resultados de los partidos PARA premiar a los mejores participantes
+
+
