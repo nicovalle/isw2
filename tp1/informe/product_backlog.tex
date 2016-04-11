@@ -207,7 +207,11 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \textbf{Criterios de aceptación:}
 \begin{itemize}
 \item La simulación se produce entre los equipos seleccionados.
-\item La simulacion se ajusta a los parametros definidos de cantidad de turnos y formulas.
+\item La simulacion se ajusta a los parámetros definidos de cantidad de turnos y formulas.
+\item Todas las jugadas de la simulación deben corresponderse con las jugadas definidas por los técnicos de cada equipo.
+\item Los jugadores que participan en cada jugada pertenecen a los equipos cuyo enfrentamiento se está simulando.
+\item Los resultados de cada jugada deben obtenerse de las estadísticas asociadas a los jugadores que participan activamente en ellas.
+\item El resultado final de la simulación debe deducirse del resultado de cada jugada individualmente.
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -300,7 +304,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item Ningun equipo supera el valor de cap del jugador.
+\item No se permite la creación de equipos para los cuales la suma de los valores de sus jugadores superan el cap definido para el participante.
+\item Se permite correctamente la creación de equipos para los cuales la suma de los valores de sus jugadores no superan el cap definido para el participante.
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
