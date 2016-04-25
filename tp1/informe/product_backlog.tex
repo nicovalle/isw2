@@ -1,5 +1,5 @@
 \subsection{Product Backlog}
-\indent En la siguiente tabla se encuentran todos los user stories definidos para el proyecto.\\
+\indent En la siguiente tabla se encuentran todas las user stories definidas para el proyecto.\\
 
 \begin{center}
   \begin{tabular}{| l | p{10cm} | l | l | }
@@ -11,7 +11,7 @@ US 3 & COMO participante QUIERO tener una lista de mis equipos ya armados PARA a
 US 4 & COMO administrador QUIERO definir cuáles son los jugadores PARA que los participantes armen sus equipos & 8 & 5\\  \hline
 US 5 & COMO administrador QUIERO poder actualizar las estadísticas y datos de los jugadores PARA ser fiel a la realidad & 5 & 5\\  \hline
 US 6 & COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea más fácil & 5 & 13\\  \hline
-US 7 & COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber como va a dirigir & 5 & 3\\  \hline
+US 7 & COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber cómo va a dirigir & 5 & 3\\  \hline
 US 8 & COMO administrador QUIERO definir cuáles son los técnicos disponibles PARA que los participantes armen sus equipos & 5 & 3\\  \hline
 US 9 & COMO administrador QUIERO poder definir las jugadas disponibles de los técnicos PARA enriquecer la simulación & 5 & 5\\  \hline
 US 10 & COMO participante QUIERO poder crear y aceptar desafíos PARA medirme con otros participantes & 13 & 5\\  \hline
@@ -22,7 +22,7 @@ US 14 & COMO administrador QUIERO poder modificar las fórmulas de resolución d
 US 15 & COMO administrador QUIERO que el primer turno de cada simulación sea al azar PARA hacerlo justo & 2 & 1\\  \hline
 US 16 & COMO administrador QUIERO que quede un log y toda la información pertinente de cada simulación PARA que cualquier participante pueda consultarlo & 8 & 5\\  \hline
 US 17 & COMO administrador QUIERO que se repartan las fichas adecuadamente después de terminado el partido PARA calcular la nueva tabla de posiciones & 13 & 1\\  \hline
-US 18 & COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros jugadores & 5 & 5\\  \hline
+US 18 & COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros participantes & 5 & 5\\  \hline
 US 19 & COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del participante PARA equilibrar los valores de los equipos. & 1 & 1\\  \hline
   \end{tabular}
 \end{center}
@@ -207,7 +207,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \textbf{Criterios de aceptación:}
 \begin{itemize}
 \item La simulación se produce entre los equipos seleccionados.
-\item La simulacion se ajusta a los parámetros definidos de cantidad de turnos y formulas.
+\item La simulación se ajusta a los parámetros definidos de cantidad de turnos y formulas.
 \item Todas las jugadas de la simulación deben corresponderse con las jugadas definidas por los técnicos de cada equipo.
 \item Los jugadores que participan en cada jugada pertenecen a los equipos cuyo enfrentamiento se está simulando.
 \item Los resultados de cada jugada deben obtenerse de las estadísticas asociadas a los jugadores que participan activamente en ellas.
@@ -225,7 +225,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \textbf{Criterios de aceptación:}
 \begin{itemize}
 \item Una vez que se modifique la cantidad de turnos de cada partido, todas las simulaciones futuras (incluidas las de desafíos iniciados y todavía no jugados) tendrán esa cantidad de turnos
-\item La cantidad de turnos debe ser positiva y finita
+\item La cantidad de turnos debe ser positiva, entera y finita
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -250,7 +250,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item Se calcula un número aleatorio entre 0 y 1, si es menor que 0.5 empieza quien inició el desafío, y si es mayor el desafiado.
+\item Se calcula un número fraccionario aleatorio entre 0 y 1, si es menor que 0.5 empieza quien inició el desafío, y si es mayor el desafiado.
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -263,7 +263,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \textbf{Criterios de aceptación:}
 \begin{itemize}
 \item Los logs se corresponden con simulaciones 
-\item Durante de una simulacion, se genera el log.
+\item Durante una simulación, se genera el log.
 \item Todas las simulaciones tienen un log asociado.
 \end{itemize}
 \end{tcolorbox}
@@ -276,8 +276,8 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item Luego de una simulacion se aumenta la cantidad de fichas del ganador en el total del pozo.
-\item Luego de una simulacion se disminuye la cantida de fichas del perdedor en la cantidad apostada
+\item Luego de una simulación se aumenta la cantidad de fichas del ganador en el total del pozo.
+\item Luego de una simulación se disminuye la cantida de fichas del perdedor en la cantidad apostada
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -289,10 +289,10 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item Todos los jugadores de la tabla se corresponden con usuarios del sistema.
-\item Todo usuario está representado en la tabla
-\item las estadisticas de la tabla se corresponden a los resultados de las simulaciones.
-\item la tabla se puede ordenar por cantidad de fichas ganadas o por desafios ganados/perdidos
+\item Todas las entradas de la tabla se corresponden con participantes.
+\item Todo participante está representado en la tabla
+\item Las estadisticas de la tabla se corresponden a los resultados de las simulaciones.
+\item La tabla se puede ordenar por cantidad de fichas ganadas o por desafios ganados/perdidos
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
