@@ -1,11 +1,11 @@
 from abc import ABCMeta, abstractmethod
 
-"clase abstracta con la interfaz para los data manager, cuya responsabilida es obtener y actualizar los datos del sistema"
-class DataManager(metaclass = ABCMeta):
-	"__metaclass__ = ABCMeta"
-
+#"clase abstracta con la interfaz para los data manager, cuya responsabilida es obtener y actualizar los datos del sistema"
+class DataManager(object):
+	__metaclass__ = ABCMeta
+	
 	@abstractmethod
-	def loginUser(self, unEmail, unPassword):
+	def loginUser(self, unNombreDeUsuario, unPassword):
 		pass
 
 	@abstractmethod
@@ -42,13 +42,6 @@ class DataManager(metaclass = ABCMeta):
 
 	@abstractmethod
 	def actualizarTecnico(self, unTecnico):
-		pass
-
-	@abstractmethod
-	def obtenerJugada(self, unaJugada):
-
-	@abstractmethod
-	def actualizarJugada(self, unaJugada):
 		pass
 
 	@abstractmethod
