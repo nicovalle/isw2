@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod
 
 "clase abstracta con la interfaz para los data manager, cuya responsabilida es obtener y actualizar los datos del sistema"
-class DataManager(self):
-	__metaclass__ = ABCMeta
+class DataManager(metaclass = ABCMeta):
+	"__metaclass__ = ABCMeta"
 
 	@abstractmethod
 	def loginUser(self, unEmail, unPassword):

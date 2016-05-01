@@ -1,33 +1,30 @@
 class Participante(object):
 	
 	def __init__(self, unNombre, unEmail, unConjuntoDeEquipos, unCap, unaCantidadDeFichas):
-		self.nombre = unNombre
-		self.equipos = unConjuntoDeEquipos
-		self.cap = unCap
-		self.fichas = unaCantidadDeFichas
-		self.email = unEmail
+		self._nombre = unNombre
+		self._equipos = unConjuntoDeEquipos
+		self._cap = unCap
+		self._fichas = unaCantidadDeFichas
+		self._email = unEmail
 
 	def equipos(self):
-		return self.equipos
+		return self._equipos
 
 	def agregarEquipo(self, unEquipo):
-		if (unEquipo.presupuesto() <= self.cap):
-			equipos.add(unEquipo)
+		if (unEquipo.presupuesto() <= self._cap):
+			self._equipos.add(unEquipo)
 
 	def removerEquipo(self, unEquipo):
-		equipos.discard(unEquipo)
+		self._equipos.discard(unEquipo)
 
 	def cap(self):
-		return self.cap
+		return self._cap
 
 	def updateCap(unPorcentaje = 0.01):
-		self.cap += (self.cap * unPorcentaje)
+		self._cap += (self._cap * unPorcentaje)
 
 	def fichas(self):
-		return self.fichas
+		return self._fichas
 
 	def updateFichas(self, unaAdicionDeFichas):
-		self.fichas += unaAdicionDeFichas
-
-	def ejecutarJugada(self, unaJugada):
-		return unaJugada.ejecutar(self)
+		self._fichas += unaAdicionDeFichas
