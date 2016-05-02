@@ -1,18 +1,17 @@
 from abc import ABCMeta, abstractmethod
 
-class Jugada(object):
-	__metaclass__ = ABCMeta
-
-	def __init__(self):
+class ColectivaExterna(Jugada):
+	def __init__(self, k):
 		self._accionActual = 0
 
-	@abstractmethod
+		# appendear k pases en acciones, por ultimo el tiro
+		self._acciones = [Pase(), Pase(), Pase(), TiroTresPuntos()]
+
 	def ejecutarCon(self, unEquipo):
 		pass
 
 	def acciones(self):
 		return self._acciones
 
-	@abstractmethod
 	def proximaAccion(self):
 		pass
