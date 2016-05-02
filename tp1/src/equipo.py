@@ -1,7 +1,7 @@
 import jugador
 
 class Equipo(object):
-	
+
 	def __init__(self, unNombre, unBase, unEscolta, unAlero, unAlaPivot, unPivot, unJugadorEstrella, unTecnico, unDueno):
 		"en nuestro modelos los equipos son inmutables"
 		self._nombre = unNombre
@@ -24,7 +24,7 @@ class Equipo(object):
 
 	def base(self):
 		return self._base
-		
+
 	def escolta(self):
 		return self._escolta
 
@@ -49,5 +49,5 @@ class Equipo(object):
 	def presupuesto(self):
 		return reduce(lambda x, y : x + y, (map(lambda jugador: jugador.precio(), self.jugadores())))
 
-	def ejecutarJugada(unaJugada):
+	def ejecutarJugada(self, unaJugada):
 		unaJugada.ejecutarCon(self)

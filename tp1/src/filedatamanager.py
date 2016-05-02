@@ -2,6 +2,10 @@ from datamanager import *
 from participante import *
 from equipo import *
 from jugador import *
+from tecnico import *
+from libroDeJugadas import *
+import ast
+
 import sys
 
 USERS_DB = "users.txt"
@@ -69,7 +73,9 @@ class FileDataManager(DataManager):
 		for line in lines:
 			data = line.split("|")
 			if (data[0] == unNombre and data[1] == unApellido):
-				tecnico = Tecnico(unNombre, unApellido, data[2], data[3])
+				unDiccDeJugadasOfensivasYFrecuencia = ast.literal_eval(data[2])
+				unDiccDeJugadasDefensivasYFrecuencia = ast.literal_eval(data[3])
+				tecnico = Tecnico(unNombre, unApellido, LibroDeJugadas(ast.literal_eval(data[2]), data[3]))
 		return tecnico
 
 

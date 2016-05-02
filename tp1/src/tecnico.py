@@ -22,5 +22,5 @@ class Tecnico(object):
 		unEquipo.ejecutarJugada(unaJugadaOfensiva)
 
 	def elegirJugadaDefensiva(self, unEquipo):
-		unaJugadaDefensiva self._libroDeJugadas.jugadaDefensiva()
+		unaJugadaDefensiva = self._libroDeJugadas.jugadaDefensiva()
 		unEquipo.ejecutarJugada(unaJugadaDefensiva)
