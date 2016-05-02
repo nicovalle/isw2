@@ -7,6 +7,12 @@ class Participante(object):
 		self._fichas = unaCantidadDeFichas
 		self._email = unEmail
 
+	def nombre(self):
+		return self._nombre
+
+	def email(self):
+		return self._email
+
 	def equipos(self):
 		return self._equipos
 

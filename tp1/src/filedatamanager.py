@@ -8,26 +8,35 @@ USERS_DB = "users.txt"
 EQUIPOS_DB = "equipos.txt" 
 JUGADORES_DB = "jugadores.txt"
 TECNICOS_DB = "tecnicos.txt"
+DEFAULT_CAP = "5000"
 
 class FileDataManager(DataManager):
 
 	def loginUser(self, unNombreDeUsuario, unPassword):
-		"userName|pass|mail|cap|fichas|equipo1,equipo2,equipo3|cap|fichas"
+		#"userName|pass|mail|cap|fichas|equipo1,equipo2,equipo3|cap|fichas"
 		lines = open(USERS_DB).readlines()
 		for line in lines:
 			data = line.split("|")
 			if (data[0] == unNombreDeUsuario and data[1] == unPassword):
-				print "ENCONTRE user " + unNombreDeUsuario
 				equipos = data[3].split(",")
 				userTeams = set()
 				for equipo in equipos:
 					unEquipo = self.obtenerEquipo(str(equipo), unNombreDeUsuario)
-					if (not (unEquipo is None)):
+					if (not(unEquipo is None)):
 						userTeams.add(unEquipo)
 				return Participante(data[0], data[2], userTeams, float(data[4]), float(data[5]))
 	
-	def registerUser(self, unNombreDeUsuario,  unEmail, unPassword):
-		pass
+	def registerUser(self, unNombreDeUsuario,  unaDireccionDeEmail, unPassword):
+		file = open(USERS_DB)
+		lines = file.readlines()
+		for line in lines:
+			data = line.split("|")
+			if(data[0] == unNombreDeUsuario):
+				print "ERROR -- Usuario ya existente"
+				return 0
+		open(USERS_DB,"a").write(unNombreDeUsuario + "|" + unPassword + "|" + unaDireccionDeEmail + "|" + "|" + DEFAULT_CAP + "|0\n")
+		print "Usuario creado correctamente" 
+		return 1
 	
 	def actualizarParticipante(self, unParticipante):
 		pass
@@ -55,7 +64,7 @@ class FileDataManager(DataManager):
 		return jugador
 	
 	def obtenerTecnico(self, unNombre, unApellido):
-		"WIP"
+		#"WIP"
 		lines = open(TECNICOS_DB).readlines()
 		for line in lines:
 			data = line.split("|")
@@ -67,7 +76,7 @@ class FileDataManager(DataManager):
 		pass
 
 	def obtenerEquipo(self, unNombreDeEquipo, unNombreDeDueno):
-		"nombre|dueno|jugador1nombre jugador1apellido, ...., jugador5nombre jugador5apellido|estrellanombre estrellapellido|tecniconombre tecnicoapellido"
+		#"nombre|dueno|jugador1nombre jugador1apellido, ...., jugador5nombre jugador5apellido|estrellanombre estrellapellido|tecniconombre tecnicoapellido"
 		lines = open(EQUIPOS_DB).readlines()
 		equipo = None
 		for line in lines:
