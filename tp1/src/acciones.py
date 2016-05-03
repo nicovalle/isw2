@@ -1,10 +1,13 @@
 import accion
 
-class TiroDosPuntos(Accion):
+class Tiro(Accion):
+	__metaclass__ = ABCMeta
+
+class TiroDosPuntos(Tiro):
     def umbralDeExito(self, unJugador):
         return (unJugador.fg() + unJugador.ppg() * 0.01)
 
-class TiroTresPuntos(Accion):
+class TiroTresPuntos(Tiro):
     def umbralDeExito(self, unJugador):
         return (unJugador._3pp() + (unJugador.ppg() / 2) * 0.01
 
