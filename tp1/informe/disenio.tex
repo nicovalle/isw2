@@ -1,1 +1,41 @@
 \section{Diseño}
+A continuación se presentan y explican algunas de las desiciones de diseño elegidas durante el desarrollo del trabajo practico.
+Se decidió dividir la presentación en subsecciones para facilitar la comprensión de la misma, presentando al final de esta, una visión general de las integraciones de las distintas partes del conjunto.
+
+\subsection{Participante y fichas de apuestas}
+Como veremos a continuacion, toda la informacion relacionada a los participantes del juego, esta nucleada dentro de una clase especificamente diseñada para tal fin que ademas conoce al equipo (como se ira viendo a lo largo de las distintas secciones, un poco la piedra angular del diseño junto a la simulación) y a las clases encargadas de manejar la cantidad de fichas disponibles.
+
+%La imagen de lo explicado
+
+\subsection{Tecnico, jugadores y jugadas}
+Una de las partes fundamentales de nuestro diseño son el tecnico, los jugadores y las jugadas (siendo estas defensivas y ofensivas).
+Siguiendo las ideas estructurales obtenidas del enunciado del trabajo practico, decidimos que tanto tecnico y jugadores no se 'conozcan' de forma directa, sino solamente a travez del equipo que componen. Un tecnico además necesita de un libro de jugadas para almacenar sus favoritas y poder obtenerlas durante la simulacion (una isntancia del libro de jugadas guarda todas aquellas jugadas propias del tenico). Para modelar las diferencias entre las jugadas defensivas y ofensivas, decidimos que estas se representen con una clase abstracta jugada y que sea la herencia la que determine el tipo y las funciones particulares de cada una.
+
+%Imagen falopa de la parte Equipo, Tecnico, Libro de jugadas, Jugadas (of y def).
+
+\subsection{Equipo y desafio}
+Como vimos en las secciones anteriores, la clase equipo es la encargada de coordinar la relacion entre los usuarios y los miembros que componen a este (tecnico y jugadores). Es por esto que la relacion con los desafios se vuelve una necesidad, teniendo en cuenta que elegimos que sea este quien contiene la informacion de cada partido entre jugadores. Ademas, haciendo uso del patron STATE visto en clase, otorgamos a los desafios la posibilidad de tener dos estados (Terminado y SinTerminar) con el fin de poder diferenciar a aquellos desafios que ya fueron simulados de los que no.
+
+%Otra imagen
+
+\subsection{Simulación}
+La segunda seccion central de nuestro diseño es la simulación. Ésta es la encargada de interconectar las secciones vistas con anterioridad (aquellas encargadas de los elementos de la simulacion vista como 'juego') con todo el apartado necesario para conservar y preservar la información resultante. 
+
+%La partecita de la simulacion
+
+\subsection{Loggeo y tabla de resultados}
+Ademas de cumplir con la simulación propiamente dicha, es necesario que se obtengan logs y puntuaciones de los partidos para poder formar una tabla de resultados donde los usuarios puedan conocer su posicion. Con este fin en mente, se realizo el siguiente diseño:
+
+%Imagen de la parte simulacion, logger, log, tabla, etc del diseño.
+
+El mismo consta de una una clase principal, el Logger, que al conocer a la simulación debera ser el encargado de recibir sus interacciones para generar el texto devuelto en pantalla, al mismo tiempo que lo almacena para futuras consultas. Esta misma clase, sera tambien quien notifique de la nueva disposicion de puntos en la tabla una vez finalizado el desafio.
+
+
+\subsection{Vision general}
+Como se pudo observar a travez de las subsecciones pasadas, nuestro diseño consta de dos partes fundamentales:
+\begin{enumerate}
+ \item Los desafios y toda su información pertinente
+ \item La simulación y todo aquello necesario para el funcionamiento del sistema por fuera del 'juego' propiamente dicho
+\end{enumerate}
+Si bien este diseño no esta excento de mejoras (tanto objetivas como subjetivas), consideramos que esta era la mejor forma de jerarquizar nuestro modelo y permitir las interacciones que verdaderamente representen la realidad (por ejemplo, no tendria sentido que un jugador conozca al tecnico, porque no se plantea ninguna interaccion directa entre ambos).
+Si bien es cierto que podrian haberse utilizado un numero mayor de patrones de diseño, no consideramos que estos sean necesarios para una representacion correcta del dominio planteado, ya que hubieran sido un gasto innecesario de recursos obteniendo muy pocas mejoras.
