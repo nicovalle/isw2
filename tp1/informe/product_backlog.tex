@@ -5,12 +5,12 @@
   \begin{tabular}{| l | p{10cm} | l | l | }
     \hline
 ID & Descripción & Business Value & Effort\\  \hline
-US 1 & COMO participante QUIERO tener una cuenta PARA usar el sistema y tener asociada mi información & 8 & 3\\  \hline
-US 2 & COMO participante QUIERO armar un equipo (jugadores, jugador estrella y técnico) PARA competir contra otros & 13 & 8\\  \hline
+US 1 & COMO participante QUIERO tener una cuenta PARA tener asociada mi información & 8 & 3\\  \hline
+US 2 & COMO participante QUIERO armar un equipo PARA competir contra otros & 13 & 8\\  \hline
 US 3 & COMO participante QUIERO tener una lista de mis equipos ya armados PARA ahorrar tiempo & 1 & 3\\  \hline
 US 4 & COMO administrador QUIERO definir cuáles son los jugadores PARA que los participantes armen sus equipos & 8 & 5\\  \hline
 US 5 & COMO administrador QUIERO poder actualizar las estadísticas y datos de los jugadores PARA ser fiel a la realidad & 5 & 5\\  \hline
-US 6 & COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea más fácil & 5 & 13\\  \hline
+US 6 & COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea automático y no manual & 5 & 13\\  \hline
 US 7 & COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber cómo va a dirigir & 5 & 3\\  \hline
 US 8 & COMO administrador QUIERO definir cuáles son los técnicos disponibles PARA que los participantes armen sus equipos & 5 & 3\\  \hline
 US 9 & COMO administrador QUIERO poder definir las jugadas disponibles de los técnicos PARA enriquecer la simulación & 5 & 5\\  \hline
@@ -23,7 +23,7 @@ US 15 & COMO administrador QUIERO que el primer turno de cada simulación sea al
 US 16 & COMO administrador QUIERO que quede un log y toda la información pertinente de cada simulación PARA que cualquier participante pueda consultarlo & 8 & 5\\  \hline
 US 17 & COMO administrador QUIERO que se repartan las fichas adecuadamente después de terminado el partido PARA calcular la nueva tabla de posiciones & 13 & 1\\  \hline
 US 18 & COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros participantes & 5 & 5\\  \hline
-US 19 & COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del participante PARA equilibrar los valores de los equipos. & 1 & 1\\  \hline
+US 19 & COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del participante PARA equilibrar los valores de los equipos & 1 & 1\\  \hline
   \end{tabular}
 \end{center}
 
@@ -31,7 +31,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 
 \begin{tcolorbox}
-\textbf{US 1}: COMO participante QUIERO tener una cuenta PARA usar el sistema y tener asociada mi información
+\textbf{US 1}: COMO participante QUIERO tener una cuenta PARA tener asociada mi información
 
 \vline
 
@@ -47,7 +47,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \vspace{10pt}
 
 \begin{tcolorbox}
-\textbf{US 2}: COMO participante QUIERO armar un equipo (jugadores, jugador estrella y técnico) PARA competir contra otros
+\textbf{US 2}: COMO participante QUIERO armar un equipo PARA competir contra otros
 
 \vline
 
@@ -110,7 +110,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 
 \begin{tcolorbox}
-\textbf{US 6}: COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea más fácil
+\textbf{US 6}: COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea automático y no manual
 
 \vline
 
@@ -124,7 +124,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 
 \begin{tcolorbox}
-\textbf{US 7}: COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber como va a dirigir
+\textbf{US 7}: COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber cómo va a dirigir
 
 \vline
 
@@ -160,7 +160,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \textbf{Criterios de aceptación:}
 \begin{itemize}
 \item Todas las jugadas de un libro de jugadas tendrán una frecuencia asociada mayor a 0
-\item La suma de las frecuencias asociadas de cada tipo de jugada (ofensiva, defensiva) será 100
+\item La suma de las frecuencias asociadas de cada tipo de jugada (ofensiva, defensiva) será 1
 \end{itemize}
 \end{tcolorbox}
 \vspace{10pt}
@@ -262,7 +262,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 
 \textbf{Criterios de aceptación:}
 \begin{itemize}
-\item Los logs se corresponden con simulaciones 
+\item Los logs se corresponden con la ejecución de las simulaciones
 \item Durante una simulación, se genera el log.
 \item Todas las simulaciones tienen un log asociado.
 \end{itemize}
@@ -283,7 +283,7 @@ Los criterios de aceptación de cada user story se encuentran a continuación.
 \vspace{10pt}
 
 \begin{tcolorbox}
-\textbf{US 18}: COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros jugadores
+\textbf{US 18}: COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros participantes
 
 \vline
 
@@ -317,7 +317,7 @@ Algunas \textbf{User Stories} en las que hubo discrepancias extremas en la valua
 
 En el caso del \textbf{Effort} para la \emph{US 1}, tres integrantes del grupo habían puesto un 3, y el restante un 13. Quien le dio más esfuerzo especificó los detalles que involucraría el potencial registro de los usuarios (modelar; definir datos necesarios; formularios de registro, ingreso, recuperación de contraseña y todas las validaciones asociadas; seguridad; etc.), por lo que decidimos ir a mitad de camino y asignarle un 8.
 
-En el caso del \textbf{Effort} para la \emph{US 2}, una situación similar pero más dispersa, esfuerzos empezando por 3 y llegando hasta 13. La valuación más baja se debía a que no se consideraba ``ni un ABM'' a la sección de armado de equipo. Pero, nuevamente, el extremo más alto argumentó que si bien no se hacían modificaciones a los datos, había que tener en cuenta detalles importantes (interfaz de usuario \emph{trabajada} y fácilmente usable, conexión a base de datos para jugadores y técnicos), permitir manipular la visualización de la información (filtros y ordenamiento en base a estadísticas, nombre, etc.), y realizar validaciones (jugadores repetidos, cap de equipo del participante superado), por lo que se pactó un punto medio nuevamente con un 8.
+En el caso del \textbf{Effort} para la \emph{US 2}, una situación similar pero más dispersa, esfuerzos empezando por 3 y llegando hasta 13. La valuación más baja se debía a que no se consideraba ``ni un ABM'' a la sección de armado de equipo. Pero, nuevamente, el extremo más alto argumentó que si bien no se hacían modificaciones a los datos, había que tener en cuenta detalles importantes (interfaz de usuario \emph{trabajada} y fácilmente usable, cómo manejar los datos correspondientes a jugadores y técnicos), permitir manipular la visualización de la información (filtros y ordenamiento en base a estadísticas, nombre, etc.), y realizar validaciones (jugadores repetidos, cap de equipo del participante superado), por lo que se pactó un punto medio nuevamente con un 8.
 
 Con respecto al \textbf{Business Value} de \emph{US 2} y \emph{US 4}, se transformó en una especie de dilema del ``huevo y la gallina''. La idea principal del sistema es que los participantes puedan armar su equipo para realizar simulaciones; sin embargo, sin jugadores no pueden armar el equipo, entonces, ¿qué era lo más importante para el negocio? Se terminó decidiendo que armar el equipo era más importante, pero esta relación intensa entre ambos hechos hizo que aumentara el \textbf{Business Value} de \emph{US 4}, que en un principio se le había dado un puntaje más bajo.
 
