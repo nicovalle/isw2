@@ -3,6 +3,9 @@ import accion
 class Tiro(Accion):
 	__metaclass__ = ABCMeta
 
+    def defenderCon(unaJugadaDefensiva):
+        return unaJugadaDefensiva.defenderTiro()
+
 class TiroDosPuntos(Tiro):
     def umbralDeExito(self, unJugador):
         return (unJugador.fg() + unJugador.ppg() * 0.01)
@@ -18,6 +21,9 @@ class Bloqueo(Accion):
 class Pase(Accion):
     def umbralDeExito(self, unJugador):
         return (1 - unJugador.to() * 0.1)
+
+    def defenderCon(unaJugadaDefensiva):
+        return unaJugadaDefensiva.defenderPase()
 
 class Robar(Accion):
     def umbralDeExito(self, unJugador):
