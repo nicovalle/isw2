@@ -3,13 +3,13 @@ from abc import ABCMeta, abstractmethod
 #"clase abstracta con la interfaz para los data manager, cuya responsabilida es obtener y actualizar los datos del sistema"
 class DataManager(object):
 	__metaclass__ = ABCMeta
-	
+
 	@abstractmethod
 	def loginUser(self, unNombreDeUsuario, unPassword):
 		pass
 
 	@abstractmethod
-	def registerUser(self, unEmail, unPassword):
+	def registerUser(self, unNombreDeUsuario,  unaDireccionDeEmail, unPassword):
 		pass
 
 	@abstractmethod
@@ -22,8 +22,8 @@ class DataManager(object):
 
 	@abstractmethod
 	def obtenerTablaDeResultados(self):
-		pass	
-			
+		pass
+
 	@abstractmethod
 	def actualizarParticipante(self, unParticipante):
 		pass
@@ -31,17 +31,25 @@ class DataManager(object):
 	@abstractmethod
 	def actualizarJugador(self, unJugador):
 		pass
-		
+
 	@abstractmethod
-	def obtenerJugador(self):
+	def obtenerJugador(self, unNombre, unApellido):
 		pass
-	
+
 	@abstractmethod
-	def obtenerTecnico(self):
+	def obtenerTecnico(self, unNombre, unApellido):
 		pass
 
 	@abstractmethod
 	def actualizarTecnico(self, unTecnico):
+		pass
+
+	@abstractmethod
+	def obtenerEquipo(self, unNombreDeEquipo, unNombreDeDueno):
+		pass
+
+	@abstractmethod
+	def actualizarEquipo(self, unEquipo):
 		pass
 
 	@abstractmethod
@@ -51,4 +59,3 @@ class DataManager(object):
 	@abstractmethod
 	def guardarLogSimulacion(self, unaSimulacion):
 		pass
-		
