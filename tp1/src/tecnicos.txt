@@ -1,2 +1,2 @@
-pep|guardiola|{'a': 0.3, 'b': 0.5, 'c': 0.2}|{'d': 0.2, 'e': 0.7, 'f': 0.1}
-carlo|ancellotti|{'a': 0.8, 'b': 0.1, 'c': 0.1}|{'d': 0.9, 'e': 0.05, 'f': 0.05}
+pep|guardiola|{'ColectivaExterna': 0.3, 'Contraataque': 0.5, 'MVP': 0.2}|{'HombreAHombre': 1.0}
+carlo|ancellotti|{'ColectivaInterna': 0.6, 'MVP': 0.2, 'ColectivaExterna': 0.2}|{'HombreAHombre': 1.0}
