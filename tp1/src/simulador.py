@@ -8,22 +8,31 @@ class Simulador(object):
 		self._participanteDesafiante = unParticipanteDesafiante
 		self._participanteDesafiado = unParticipanteDesafiado
 		self._fichasApostadas = unaCantidadDeFichas
-
-	def iniciarSimulacion(self):
-		turnoNumero = 1
+		self._turnoNumero = 1
 
 		moneda = random.random()
 		if(moneda < 0.5):
-			equipoQueAtaca = self._participanteDesafiante.equipoElegido()
-			equipoQueDefiende = self._participanteDesafiado.equipoElegido()
+			self._equipoQueAtaca = self._participanteDesafiante.equipoElegido()
+			self._equipoQueDefiende = self._participanteDesafiado.equipoElegido()
 		else:
-			equipoQueAtaca = self._participanteDesafiado.equipoElegido()
-			equipoQueDefiende = self._participanteDesafiante.equipoElegido()
+			self._equipoQueAtaca = self._participanteDesafiado.equipoElegido()
+			self._equipoQueDefiende = self._participanteDesafiante.equipoElegido()
 
-		while (turnoNumero <= self._cantidadDeTurnos):
-			print("Turno "+str(turnoNumero)+": ataca "+equipoQueAtaca.nombre()+" y defiende "+equipoQueDefiende.nombre())
-			turno =  Turno(self, equipoQueAtaca, equipoQueDefiende)
-			turno.empezarTurno()
+	def iniciarTurno(self):
+		print("Turno numero "+str(self._turnoNumero)+":")
+		unTurno = Turno(self, self._equipoQueAtaca, self._equipoQueDefiende)
+		unTurno.empezarTurno()
 
-			equipoQueAtaca, equipoQueDefiende = equipoQueDefiende, equipoQueAtaca
-			turnoNumero += 1
+	def terminoTurno(self, unTurno):
+		self._equipoQueAtaca, self._equipoQueDefiende = self._equipoQueDefiende, self._equipoQueAtaca
+		self._turnoNumero += 1
+
+		# TODO -> que hacemos con el if?
+		if (self._turnoNumero > self._cantidadDeTurnos):
+			self.terminarSimulacion()
+
+
+		self.iniciarTurno()
+	def terminarSimulacion(self):
+		print "Se acabo todo"
+		exit()

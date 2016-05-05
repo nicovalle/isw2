@@ -2,11 +2,11 @@ import equipo
 import random
 
 class Jugador(object):
-	
-	def __init__(self, unNombre, unApellido, unFPG, un3PP, unRPG, unAPG, unBPG, unSPG, unTO, unPPG, unPrecio):
+
+	def __init__(self, unNombre, unApellido, unFGP, un3PP, unRPG, unAPG, unBPG, unSPG, unTO, unPPG, unPrecio):
 		self._nombre = unNombre
 		self._apellido = unApellido
-		self._fpg = unFPG
+		self._fgp = unFGP
 		self.__3pp = un3PP
 		self._rpg = unRPG
 		self._apg = unAPG
@@ -23,7 +23,7 @@ class Jugador(object):
 		"no nos interesan los modificadores de tiro para la comparacion"
 		igual = self._nombre == otroJugador.nombre()
 		igual = igual and (self._apellido == otroJugador.apellido())
-		igual = igual and (self._fpg == otroJugador.fpg())
+		igual = igual and (self._fgp == otroJugador.fgp())
 		igual = igual and (self.__3pp == otroJugador._3pp())
 		igual = igual and (self._rpg == otroJugador.rpg())
 		igual = igual and (self._apg == otroJugador.apg())
@@ -39,8 +39,11 @@ class Jugador(object):
 	def apellido(self):
 		return self._apellido
 
-	def fpg(self):
-		return self._fpg
+	def nombreCompleto(self):
+		return self._nombre+" "+self._apellido
+
+	def fgp(self):
+		return self._fgp
 
 	def _3pp(self):
 		return self.__3pp
@@ -50,6 +53,9 @@ class Jugador(object):
 
 	def apg(self):
 		return self._apg
+
+	def bpg(self):
+		return self._bpg
 
 	def spg(self):
 		return self._spg
@@ -62,7 +68,7 @@ class Jugador(object):
 
 	def precio(self):
 		return self._precio
-			
+
 	def modificadorDeTipoPorPaseExitoso(self):
 		return self._modificadorDeTiroPorPaseExitoso
 
@@ -83,4 +89,3 @@ class Jugador(object):
 		while (eleccion.igualA(self)):
 			eleccion = random.choice(unEquipo.jugadores())
 		return eleccion
-			

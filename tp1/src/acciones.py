@@ -2,7 +2,7 @@ from accion import *
 
 class Tiro(Accion):
 	__metaclass__ = ABCMeta
-	def defenderCon(unaJugadaDefensiva):
+	def defenderCon(self, unaJugadaDefensiva):
 		return unaJugadaDefensiva.defenderTiro()
 
 	@abstractmethod
@@ -11,7 +11,7 @@ class Tiro(Accion):
 
 class TiroDosPuntos(Tiro):
 	def umbralDeExito(self, unJugador):
-		return (unJugador.fg() + unJugador.ppg() * 0.01)
+		return (unJugador.fgp() + unJugador.ppg() * 0.01)
 
 class TiroTresPuntos(Tiro):
 	def umbralDeExito(self, unJugador):
@@ -22,10 +22,10 @@ class Bloqueo(Accion):
         return (unJugador.bpg() * 0.2)
 
 class Pase(Accion):
-    def umbralDeExito(self, unJugador):
-    	return (1 - unJugador.to() * 0.1)
+	def umbralDeExito(self, unJugador):
+		return (1 - unJugador.to() * 0.1)
 
-	def defenderCon(unaJugadaDefensiva):
+	def defenderCon(self, unaJugadaDefensiva):
 		return unaJugadaDefensiva.defenderPase()
 
 class Robar(Accion):

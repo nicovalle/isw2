@@ -10,24 +10,24 @@ class ColectivaExterna(Jugada):
 		self._nombre = "Colectiva Externa"
 
 	def proximaAccion(self):
-		self._accionActual += 1	# not so sure. Y la primer jugada?
-		return self._acciones[self._accionActual]
+		accion = self._acciones[self._accionActual]
+		self._accionActual += 1
+		return accion
 
 	def nombre(self):
 		return self._nombre
-
-	def comenzarJugada(self):
-		print self._nombre+" meEjecuto con "+self._equipo.nombre()
 
 class ColectivaInterna(Jugada):
 	def __init__(self, unEquipo, k=5):
 		self._accionActual = 0
 		self._acciones = [Pase()]*(k-1) + [TiroDosPuntos()]
 		self._equipo = unEquipo
-		self._nombre = "Colectiva Externa"
+		self._nombre = "Colectiva Interna"
 
 	def proximaAccion(self):
-		pass
+		accion = self._acciones[self._accionActual]
+		self._accionActual += 1
+		return accion
 
 	def nombre(self):
 		return self._nombre
@@ -47,10 +47,12 @@ class MVP(Jugada):
 			self._acciones = [Pase(), TiroTresPuntos()]
 
 		self._equipo = unEquipo
-		self._nombre = "Colectiva Externa"
+		self._nombre = "MVP"
 
 	def proximaAccion(self):
-		pass
+		accion = self._acciones[self._accionActual]
+		self._accionActual += 1
+		return accion
 
 	def nombre(self):
 		return self._nombre
@@ -69,10 +71,11 @@ class Contraataque(Jugada):
 			self._acciones = [TiroTresPuntos()]
 
 		self._equipo = unEquipo
-		self._nombre = "Colectiva Externa"
+		self._nombre = "Contraataque"
 
 	def proximaAccion(self):
-		pass
+		accion = self._acciones[0]
+		return accion
 
 	def nombre(self):
 		return self._nombre
@@ -82,20 +85,21 @@ class Contraataque(Jugada):
 
 class HombreAHombre(Jugada):
 	def __init__(self, unEquipo):
+		self._nombre = 'Hombre a Hombre'
 		pass
 
-	### TODO -> la idea se entiende. habria que ver como resolver esto
 	def proximaAccion(self):
 		pass
 
-	def defenderPase():
-		pass
+	### TODO -> la idea se entiende. habria que ver como resolver esto
+	def defenderPase(self):
+		return Robar()
 
-	def defenderTiro():
-		pass
+	def defenderTiro(self):
+		return Bloqueo()
 
-	def accionParaDefender(unaAccionOfensiva):
-		return defenderCon(self)
+	def accionParaDefender(self, unaAccionOfensiva):
+		return unaAccionOfensiva.defenderCon(self)
 
 	def nombre(self):
 		return self._nombre

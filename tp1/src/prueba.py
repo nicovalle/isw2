@@ -56,4 +56,4 @@ for p in participantes:
 participante.seleccionarEquipo('spurs')
 participante2.seleccionarEquipo('lickers')
 simulacion = Simulador(participante, participante2)
-simulacion.iniciarSimulacion()
+simulacion.iniciarTurno()
