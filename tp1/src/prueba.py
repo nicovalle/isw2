@@ -34,6 +34,8 @@ from libroDeJugadas import *
 # print (map(lambda equipo: equipo.nombre(), participante.equipos()))
 dataManager = FileDataManager()
 participante = dataManager.loginUser("nico","nvallejo")
+participante2 = dataManager.loginUser("matiasl","tuvieja")
+
 print (map(lambda equipo: equipo.nombre(), participante.equipos()))
 for equipo in participante.equipos():
  	print equipo.nombre()
@@ -43,7 +45,7 @@ for equipo in participante.equipos():
  	print equipo.alaPivot().nombre()
  	print equipo.pivot().nombre()
  	print equipo.estrella().nombre()
- 	print equipo.tecnico()
+ 	print equipo.tecnico().nombre()
  	print equipo.dueno()
  	print equipo.presupuesto()
 

@@ -19,6 +19,8 @@ class FileDataManager(DataManager):
 	def loginUser(self, unNombreDeUsuario, unPassword):
 		#"userName|pass|mail|cap|fichas|equipo1,equipo2,equipo3|cap|fichas"
 		lines = open(USERS_DB).readlines()
+		lines = [line.rstrip('\n') for line in lines]
+
 		for line in lines:
 			data = line.split("|")
 			if (data[0] == unNombreDeUsuario and data[1] == unPassword):
@@ -31,8 +33,8 @@ class FileDataManager(DataManager):
 				return Participante(data[0], data[2], userTeams, float(data[4]), float(data[5]))
 
 	def registerUser(self, unNombreDeUsuario,  unaDireccionDeEmail, unPassword):
-		file = open(USERS_DB)
-		lines = file.readlines()
+		lines = open(USERS_DB).readlines()
+		lines = [line.rstrip('\n') for line in lines]
 		for line in lines:
 			data = line.split("|")
 			if(data[0] == unNombreDeUsuario):
@@ -59,6 +61,7 @@ class FileDataManager(DataManager):
 
 	def obtenerJugador(self, unNombre, unApellido):
 		lines = open(JUGADORES_DB).readlines()
+		lines = [line.rstrip('\n') for line in lines]
 		jugador = None
 		for line in lines:
 			data = line.split("|")
@@ -70,6 +73,7 @@ class FileDataManager(DataManager):
 	def obtenerTecnico(self, unNombre, unApellido):
 		#"WIP"
 		lines = open(TECNICOS_DB).readlines()
+		lines = [line.rstrip('\n') for line in lines]
 		for line in lines:
 			data = line.split("|")
 			if (data[0] == unNombre and data[1] == unApellido):
@@ -85,6 +89,8 @@ class FileDataManager(DataManager):
 	def obtenerEquipo(self, unNombreDeEquipo, unNombreDeDueno):
 		#"nombre|dueno|jugador1nombre jugador1apellido, ...., jugador5nombre jugador5apellido|estrellanombre estrellapellido|tecniconombre tecnicoapellido"
 		lines = open(EQUIPOS_DB).readlines()
+		lines = [line.rstrip('\n') for line in lines]
+
 		equipo = None
 		for line in lines:
 			data = line.split("|")
