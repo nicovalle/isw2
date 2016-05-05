@@ -35,7 +35,7 @@ from libroDeJugadas import *
 # print (map(lambda equipo: equipo.nombre(), participante.equipos()))
 dataManager = FileDataManager()
 participante = dataManager.loginUser("nico","nvallejo")
-participante2 = dataManager.loginUser("matiasl","tuvieja")
+participante2 = dataManager.loginUser("matiasl","mlaporte")
 
 participantes = [participante, participante2]
 
