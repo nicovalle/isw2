@@ -1,28 +1,29 @@
-import equipo
 import random
-#import turno
+from equipo import *
+from turno import *
 
 class Simulador(object):
-	def __init__(self, unParticipanteDesafiante, otroParticipanteDesafiado, unaCantidadDeFichas=0, unaCantidadDeTurnos=40):
+	def __init__(self, unParticipanteDesafiante, unParticipanteDesafiado, unaCantidadDeFichas=0, unaCantidadDeTurnos=40):
 		self._cantidadDeTurnos = unaCantidadDeTurnos
 		self._participanteDesafiante = unParticipanteDesafiante
-		self._participanteDesafiado = otroParticipanteDesafiado
+		self._participanteDesafiado = unParticipanteDesafiado
 		self._fichasApostadas = unaCantidadDeFichas
 
 	def iniciarSimulacion(self):
-		self._turnosRestantes = self._cantidadDeTurnos
+		turnoNumero = 1
 
-		moneda = random.Random()
+		moneda = random.random()
 		if(moneda < 0.5):
-			self._equipoAtacante = self._participanteDesafiante.equipo()
-			self._equipoDefensor = self._participanteDesafiado.equipo()
+			equipoQueAtaca = self._participanteDesafiante.equipoElegido()
+			equipoQueDefiende = self._participanteDesafiado.equipoElegido()
 		else:
-			self._equipoAtacante = self._participanteDesafiado.equipo()
-			self._equipoDefensor = self._participanteDesafiante.equipo()
+			equipoQueAtaca = self._participanteDesafiado.equipoElegido()
+			equipoQueDefiende = self._participanteDesafiante.equipoElegido()
 
-		while (self._turnosRestantes > 0):
-#			self._turnoActual =  Turno(self, self._equipoAtacante, self._equipoDefensor)
-			tmp = self._equipoAtacante
-			self._equipoAtacante = self._equipoDefensor
-			self._equipoDefensor = tmp
-			self._turnosRestantes -= 1
+		while (turnoNumero <= self._cantidadDeTurnos):
+			print("Turno "+str(turnoNumero)+": ataca "+equipoQueAtaca.nombre()+" y defiende "+equipoQueDefiende.nombre())
+			turno =  Turno(self, equipoQueAtaca, equipoQueDefiende)
+			turno.empezarTurno()
+
+			equipoQueAtaca, equipoQueDefiende = equipoQueDefiende, equipoQueAtaca
+			turnoNumero += 1
