@@ -7,11 +7,6 @@ class ColectivaExterna(Jugada):
 		self._acciones = [Pase()]*(k-1) + [TiroTresPuntos()]
 		self._equipo = unEquipo
 
-	# def ejecutarCon(self, unEquipo):
-	# 	if (self._acciones[self._accionActual].umbralDeExito(unEquipo.base())):
-	# 		# ????
-	# 	pass
-
 	def proximaAccion(self):
 		self._accionActual += 1		# not so sure. ¿Y la primer jugada?
 		return self._acciones[self._accionActual]
@@ -21,9 +16,6 @@ class ColectivaInterna(Jugada):
 		self._accionActual = 0
 		self._acciones = [Pase()]*(k-1) + [TiroDosPuntos()]
 		self._equipo = unEquipo
-
-	# def ejecutarCon(self, unEquipo):
-	# 	pass
 
 	def proximaAccion(self):
 		pass
@@ -39,9 +31,6 @@ class Contraataque(Jugada):
 	def __init__(self, k, unEquipo):
 		self._acciones = [Tiro()]
 		self._equipo = unEquipo
-
-	# def ejecutarCon(self, unEquipo):
-	# 	pass
 
 	def proximaAccion(self):
 		pass

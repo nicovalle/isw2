@@ -18,12 +18,7 @@ class Tecnico(object):
 		return self._libroDeJugadas
 
 	def seleccionarJugadaOfensiva(self):
-		#unaJugadaOfensiva = 
 		return self._libroDeJugadas.obtenerCreadorJugadaOfensiva()
-		#unEquipo.ejecutarJugada(unaJugadaOfensiva)
 
 	def seleccionarJugadaDefensiva(self):
-		#unaJugadaDefensiva = 
 		return self._libroDeJugadas.obtenerCreadorJugadaDefensiva()
-		
-		#unEquipo.ejecutarJugada(unaJugadaDefensiva)
