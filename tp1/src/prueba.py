@@ -39,9 +39,9 @@ participante2 = dataManager.loginUser("matiasl","tuvieja")
 
 participantes = [participante, participante2]
 
-for participante in participantes:
+for p in participantes:
     print (map(lambda equipo: equipo.nombre(), participante.equipos()))
-    for equipo in participante.equipos():
+    for equipo in p.equipos():
      	print equipo.nombre()
      	print equipo.base().nombre()
      	print equipo.alero().nombre()
@@ -53,12 +53,7 @@ for participante in participantes:
      	print equipo.dueno()
      	print equipo.presupuesto()
 
-#ofensivas = {'a': 0.3, 'b': 0.5, 'c': 0.2}
-#defensivas = {'d': 0.2, 'e': 0.7, 'f': 0.1}
-
-#libro = LibroDeJugadas(ofensivas, defensivas)
-#print(libro.jugadaOfensiva())
-#print(libro.jugadaDefensiva())
-#equipo.tecnico().elegirJugadaOfensiva(equipo)
-
+participante.seleccionarEquipo('spurs')
+participante2.seleccionarEquipo('lickers')
 simulacion = Simulador(participante, participante2)
+simulacion.iniciarSimulacion()
