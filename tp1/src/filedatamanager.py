@@ -79,7 +79,7 @@ class FileDataManager(DataManager):
 			if (data[0] == unNombre and data[1] == unApellido):
 				unDiccDeJugadasOfensivasYFrecuencia = ast.literal_eval(data[2])
 				unDiccDeJugadasDefensivasYFrecuencia = ast.literal_eval(data[3])
-				tecnico = Tecnico(unNombre, unApellido, LibroDeJugadas(ast.literal_eval(data[2]), data[3]))
+				tecnico = Tecnico(unNombre, unApellido, LibroDeJugadas(unDiccDeJugadasOfensivasYFrecuencia, unDiccDeJugadasDefensivasYFrecuencia))
 		return tecnico
 
 

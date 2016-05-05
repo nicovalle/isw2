@@ -52,11 +52,10 @@ class Equipo(object):
 	def ejecutarJugada(self, unaJugada):
 		unaJugada.ejecutarCon(self)
 
-	def elegirJugadaOfensiva():
+	def elegirJugadaOfensiva(self):
 		creadorJugada = self._tecnico.seleccionarJugadaOfensiva()
-		return creadorJugada.crear(self)
+		return creadorJugada(self, 3)
 
-	def elegirJugadaDefensiva():
+	def elegirJugadaDefensiva(self):
 		creadorJugada = self._tecnico.seleccionarJugadaDefensiva()
-		return creadorJugada.crear(self)
-
+		return creadorJugada(self)

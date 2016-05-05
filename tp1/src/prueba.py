@@ -3,6 +3,7 @@ from equipo import *
 from participante import *
 from filedatamanager import *
 from tecnico import *
+from simulador import *
 
 from libroDeJugadas import *
 
@@ -36,23 +37,23 @@ dataManager = FileDataManager()
 participante = dataManager.loginUser("nico","nvallejo")
 participante2 = dataManager.loginUser("matiasl","tuvieja")
 
-print (map(lambda equipo: equipo.nombre(), participante.equipos()))
-for equipo in participante.equipos():
- 	print equipo.nombre()
- 	print equipo.base().nombre()
- 	print equipo.alero().nombre()
- 	print equipo.escolta().nombre()
- 	print equipo.alaPivot().nombre()
- 	print equipo.pivot().nombre()
- 	print equipo.estrella().nombre()
- 	print equipo.tecnico().nombre()
- 	print equipo.dueno()
- 	print equipo.presupuesto()
+participantes = [participante, participante2]
 
-#ofensivas = {'a': 0.3, 'b': 0.5, 'c': 0.2}
-#defensivas = {'d': 0.2, 'e': 0.7, 'f': 0.1}
+for p in participantes:
+    print (map(lambda equipo: equipo.nombre(), participante.equipos()))
+    for equipo in p.equipos():
+     	print equipo.nombre()
+     	print equipo.base().nombre()
+     	print equipo.alero().nombre()
+     	print equipo.escolta().nombre()
+     	print equipo.alaPivot().nombre()
+     	print equipo.pivot().nombre()
+     	print equipo.estrella().nombre()
+     	print equipo.tecnico().nombre()
+     	print equipo.dueno()
+     	print equipo.presupuesto()
 
-#libro = LibroDeJugadas(ofensivas, defensivas)
-#print(libro.jugadaOfensiva())
-#print(libro.jugadaDefensiva())
-equipo.tecnico().elegirJugadaOfensiva(equipo)
+participante.seleccionarEquipo('spurs')
+participante2.seleccionarEquipo('lickers')
+simulacion = Simulador(participante, participante2)
+simulacion.iniciarTurno()

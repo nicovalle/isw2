@@ -1,4 +1,6 @@
 import random
+import importlib
+
 class LibroDeJugadas(object):
 
 	def __init__(self, unDiccDeJugadasOfensivasYFrecuencia, unDiccDeJugadasDefensivasYFrecuencia):
@@ -17,4 +19,5 @@ class LibroDeJugadas(object):
 		for key in unDiccDeJugadasYFrecuencia.keys():
 			accum += unDiccDeJugadasYFrecuencia[key]
 			if(freq < accum):
-				return key
+				module = importlib.import_module('jugadas')
+				return getattr(module, key)

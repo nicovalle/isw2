@@ -1,5 +1,5 @@
 class Participante(object):
-	
+
 	def __init__(self, unNombre, unEmail, unConjuntoDeEquipos, unCap, unaCantidadDeFichas):
 		self._nombre = unNombre
 		self._equipos = unConjuntoDeEquipos
@@ -22,6 +22,14 @@ class Participante(object):
 
 	def removerEquipo(self, unEquipo):
 		self._equipos.discard(unEquipo)
+
+	def seleccionarEquipo(self, nombre):
+		for equipo in self._equipos:
+			if (equipo.nombre() == nombre):
+				self._equipoActual = equipo
+
+	def equipoElegido(self):
+		return self._equipoActual
 
 	def cap(self):
 		return self._cap
