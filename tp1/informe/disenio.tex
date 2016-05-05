@@ -35,16 +35,16 @@ A continuación, se ofrece el caso particular del alta de un nuevo tecnico, no p
 \end{center}
 
 \subsection{Secuencia de turnos}
-
+En este apartado analizaremos el intercambio de mensajes entre nuestras entidades con el fin de clarificar una de las situaciones mas repetidas dentro de cualquier simulacion: La seleccion de jugadas. Para ello, presentamos el siguiente diagrama de secuencias en donde ambos equipos necesitan obtener sus respectivas jugadas (primero quien ataca y luego quien esta a la defensiva).
 \begin{center}
 \includegraphics[scale=0.4]{diagramas/secuencias-turnos.png}
 \end{center}
-
+Como podemos observar, al comenzar el turno se le pide al equipo que debe realizar la jugada ofensiva que elija una de su libro de jugadas. Como no es el equipo quien conoce sus jugadas, sino mas bien el tecnico, se le informa a este quien es el encargado de obtener una de su libro de jugadas y darla a conocer a los demas. Cuando el turno en ejecucion conoce la jugada que el equipo ofensivo tiene pensado realizar, le informa al otro equipo, quien a su vez realiza la misma operación, pero esta vez para obtener una jugada defensiva. Una vez que ambas jugadas estan definidas, es el turno el encargado de manejar la seleccion de las diferentes acciones a realizar, como veremos a continuación:
 
 \begin{center}
 \includegraphics[scale=0.4]{diagramas/secuencia-turnos-1.png}
 \end{center}
-
+Como bien dijimos anteriormente, es el turno quien pide las respectivas acciones a las jugadas provistas en el paso anterior. En este caso, la jugada ofensiva consta de realizar un pase, por lo que se le informa a la defensiva para tomar una accion acorde a esta decision. Esta pide la accion a realizar para defender un pase y cuando la obtenie, se la notifica tambien al turno quien sera ahora el encargado de resolver (mediante las ecuaciones provistas o por cualquier otro metodo desarrollado a posterioridad).
 
 \subsection{Vision general}
 El objetivo de este apartado es el de presentar un paneo general de la interrelacion de algunas de las clases mas importantes del diseño. Si bien algunas ya fueron mencionadas con anterioridad (jugadas, acciones, etc), decidimos repetirlas en pos de poder ofrecer una idea, a grandes rasgos, de su integracion dentro del sistema.
