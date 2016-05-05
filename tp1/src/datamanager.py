@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
-#"clase abstracta con la interfaz para los data manager, cuya responsabilida es obtener y actualizar los datos del sistema"
+#"clase abstracta con la interfaz para los data manager, cuya responsabilidad es obtener y actualizar los datos del sistema"
 class DataManager(object):
 	__metaclass__ = ABCMeta
 
