@@ -1,0 +1,40 @@
+title Nuevo tecnico
+
+administrador->+laInterfaz: nuevoTecnico()
+laInterfaz->+dataManager: dameFormularioNuevoTecnico()
+dataManager-->-laInterfaz: formularioNuevoTecnico
+laInterfaz->+formularioNuevoTecnico: dameInput()
+formularioNuevoTecnico-->laInterfaz: inputNombreTecnico
+laInterfaz-->administrador: inputNombreTecnico
+administrador->laInterfaz: completaInput(inputNombreTecnico, "Popovich")
+laInterfaz->formularioNuevoTecnico: dameInput()
+formularioNuevoTecnico-->laInterfaz: formularioNuevaJugada
+laInterfaz-->administrador: formularioNuevaJugada
+administrador->laInterfaz: nuevaJugada(formularioNuevaJugada)
+laInterfaz->+formularioNuevaJugada: dameInput()
+formularioNuevaJugada-->laInterfaz: inputNombreJugada
+laInterfaz-->administrador: inputNombreJugada
+administrador->laInterfaz: completaInput(inputNombreJugada, ["MVP"])
+laInterfaz->formularioNuevaJugada: dameInput()
+formularioNuevaJugada-->laInterfaz: inputTipoJugada
+laInterfaz-->administrador: inputTipoJugada
+administrador->laInterfaz: completaInput(inputTipoJugada, ["ofensiva"])
+laInterfaz->formularioNuevaJugada: dameInput()
+formularioNuevaJugada-->laInterfaz: inputJugada
+laInterfaz->administrador: inputJugada
+administrador->laInterfaz: completaInput(inputJugada, ["empezarConBase", "pasarAFranquicia", "tirarAlAro"])
+laInterfaz->+dataManager: crearJugada(inputJugada)
+dataManager-->-laInterfaz: jugada1234
+laInterfaz->formularioNuevaJugada: dameInput()
+formularioNuevaJugada-->-laInterfaz: noInput
+laInterfaz->formularioNuevoTecnico: dameInput()
+formularioNuevoTecnico-->laInterfaz: formularioNuevaJugada
+laInterfaz-->administrador: formularioNuevaJugada
+administrador->laInterfaz: noMasJugadas()
+laInterfaz->formularioNuevoTecnico: dameInput()
+formularioNuevoTecnico-->-laInterfaz: noInput
+laInterfaz->administrador: confirmasTecnico?()
+administrador->laInterfaz: confirmoTecnico()
+laInterfaz->+dataManager: crearTecnico(formularioNuevoTécnico)
+dataManager-->-laInterfaz: tecnicoCreado
+laInterfaz-->-administrador: tecnicoCreado

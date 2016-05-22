@@ -1,0 +1,185 @@
+\subsection{Product Backlog}
+\indent En la siguiente tabla se encuentran todas las user stories definidas para el proyecto.
+
+\begin{center}
+  \begin{tabular}{| l | p{10cm} | l | l | }
+    \hline
+ID & Descripción & Business Value & Effort\\  \hline
+US 1 & COMO participante QUIERO tener una cuenta PARA tener asociada mi información & 8 & 3\\  \hline
+US 2 & COMO participante QUIERO armar un equipo PARA competir contra otros & 13 & 8\\  \hline
+US 3 & COMO participante QUIERO tener una lista de mis equipos ya armados PARA ahorrar tiempo & 1 & 3\\  \hline
+US 4 & COMO administrador QUIERO definir cuáles son los jugadores PARA que los participantes armen sus equipos & 8 & 5\\  \hline
+US 5 & COMO administrador QUIERO poder actualizar las estadísticas y datos de los jugadores PARA ser fiel a la realidad & 5 & 5\\  \hline
+US 6 & COMO administrador QUIERO poder actualizar los jugadores con datos reales utilizando algún servicio externo PARA que sea automático y no manual & 5 & 13\\  \hline
+US 7 & COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber cómo va a dirigir & 5 & 3\\  \hline
+US 8 & COMO administrador QUIERO definir cuáles son los técnicos disponibles PARA que los participantes armen sus equipos & 5 & 3\\  \hline
+US 9 & COMO administrador QUIERO poder definir las jugadas disponibles de los técnicos PARA enriquecer la simulación & 5 & 5\\  \hline
+US 10 & COMO participante QUIERO poder crear y aceptar desafíos PARA medirme con otros participantes & 13 & 5\\  \hline
+US 11 & COMO participante QUIERO apostar fichas PARA subir posiciones en la tabla & 8 & 2\\  \hline
+US 12 & COMO administrador QUIERO que los participantes puedan simular partidas PARA que jueguen entre sí & 21 & 21\\  \hline
+US 13 & COMO administrador QUIERO poder ajustar la duración (en turnos) de las simulaciones PARA que el sistema sea flexible & 3 & 3\\  \hline
+US 14 & COMO administrador QUIERO poder modificar las fórmulas de resolución de acciones PARA ir ajustando el sistema a lo largo del tiempo & 8 & 8\\  \hline
+US 15 & COMO administrador QUIERO que el primer turno de cada simulación sea al azar PARA hacerlo justo & 2 & 1\\  \hline
+US 16 & COMO administrador QUIERO que quede un log y toda la información pertinente de cada simulación PARA que cualquier participante pueda consultarlo & 8 & 5\\  \hline
+US 17 & COMO administrador QUIERO que se repartan las fichas adecuadamente después de terminado el partido PARA calcular la nueva tabla de posiciones & 13 & 1\\  \hline
+US 18 & COMO participante QUIERO ver la tabla de posiciones PARA compararme con los otros participantes & 5 & 5\\  \hline
+US 19 & COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del participante PARA equilibrar los valores de los equipos & 1 & 1\\  \hline
+  \end{tabular}
+\end{center}
+
+Los criterios de aceptación de las user stories que entran en el Sprint (definido en la sección \ref{subsec:sprint}), se encuentran a continuación.
+
+
+\begin{tcolorbox}
+\textbf{US 1}: COMO participante QUIERO tener una cuenta PARA tener asociada mi información
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+ \item El participante puede ingresar sus datos (nombre y contraseña) en un formulario
+ \item Si los datos son correctos, el participante accede al sitio siempre con su cuenta
+ \item Si son incorrectos, vuelve al formulario y se le da un mensaje
+ \item El mensaje incluye la posibilidad de que recupere la contraseña olvidada o que se registre
+ \item Cuando se encuentra loggeado, el usuario verá su información asociada (equipos armados, posición en la tabla, cantidad de fichas, cap, etc.)
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+\begin{tcolorbox}
+\textbf{US 2}: COMO participante QUIERO armar un equipo PARA competir contra otros
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item El participante accede a la lista de jugadores, y puede ordenar a los jugadores por nombre, precio, o estadística (FG, 3P, RPG, APG, BPG, SPG, TO, PPG, y altura)
+\item No se puede terminar de armar un equipo sin haber elegido 5 jugadores, uno para cada posición 
+\item No se puede elegir 2 veces al mismo jugador
+\item Mientras se eligen jugadores, se puede ver la conformación temporal del equipo, junto al costo total del mismo
+\item Si el precio del equipo es mayor al cap del participante, se muestra un mensaje de error
+\item Una vez armado el equipo, se elige un jugador estrella entre esos 5
+\item Una vez elegido el jugador estrella, se muestran la lista de técnicos y el detalle de su libro de jugadas
+\item Se puede ordenar a los técnicos en base a sus gustos (frecuencia asociada a cada jugada)
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+\begin{tcolorbox}
+\textbf{US 7}: COMO participante QUIERO conocer el libro de jugadas del técnico PARA saber cómo va a dirigir
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item Las jugadas deben ser las definidas por el administrador
+\item No pueden aparecer jugadas repetidas
+\item Toda jugada de un libro de jugadas tendrá una frecuencia asociada
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+
+\begin{tcolorbox}
+\textbf{US 10}: COMO participante QUIERO poder crear y aceptar desafíos PARA medirme con otros participantes
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item No se pueden crear desafíos sin tener equipos armados
+\item Quien inicia el desafío sólo podrá elegir participantes del sistema como oponentes
+\item En caso de que el oponente acepte el desafío, elegirá su equipo (o lo armará si no lo tiene) sin ver el equipo de quien inició el desafío.
+\item Una vez que estén los dos equipos elegidos, se realiza la simulación del desafío
+\item Si el oponente rechaza el desafío, se le avisa a quien lo inició y no se simula nada
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+
+\begin{tcolorbox}
+\textbf{US 11}: COMO participante QUIERO apostar fichas PARA subir posiciones en la tabla
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item En un desafío no se pueden apostar más fichas de las que posee el usuario
+\item La cantidad de fichas apostadas debe ser positiva o nula
+\item Una vez que el jugador apostó las fichas, las mismas no están disponibles hasta que no termine el desafío en cuestión
+\item Si el jugador no tiene la cantidad de fichas necesarias para pagar el costo de la apuesta de un desafío, no podrá aceptarlo
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+
+\begin{tcolorbox}
+\textbf{US 12}: COMO administrador QUIERO que los participantes puedan simular partidas PARA que jueguen entre sí
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item La simulación se produce entre los equipos seleccionados.
+\item La simulación se ajusta a los parámetros definidos de cantidad de turnos y formulas.
+\item Todas las jugadas de la simulación deben corresponderse con las jugadas definidas por los técnicos de cada equipo.
+\item Los jugadores que participan en cada jugada pertenecen a los equipos cuyo enfrentamiento se está simulando.
+\item Los resultados de cada jugada deben obtenerse de las estadísticas asociadas a los jugadores que participan activamente en ellas.
+\item El resultado final de la simulación debe deducirse del resultado de cada jugada individualmente.
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+
+\begin{tcolorbox}
+\textbf{US 16}: COMO administrador QUIERO que quede un log y toda la información pertinente de cada simulación PARA que cualquier participante pueda consultarlo
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item Los logs se corresponden con la ejecución de las simulaciones
+\item Durante una simulación, se genera el log.
+\item Todas las simulaciones tienen un log asociado.
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+\begin{tcolorbox}
+\textbf{US 17}: COMO administrador QUIERO que se repartan las fichas adecuadamente después de terminado el partido PARA calcular la nueva tabla de posiciones
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item Luego de una simulación se aumenta la cantidad de fichas del ganador en el total del pozo.
+\item Luego de una simulación se disminuye la cantida de fichas del perdedor en la cantidad apostada
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+\begin{tcolorbox}
+\textbf{US 19}: COMO administrador QUIERO que el presupuesto de cada equipo no supere el cap del participante PARA equilibrar los valores de los equipos.
+
+\vline
+
+\textbf{Criterios de aceptación:}
+\begin{itemize}
+\item No se permite la creación de equipos para los cuales la suma de los valores de sus jugadores superan el cap definido para el participante.
+\item Se permite correctamente la creación de equipos para los cuales la suma de los valores de sus jugadores no superan el cap definido para el participante.
+\end{itemize}
+\end{tcolorbox}
+\vspace{10pt}
+
+\newpage
+
+\subsubsection*{Discusiones}
+Algunas \textbf{User Stories} en las que hubo discrepancias extremas en la valuación del \textbf{Effort} fueron la \emph{US 1}, \emph{US 2}, y en cuanto al \textbf{Business Value} la \emph{US 2}, \emph{4}, \emph{US 17}.
+
+En el caso del \textbf{Effort} para la \emph{US 1}, tres integrantes del grupo habían puesto un 3, y el restante un 13. Quien le dio más esfuerzo especificó los detalles que involucraría el potencial registro de los usuarios (modelar; definir datos necesarios; formularios de registro, ingreso, recuperación de contraseña y todas las validaciones asociadas; seguridad; etc.), por lo que decidimos ir a mitad de camino y asignarle un 8.
+
+En el caso del \textbf{Effort} para la \emph{US 2}, una situación similar pero más dispersa, esfuerzos empezando por 3 y llegando hasta 13. La valuación más baja se debía a que no se consideraba ``ni un ABM'' a la sección de armado de equipo. Pero, nuevamente, el extremo más alto argumentó que si bien no se hacían modificaciones a los datos, había que tener en cuenta detalles importantes (interfaz de usuario \emph{trabajada} y fácilmente usable, cómo manejar los datos correspondientes a jugadores y técnicos), permitir manipular la visualización de la información (filtros y ordenamiento en base a estadísticas, nombre, etc.), y realizar validaciones (jugadores repetidos, cap de equipo del participante superado), por lo que se pactó un punto medio nuevamente con un 8.
+
+Con respecto al \textbf{Business Value} de \emph{US 2} y \emph{US 4}, se transformó en una especie de dilema del ``huevo y la gallina''. La idea principal del sistema es que los participantes puedan armar su equipo para realizar simulaciones; sin embargo, sin jugadores no pueden armar el equipo, entonces, ¿qué era lo más importante para el negocio? Se terminó decidiendo que armar el equipo era más importante, pero esta relación intensa entre ambos hechos hizo que aumentara el \textbf{Business Value} de \emph{US 4}, que en un principio se le había dado un puntaje más bajo.
+
+En lo que respecta al \textbf{Business Value} de \emph{US 17}, tres integrantes le habían otorgado un 8, y uno un 2. El integrante que asignó el menor puntaje esgrimía que no le añadía valor al negocio, ya que se podía sacar el log del sistema y todo seguía teniendo sentido, las simulaciones se podían hacer igual y el juego se podía jugar al 100\%. Se le explicó, no obstante, que para un participante puede tener mucho valor saber en qué puntos específicos del juego su equipo estuvo fallando para saber cómo mejorar, además de que a los verdaderos fanáticos de este tipo de juegos les encanta ver el paso a paso y tener la mayor cantidad de información posible. Dicho integrante subió el valor a un 5, y siendo tres contra uno y una brecha más corta entre las dos valuaciones, se terminó decidiendo poner un 8.
