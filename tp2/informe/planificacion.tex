@@ -1,7 +1,9 @@
 \section{Plan de Proyecto}
 \label{sec:planificacion}
 \subsection{Iteraciones}
-Nuestra decisión sobre la conformación de las iteraciones se rigió por varios factores: 
+Las iteraciones tienen una duración aproximada de 3 semanas (15 días hábiles). Teniendo en cuenta que los recursos asignados son 4 arquitectos de software/programadores trabajando de modo part-time (6 horas), se estiman unas 360hrs. aproximadas por iteración.
+
+Nuestra decisión sobre la conformación de las iteraciones -en cuanto a los casos de uso- se rigió por varios factores: 
 \begin{itemize}
 \item Se tuvieron en cuenta las necesidades extraídas del QAW con los stakeholders
 \item Se trató de agrupar a los casos de uso por su temática, prefiriendo en caso de ser posible juntar dentro de una misma iteración los casos de uso que se relacionan con funcionalidades similares.
@@ -20,17 +22,19 @@ El manejo administrativo de las cuentas de los usuarios, y el aspecto \emph{soci
 
 Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos, su creación, configuración, definición de reglas y de los premios. En la sexta iteración, nos encargaremos de lo que concierne a los rankings de los jugadores globales, regionales, etc. Como los casos de uso de estas dos iteraciones tienen un menor riesgo y complejidad que los anteriores, consideramos que estas dos fases son de construcción, ya que se trabajará bastante en lo implementativo y poco en el análisis/diseño.
 
-\subsubsection{Primera Iteración (Elaboración)}
+
+
+\subsubsection{I01 - Primera Iteración (Elaboración)}
 \begin{itemize}
-\item (CU19) Mostrando detalle minuto a minuto de la simulación
-\item (CU20) Observando evento global / continental
-\item (CU22) Observando la transmisión de un partido de liga
-\item (CU2)  Obteniendo datos en tiempo real
-\item (CU21) Mostrando simulación gráfica
+\item (CU19) Mostrando detalle minuto a minuto de la simulación: 60h
+\item (CU20) Observando evento global / continental: 20h
+\item (CU22) Observando la transmisión de un partido de liga: 60h
+\item (CU2)  Obteniendo datos en tiempo real: 40h
+\item (CU21) Mostrando simulación gráfica: 60h
 %\item CU15) Mostrando desarrollo (log o streaming) de desafío} (sistema -> usuario)
 \end{itemize}
 
-\subsubsection{Segunda iteración (Elaboración)} 
+\subsubsection{I02 - Segunda iteración (Elaboración)} 
 \begin{itemize}
 \item (CU9) Creando cuenta de usuario
 \item (CU10) Actualizando datos de medios de pago
@@ -42,7 +46,7 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 \end{itemize}
 
 
-\subsubsection{Tercera Iteración (Elaboración)}
+\subsubsection{I03 - Tercera Iteración (Elaboración)}
 \begin{itemize}
 \item (CU36) Definiendo restricciones por zona
 \item (CU25) Definiendo regiones de la plataforma
@@ -56,7 +60,7 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 \end{itemize}
 
 
-\subsubsection{Cuarta Iteración (Elaboración)}
+\subsubsection{I04 - Cuarta Iteración (Elaboración)}
 \begin{itemize}
 \item (CU6) Participando del chat general
 \item (CU7) Participando de chat privado
@@ -68,7 +72,7 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 %4- consultando datos de jugadores /técnicos /equipos (participante)
 \end{itemize}
 
-\subsubsection{Quinta Iteración (Construcción)}
+\subsubsection{I05 - Quinta Iteración (Construcción)}
 \begin{itemize}
 \item (CU1) Eligiendo liga para competir
 \item (CU3) Definiendo reglas de desafío
@@ -78,7 +82,7 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 \item (CU13) Definiendo premios
 \end{itemize}
 
-\subsubsection{Sexta Iteración (Construcción)}
+\subsubsection{I06 - Sexta Iteración (Construcción)}
 \begin{itemize}
 \item (CU31) Configurando visibilidad de los desafíos
 \item (CU32) Reiniciando el ranking de jugadores
@@ -89,5 +93,51 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 \end{itemize}
 
 
-\subsection{Primera iteración en detalle}
+\subsection{Primera iteración (I01) en detalle}
 \label{subsec:primeraiteracion}
+En esta sección se realiza un detalle de las tareas que se consideran necesarias realizar en la primer iteración, junto a las horas hombres esperadas. Dado que ya se realizó un reconocimiento, priorización, y estimación de tiempo de los casos de uso, además del análisis de riesgo, no serán tareas prioritarias ni de mucha intensidad en esta etapa, sino que se utilizarán para poder corregir detalles de las futuras iteraciones.
+
+Algunas de las tareas (por ejemplo I01T01, I01T02, I01T03) que no se corresponden directamente con un caso de uso, tienen como objetivo la mitigación de los riesgos analizados (\ref{sec:riesgos}).
+
+\begin{itemize}
+\item \underline{I01T01} - Reunión semanal con stakeholders para asegurarse que los requerimientos estén actualizados: 8hs.
+  \begin{itemize}
+    \item \underline{I01T01ST01} - Reunión la primer semana: 3hs.
+    \item \underline{I01T01ST02} - Reunión la segunda semana: 2.5hs.
+    \item \underline{I01T01ST03} - Reunión la tercer semana: 2.5hs.
+  \end{itemize}
+
+\item \underline{I01T02} - Reunión cada 3 días hábiles del equipo para evitar problemas de comunicación como en el pasado: 10hs.
+  \begin{itemize}
+    \item \underline{I01T02ST01} - Primera reunión: 2hs.
+    \item \underline{I01T02ST02} - Segunda reunión: 2hs.
+    \item \underline{I01T02ST03} - Tercer reunión: 2hs.
+    \item \underline{I01T02ST04} - Cuarta reunión: 2hs.
+    \item \underline{I01T02ST05} - Quinta reunión: 2hs.
+  \end{itemize}
+
+\item \underline{I01T03} - Reunión semanal de consulta con experto en metodología UP: 6hs.
+  \begin{itemize}
+    \item \underline{I01T03ST01} - Reunión la primer semana: 3hs.
+    \item \underline{I01T03ST02} - Reunión la segunda semana: 1.5hs.
+    \item \underline{I01T03ST03} - Reunión la tercer semana: 1.5hs.
+  \end{itemize}
+
+\item \underline{I01T04} - Identificación y descripción de los atributos de calidad del sistema: 40hs.
+  \begin{itemize}
+    \item \underline{I01T04ST01} - Cotejamiento de los atributos definidos por stakeholders en QAW y relación con los casos de uso definidos: 10hrs.
+    \item \underline{I01T03ST02} - Descripción de escenarios de atributos de calidad: 20hs.
+    \item \underline{I01T03ST03} - Reunión la tercer semana: 1.5hs.
+  \end{itemize}
+
+
+  
+\item I01T02: Definición de casos de uso de la siguiente iteración
+\item
+\item
+\item (CU19) Mostrando detalle minuto a minuto de la simulación: 60h
+\item (CU20) Observando evento global / continental: 20h
+\item (CU22) Observando la transmisión de un partido de liga: 60h
+\item (CU2)  Obteniendo datos en tiempo real: 40h
+\item (CU21) Mostrando simulación gráfica: 60h
+\end{itemize}
