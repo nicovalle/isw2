@@ -1,4 +1,5 @@
 \section{Casos de Uso}
+\label{sec:casosdeuso}
 A continuación se presenta una lista de los casos de uso que el grupo identificó a partir del enunciado y del QAW provisto. Intentan ser lo suficientemente exhaustivos para cubrir la funcionalidad requerida del sistema a desarrollar.
 
 En conjunto con el análisis de riesgos presentado en una sección subsiguiente, la lista presentada se utilizó para definir el alcance de las iteraciones del plan de proyecto, así como para determinar con mayor nivel de detalle la primer iteración del plan.
@@ -8,36 +9,30 @@ Los casos de uso están agrupados aproximadamente según funcionalidad; dado que
 
 %%%% OBSOLECTOS
 %** 40- *consultando datos de jugadores /tecnicos/equipos (participante)
-%\item CU43) - * \textbf{Logueando movimientos de dinero}: (depende de lo que diga Javi) \textbf{---- ??????? -------}
-%\item CU15) -  \textbf{Mostrando desarrollo (log o streaming) de desafío} (sistema -> usuario)
-%\item CU44) - ? \textbf{Mostrando publicidad en la simulación} - ¿es algo que se hace al generar la simulación,  puede ser luego?
-%\item CU37) .- \textbf{Configurando publicidades en simulaciones y en el sitio}:  (representante de empresas (?))
-%\item CU39) - * \textbf{Consultando datos de usuario}: (representantes de empresas(?))
-%\item CU27) - *\textbf{Definiendo reglas de puntajes}:  (administrador)
+%\item (CU43) - * \textbf{Logueando movimientos de dinero}: (depende de lo que diga Javi) \textbf{---- ??????? -------}
+%\item (CU15) -  \textbf{Mostrando desarrollo (log o streaming) de desafío} (sistema -> usuario)
+%\item (CU44) - ? \textbf{Mostrando publicidad en la simulación} - ¿es algo que se hace al generar la simulación,  puede ser luego?
+%\item (CU37) .- \textbf{Configurando publicidades en simulaciones y en el sitio}:  (representante de empresas (?))
+%\item (CU39) - * \textbf{Consultando datos de usuario}: (representantes de empresas(?))
+%\item (CU27) - *\textbf{Definiendo reglas de puntajes}:  (administrador)
 
 
 \subsection{Desafíos}
 \subsubsection{Administración de desafíos}
 \begin{itemize}
-\item CU3) - 1? \textbf{Definiendo reglas de desafío}: un administrador define las reglas de los partidos de cada liga en base al desempeño de los jugadores reales (cantidad de puntos en el desafío, según acción en la realidad).
-
-\item CU4) - A2? \textbf{Creando desafío}: un administrador o un participante crea un desafío en el que pueden anotarse una cantidad libre de jugadores.
-
-\item CU13) - 3? \textbf{Definiendo premios}: el creador de un desafío (un administrador o un participante) elige cómo distribuir los premios o porcentajes del dinero apostado, según las posiciones finales del mismo.
-
-\item CU26) - * \textbf{Definiendo desafíos interzonales}: un administrador del sistema define desafíos para que participen los mejores jugadores de cada una de las regiones definidas.
-
-\item CU31) - * \textbf{Configurando visibilidad de los desafíos}: el administrador configura la visibilidad de los desafíos con el fin de que participantes no calificados para participar puedan visualizarlos.
+\item (CU3) - 1? \textbf{Definiendo reglas de desafío}: un administrador define las reglas de los partidos de cada liga en base al desempeño de los jugadores reales (cantidad de puntos en el desafío, según acción en la realidad).
+\item (CU4) - A2? \textbf{Creando desafío}: un administrador o un participante crea un desafío en el que pueden anotarse una cantidad libre de jugadores.
+\item (CU13) - 3? \textbf{Definiendo premios}: el creador de un desafío (un administrador o un participante) elige cómo distribuir los premios o porcentajes del dinero apostado, según las posiciones finales del mismo.
+\item (CU26) - * \textbf{Definiendo desafíos interzonales}: un administrador del sistema define desafíos para que participen los mejores jugadores de cada una de las regiones definidas.
+\item (CU31) - * \textbf{Configurando visibilidad de los desafíos}: el administrador configura la visibilidad de los desafíos con el fin de que participantes no calificados para participar puedan visualizarlos.
 \end{itemize}
 
 \subsubsection{Participación en desafíos}
 
 \begin{itemize}
-\item CU1) - A* \textbf{Eligiendo liga para competir}: un participante elige en qué deporte y liga quiere inscribir a un equipo.
-
-\item CU5) - A* \textbf{Aceptando desafío}: un participante se anota para participar en uno de los desafíos ya creados.
-
-\item CU14) - \textbf{Consultando estado (cuenta regresiva, participantes, posiciones) del desafío}: un participante puede consultar datos del desafío donde decidió involucrarse: cuánto falta para que empiece, datos de apuestas, quiénes son los otros participantes, sus posiciones, etc.
+\item (CU1) - A* \textbf{Eligiendo liga para competir}: un participante elige en qué deporte y liga quiere inscribir a un equipo.
+\item (CU5) - A* \textbf{Aceptando desafío}: un participante se anota para participar en uno de los desafíos ya creados.
+\item (CU14) - \textbf{Consultando estado (cuenta regresiva, participantes, posiciones) del desafío}: un participante puede consultar datos del desafío donde decidió involucrarse: cuánto falta para que empiece, datos de apuestas, quiénes son los otros participantes, sus posiciones, etc.
 \end{itemize}
 
 
@@ -45,96 +40,68 @@ Los casos de uso están agrupados aproximadamente según funcionalidad; dado que
 \subsection{Monetización}
 \subsubsection{Dinero real}
 \begin{itemize}
-\item CU8) - A* \textbf{Apostando}: un participante apuesta cierta cantidad de dinero en un desafío.
-
-\item CU10) \textbf{Actualizando datos de medios de pago}: el participante asocia algún medio de pago para poder apostar en los desafíos.
-
-\item CU33) - * \textbf{Consultando estado de cuenta y movimientos de usuario}: un usuario consulta su estado de cuenta y movimiento. Un administrador puede consultar los datos de cualquier participante del sistema.
-
-\item CU34) - A* \textbf{Auditando movimientos de dinero}: una entidad gubernamental de control puede auditar los movimientos de todos los usuarios para analizar el movimiento de dinero en el sistema.
-
-
+\item (CU8) - A* \textbf{Apostando}: un participante apuesta cierta cantidad de dinero en un desafío.
+\item (CU10) \textbf{Actualizando datos de medios de pago}: el participante asocia algún medio de pago para poder apostar en los desafíos.
+\item (CU33) - * \textbf{Consultando estado de cuenta y movimientos de usuario}: un usuario consulta su estado de cuenta y movimiento. Un administrador puede consultar los datos de cualquier participante del sistema.
+\item (CU34) - A* \textbf{Auditando movimientos de dinero}: una entidad gubernamental de control puede auditar los movimientos de todos los usuarios para analizar el movimiento de dinero en el sistema.
 \end{itemize}
 
 \subsubsection{Publicidad y marketing}
 \begin{itemize}
-
-\item CU16) - * \textbf{Configurando publicidad en el sitio y simulaciones}: un representante de empresa sponsor del proyecto puede acceder a una interfaz desde donde se configura la publicidad que se muestra en el sitio y las simulaciones a los participantes.
-
-\item CU38) -* \textbf{Configurando publicidad y ads en transmisiones}: un representante de empresa dueña de los derechos de televisación puede modificar las publicidades y ads que se muestran en las transmisiones de los partidos a los participantes.
-
-\item CU17) - \textbf{Acceder a datos de preferencia/comportamiento de usuarios}: un administrador o un representante de empresa accede a estadísticas que permiten obtener insights de negocio, en base al comportamiento y las opciones más utilizadas por los usuarios.
-  
-
+\item (CU16) - * \textbf{Configurando publicidad en el sitio y simulaciones}: un representante de empresa sponsor del proyecto puede acceder a una interfaz desde donde se configura la publicidad que se muestra en el sitio y las simulaciones a los participantes.
+\item (CU38) -* \textbf{Configurando publicidad y ads en transmisiones}: un representante de empresa dueña de los derechos de televisación puede modificar las publicidades y ads que se muestran en las transmisiones de los partidos a los participantes.
+\item (CU17) - \textbf{Acceder a datos de preferencia/comportamiento de usuarios}: un administrador o un representante de empresa accede a estadísticas que permiten obtener insights de negocio, en base al comportamiento y las opciones más utilizadas por los usuarios.
 \end{itemize}
 
 \subsection{Registro, Autenticación y Datos de usuario}
 
 \subsubsection{Cuentas de usuarios}
 \begin{itemize}
-\item CU9) - * \textbf{Creando cuenta de usuario}: un participante se registra en el sistema para poder participar de los desafíos
-
-\item CU12)- * \textbf{Consultando cuenta de usuario}: un participante o administrador consulta los datos con los que se dio de alta el usuario en el sistema.
-
-\item CU41) - *\textbf{Desactivando cuenta sin reactivación}: un participante o representante de una organización de protección al consumidor puede desactivar una cuenta temporalmente para ayudar a adictos al juego a no tener recaídas.
-
-\item CU42) - *\textbf{Reactivando cuenta}: un participante puede reactivar su cuenta luego del tiempo establecido en la desactivación.
-
-\item CU28) - * \textbf{Consultando dashboard regional o global}: un administrador o representante de empresa sponsor del proyecto puede acceder a un dashboard con el estado de cuenta en tiempo real del sitio para cada una de las regiones y niveles y de cualquier grupo de participantes.
-
+\item (CU9) - * \textbf{Creando cuenta de usuario}: un participante se registra en el sistema para poder participar de los desafíos
+\item (CU12)- * \textbf{Consultando cuenta de usuario}: un participante o administrador consulta los datos con los que se dio de alta el usuario en el sistema.
+\item (CU41) - *\textbf{Desactivando cuenta}: un participante o representante de una organización de protección al consumidor puede desactivar una cuenta temporalmente para ayudar a adictos al juego a no tener recaídas.
+\item (CU42) - *\textbf{Reactivando cuenta}: un participante puede reactivar su cuenta luego del tiempo establecido en la desactivación.
+\item (CU28) - * \textbf{Consultando dashboard regional o global}: un administrador o representante de empresa sponsor del proyecto puede acceder a un dashboard con el estado de cuenta en tiempo real del sitio para cada una de las regiones y niveles y de cualquier grupo de participantes.
 \end{itemize}
 
 \subsubsection{Ranking y puntajes}
 
 \begin{itemize}
-\item CU29) -* \textbf{Consultando ranking de jugadores}: un participante puede consultar el ranking de jugadores en cualquier momento y ver su posición en el mismo.
-
-\item CU32) - * \textbf{Reiniciando el ranking de jugadores}: un administrador reinicia el ranking actual de jugadores, volviendo a todos a la situacion inicial para dar inicio a una nueva temporada.
-
+\item (CU29) -* \textbf{Consultando ranking de jugadores}: un participante puede consultar el ranking de jugadores en cualquier momento y ver su posición en el mismo.
+\item (CU32) - * \textbf{Reiniciando el ranking de jugadores}: un administrador reinicia el ranking actual de jugadores, volviendo a todos a la situacion inicial para dar inicio a una nueva temporada.
 \end{itemize}
 
 
 \subsection{Social}
 \begin{itemize}
-\item CU6) - * \textbf{Participando del chat general}: un participante envía un mensaje al chat general para que lo vean todos los demás participantes del desafío.
-
-\item CU7) -.* \textbf{Participando de chat privado}: un participante envía un mensaje privado a otro participante y solo éste puede verlo.
-
-\item CU23)- ? \textbf{Recolectando opiniones de redes sociales y chats}: se recolectan opiniones de las redes sociales y los chats generales y privados del sistema para afectar los resultados de las simulaciones.
-
-\item CU24)- * \textbf{Definiendo impacto de opiniones}: un administrador define de qué forma los comentarios obtenidos en las redes sociales impactan en el resultado de los desafíos o en la performance de los jugadores.
+\item (CU6) - * \textbf{Participando del chat general}: un participante envía un mensaje al chat general para que lo vean todos los demás participantes del desafío.
+\item (CU7) -.* \textbf{Participando de chat privado}: un participante envía un mensaje privado a otro participante y solo éste puede verlo.
+\item (CU23)- ? \textbf{Recolectando opiniones de redes sociales y chats}: se recolectan opiniones de las redes sociales y los chats generales y privados del sistema para afectar los resultados de las simulaciones.
+\item (CU24)- * \textbf{Definiendo impacto de opiniones}: un administrador define de qué forma los comentarios obtenidos en las redes sociales impactan en el resultado de los desafíos o en la performance de los jugadores.
 \end{itemize}
 
 \subsection{Simulaciones}
 \subsubsection{Ejecución}
 \begin{itemize}
-\item CU18) - \textbf{Definiendo reglas de simulación}: un administrador modifica las reglas de las simulaciones de los deportes basándose en los comentarios recibidos por el comité de expertos de cada uno de ellos.
-
-\item CU2) - * \textbf{Obteniendo datos en tiempo real}: se obtienen en tiempo real, mediante empresas proveedoras, datos de los jugadores y del desarrollo de los partidos de las APIs provistas para mantenerlos actualizados. 
-
+\item (CU18) - \textbf{Definiendo reglas de simulación}: un administrador modifica las reglas de las simulaciones de los deportes basándose en los comentarios recibidos por el comité de expertos de cada uno de ellos.
+\item (CU2) - * \textbf{Obteniendo datos en tiempo real}: se obtienen en tiempo real, mediante empresas proveedoras, datos de los jugadores y del desarrollo de los partidos de las APIs provistas para mantenerlos actualizados. 
 \end{itemize}
 
 
 \subsubsection{Visualización}
 \begin{itemize}
-\item CU20) - * \textbf{Observando evento global / continental}: un participante puede acceder a desafíos donde no puede participar en modo espectador, según las reglas dispuestas por los administradores.
-
-\item CU19) - ? \textbf{Mostrando detalle minuto a minuto de la simulación}: los participantes pueden ver un detalle minuto a minuto de las simulaciones.
-
-\item CU21) - * \textbf{Mostrando simulación gráfica (motor 2d, motor 3d)}: se genera una simulación gráfica que se muestra al usuario para que pueda disfrutar del desafío de otra manera.
-
-\item CU22) - * \textbf{Observando la transmisión de un partido de liga}: los participantes pueden ver la transmisión de los partidos en los desafíos en modo \emph{liga de fantasía tradicional}.
-
-\item CU35) - A* \textbf{Auditando simulaciones}: una entidad gubernamental de control puede auditar las simulaciones para corroborar que se correspondan con los resultados obtenidos y los desafíos pagados.
-
+\item (CU19) - ? \textbf{Mostrando detalle minuto a minuto de la simulación}: los participantes pueden ver un detalle minuto a minuto de las simulaciones.
+\item (CU20) - * \textbf{Observando evento global / continental}: un participante puede acceder a desafíos donde no puede participar en modo espectador, según las reglas dispuestas por los administradores.
+\item (CU21) - * \textbf{Mostrando simulación gráfica (motor 2d, motor 3d)}: se genera una simulación gráfica que se muestra al usuario para que pueda disfrutar del desafío de otra manera.
+\item (CU22) - * \textbf{Observando la transmisión de un partido de liga}: los participantes pueden ver la transmisión de los partidos en los desafíos en modo \emph{liga de fantasía tradicional}.
+\item (CU35) - A* \textbf{Auditando simulaciones}: una entidad gubernamental de control puede auditar las simulaciones para corroborar que se correspondan con los resultados obtenidos y los desafíos pagados.
 \end{itemize}
 
 
 \subsection{Regionalización}
 \begin{itemize}
-\item CU25) - * \textbf{Definiendo regiones de la plataforma}: un administrador de la plataforma define regiones y niveles para los mismos, con el fin de regionalizar la plataforma y facilitar la comunicación entre los participantes, la integración con los bancos, el cumplimiento de legislación vigente en los distintos países, etc.
-
-\item CU36) - * \textbf{Definiendo restricciones por zona}: un administrador define qué deportes están disponibles para cada una de las zonas y si es posible apostar con dinero real, etc. Involucra también definir si el sitio es accesible en cada país.
+\item (CU25) - * \textbf{Definiendo regiones de la plataforma}: un administrador de la plataforma define regiones y niveles para los mismos, con el fin de regionalizar la plataforma y facilitar la comunicación entre los participantes, la integración con los bancos, el cumplimiento de legislación vigente en los distintos países, etc.
+\item (CU36) - * \textbf{Definiendo restricciones por zona}: un administrador define qué deportes están disponibles para cada una de las zonas y si es posible apostar con dinero real, etc. Involucra también definir si el sitio es accesible en cada país.
 \end{itemize}
 
 
