@@ -1,1 +1,84 @@
 \section{Planificación}
+Iteraciones
+
+	Nuestra decisión sobre la conformación de las iteraciones se rigió por varios factores. 
+Se tuvieron en cuenta tanto las necesidades extraídas del QAW con los stakeholders, como la temática de los casos de uso, prefiriendo en caso de ser posible agrupar dentro de una misma iteración los que se relacionan con funcionalidades similares.
+	Otro factor que se tuvo en cuenta a la hora de definir el orden de las iteraciones, fueron los riesgos detectados y analizados en la sección de Análisis de Riesgos.
+	Por último, también se consideró la prioridad de la funcionalidades referidas en los casos de uso, intentando en lo posible desarrollar antes las más importantes para el negocio.
+	La primera iteración quedó expresamente definida por el QAW y el análisis de riesgo, factores a los que se les dio mayor prioridad. Del análisis de riesgo, se extrajo que la parte más conflictiva del sistema ocurre a la hora de transmitir los desafíos (especialmente para los eventos globales), así como al mostrar correctamente las simulaciones.
+	El siguiente punto en cuanto a nivel de riesgo, fue lo concerniente a la seguridad, integridad y transparencia de la transmisión de los datos de pago y movimientos de dinero. Decidimos encarar esto en la segunda iteración del proyecto.
+	El tercer gran foco de riesgo, tiene que ver con la integridad de las transmisiones de datos usadas para definir los resultados de los partidos de la realidad, así como de los minuto a minuto de las simulaciones. Todo ello optamos por atacarlo en la tercera iteración del proyecto.
+	ORDENAR LAS ITERACIONES QUE FALTAN Y JUSTIFICARLAS ACA.
+
+
+Primera Iteración:
+1 -  mostrando desarrolló (log o streaming) de desafío (sistema -> usuario)
+2 -  mostrando log minuto a minuto (sistema -> participante) - ¿si no se llega a un acuerdo?
+3 -  observando evento global / continental (participante)
+4 - observando la transmisión de un partido de liga (participante)
+5 -  obteniendo datos en tiempo real (participante, administrador)
+6 - mostrando simulación (motor 2d, motor 3d) (sistema -> participante)
+A partir del log generado por la simulación, se genera una simulación que se muestra al usuario para que pueda disfrutar del desafío de forma gráfica
+
+
+
+Segunda iteración: 
+1- creando cuenta de usuario (participante).
+2- actualizando datos de medios de pago (participante)
+3 - logueando movimientos de dinero (depende de lo que diga Javi)
+4 - * auditando movimientos de dinero (gobierno)
+5 -  consultando estado de cuenta y movimientos de usuario (participante, administrador)
+6-  apostando (participante)
+
+Tercera Iteración:
+1- auditando simulaciones (gobierno)
+2- definiendo restricciones por zona (administrador)
+3- definiendo regiones de la plataforma (administrador)
+4- definiendo reglas de simulación (administrador)
+
+Definir el orden de las siguientes iteraciones:
+
+
+Iteración: 
+
+1 - configurando publicidades en simulaciones y en el sitio (representante de empresas)
+2 - configurando publicidades y ads en transmisiones (representante de empresas)
+3 - mostrando publicidad en la simulación - ¿es algo que se hace al generar la simulación,  puede ser luego?
+4 -  consultando datos de usuario (representantes de empresas(?))
+5 -  obteniendo estadísticas del comportamiento de los participantes (administrador)
+6  -  acceder a datos de preferencia/comportamiento de usuarios (administrador)
+
+
+
+
+
+Iteración:
+
+1- configurando visibilidad de los desafíos (administrador)
+2 - reiniciando el ranking de jugadores (administrador)
+3 -  consultando dashboard regional o global (administrado)
+4 - consultando ranking de jugadores (participante)
+5 - definiendo desafíos interzonales (administrador)
+6 -  definiendo reglas de puntajes (administrador)
+
+
+
+
+Iteración:
+1 -eligiendo liga para competir (participante)
+2- definiendo reglas de desafío (administrador)
+3 - creando desafío (participante, administrador)
+4-aceptando desafío (participante)
+5-  consultando estado (cuenta regresiva, participantes, posiciones) del desafío (participante)
+6- definiendo premios (administrador, participante) 
+
+
+Iteración:
+1 - participando del chat general (participante)
+2 - participando de chat privado (participante)
+3 -  consultando cuenta de usuario (participante, administrador)
+4- consultando datos de jugadores /técnicos /equipos (participante)
+5-desactivando cuenta (participante, protector del consumidor)
+6 - reactivando cuenta (participante, protector del consumidor)
+7-  recolectando opiniones de redes sociales y chats (sistema <- redes sociales) - No se haría de forma automática? Es un caso de uso? 
+8 - definiendo impacto de opiniones (administrador)
