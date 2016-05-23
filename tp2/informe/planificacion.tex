@@ -27,10 +27,9 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 \subsubsection{I01 - Primera Iteración (Elaboración)}
 \begin{itemize}
 \item (CU19) Mostrando detalle minuto a minuto de la simulación
-\item (CU20) Observando evento global / continental
-\item (CU22) Observando la transmisión de un partido de liga
 \item (CU2)  Obteniendo datos en tiempo real
 \item (CU21) Mostrando simulación gráfica
+\item (CU22) Observando la transmisión de un partido de liga
 %\item CU15) Mostrando desarrollo (log o streaming) de desafío} (sistema -> usuario)
 \end{itemize}
 
@@ -84,11 +83,12 @@ Decidimos dedicarnos en la quinta iteración a todo lo referido a los desafíos,
 
 \subsubsection{I06 - Sexta Iteración (Construcción)}
 \begin{itemize}
-\item (CU31) Configurando visibilidad de los desafíos
-\item (CU32) Reiniciando el ranking de jugadores
 \item (CU28) Consultando dashboard regional o global
 \item (CU29) Consultando ranking de jugadores
+\item (CU32) Reiniciando el ranking de jugadores
 \item (CU26) Definiendo desafíos interzonales
+\item (CU20) Observando evento global/continental
+\item (CU31) Configurando visibilidad de los desafíos
 %6 -  definiendo reglas de puntajes (administrador)
 \end{itemize}
 
@@ -100,14 +100,15 @@ En esta sección se realiza un detalle de las tareas que se consideran necesaria
 Algunas de las tareas (por ejemplo I01T01, I01T02, I01T03) que no se corresponden directamente con un caso de uso, tienen como objetivo la mitigación de los riesgos analizados (\ref{sec:riesgos}).
 
 \begin{itemize}
-\item \underline{I01T01} - Reunión semanal con stakeholders para asegurarse que los requerimientos estén actualizados: 10hs.
+\item \underline{I01T01} - Reunión semanal breve con stakeholders para asegurarse que los requerimientos estén actualizados: \textbf{10hs}.
   \begin{itemize}
     \item \underline{I01T01ST01} - Reunión la primer semana: 4hs.
     \item \underline{I01T01ST02} - Reunión la segunda semana: 3hs.
     \item \underline{I01T01ST03} - Reunión la tercer semana: 3hs.
   \end{itemize}
+\hfill
 
-\item \underline{I01T02} - Reunión cada 3 días hábiles del equipo para evitar problemas de comunicación como en el pasado: 10hs.
+\item \underline{I01T02} - Reunión cada 3 días hábiles del equipo para evitar problemas de comunicación como en el pasado: \textbf{10hs}.
   \begin{itemize}
     \item \underline{I01T02ST01} - Primera reunión: 2hs.
     \item \underline{I01T02ST02} - Segunda reunión: 2hs.
@@ -115,53 +116,75 @@ Algunas de las tareas (por ejemplo I01T01, I01T02, I01T03) que no se corresponde
     \item \underline{I01T02ST04} - Cuarta reunión: 2hs.
     \item \underline{I01T02ST05} - Quinta reunión: 2hs.
   \end{itemize}
+\hfill
 
-\item \underline{I01T03} - Reunión semanal de consulta con experto en metodología UP: 8hs.
+\item \underline{I01T03} - Reunión semanal de consulta con experto en metodología UP: \textbf{8hs}.
   \begin{itemize}
     \item \underline{I01T03ST01} - Reunión la primer semana: 3hs.
     \item \underline{I01T03ST02} - Reunión la segunda semana: 2hs.
     \item \underline{I01T03ST03} - Reunión la tercer semana: 2hs.
   \end{itemize}
+\hfill
 
-\item \underline{I01T04} - Identificación y descripción de los atributos de calidad del sistema: 40hs.
+\item \underline{I01T04} - Identificación y descripción de los atributos de calidad del sistema: \textbf{40hs}.
   \begin{itemize}
     \item \underline{I01T04ST01} - Cotejamiento de los atributos definidos por stakeholders en QAW y relación con los casos de uso definidos: 16hrs.
     \item \underline{I01T04ST02} - Descripción de escenarios de atributos de calidad: 20hs.
     \item \underline{I01T04ST03} - Verificación de la documentación escrita: 4hs.
   \end{itemize}
-
+\hfill
   
-\item \underline{I01T05} - Diseño de la arquitectura del sistema: 60hs.
+\item \underline{I01T05} - Diseño de la arquitectura del sistema: \textbf{60hs}.
   \begin{itemize}
     \item \underline{I01T05ST01} - Analizar los escenarios descritos en I01T04 e identificar drivers de arquitectura: 8hs. 
     \item \underline{I01T05ST02} - Estudiar y elegir patrones arquitectónicos que satisfagan los drivers identificados: 12hs.
     \item \underline{I01T05ST03} - Verificar y refinar los casos de usos y los escenarios: 10hs.
     \item \underline{I01T05ST01} - Iterar
    \end{itemize}
+\hfill
 
-\item \underline{I01T06} - Realización de las tareas del (CU19) Mostrando detalle minuto a minuto de la simulación: 40hs.
+\item \underline{I01T06} - Realización de las tareas del (CU2)  Obteniendo datos en tiempo real: \textbf{40hs}.
   \begin{itemize}
-    \item \underline{I01T06ST01} - 
+    \item \underline{I01T06ST01} - Reunirse con empresas que provean datos en tiempo real de la evolución de los partidos y contratar alguna: 12hs.
+    \item \underline{I01T06ST02} - Reunirse con la empresa contratada y obtener documentación técnica sobre la API que proveen: 2hs.
+    \item \underline{I01T06ST03} - Investigar la API y analizar qué datos podemos usar como input en nuestro sistema: 6hs.
+    \item \underline{I01T06ST04} - Adaptar nuestro sistema para que los desafíos en modo \emph{Liga de fantasía} utilicen los datos obtenidos a través de la api: 10hs.
+    \item \underline{I01T06ST05} - Realizar algunos desafíos y verificar que los resultados de los puntajes se condigan con lo que ocurrió en los partidos reales: 6hs.
+    \item \underline{I01T06ST06} - Corregir potenciales errores: 4hs.
   \end{itemize}
+\hfill
+
+\item \underline{I01T07} - Realización de las tareas del (CU19) Mostrando detalle minuto a minuto de la simulación: \textbf{38hs}.
+  \begin{itemize}
+    \item \underline{I01T07ST01} - Investigar el log del desarrollo anterior, cómo se genera y la calidad de la salida: 4hs.
+    \item \underline{I01T07ST02} - Reunirse con empresas desarrolladoras de engines gráficos y averiguar qué tipo de entrada necesitan: 5hs.
+    \item \underline{I01T07ST03} - Comparar el log actual con el que se necesita y definir qué es lo que falta agregar: 4hs.
+    \item \underline{I01T07ST04} - Agregar el detalle necesario al log de salida para cumplir con lo requerido por las empresas: 10hs.
+    \item \underline{I01T07ST05} - Ajustar la velocidad de salida del log para que no sea instantánea, sino minuto a minuto, y respete la nueva duración (similar a la de un partido real) de las simulaciones: 5hs.
+    \item \underline{I01T07ST06} - Realizar algunas ejecuciones de prueba y obtener logs de salida de ejemplo: 3hs.
+    \item \underline{I01T07ST07} - Corroborar con empresas proveedoras que el detalle del log obtenido sea el correcto: 2hs.    
+    \item \underline{I01T07ST08} - Corregir potenciales errores: 5hs.
+  \end{itemize}
+\hfill
+
+\item \underline{I01T08} - Realización de las tareas del (CU21) Mostrando simulación gráfica: \textbf{60hs}.
+  \begin{itemize}
+    \item \underline{I01T08ST01} - Reunirse con empresa de motor 3D y discutir sobre los requerimientos técnicos para la transmisión de video en dispositivos no soportados por el motor gráfico: 10hs.
+    \item \underline{I01T08ST02} -  
+    \item \underline{I01T08ST03} - 
+    \item \underline{I01T08ST04} - 
     
-\item \underline{I01T07} - Realización de las tareas del (CU20) Observando evento global / continental: 20hs.
-  \begin{itemize}
-    \item \underline{I01T07ST01} - 
   \end{itemize}
-  
-\item \underline{I01T08} - Realización de las tareas del (CU22) Observando la transmisión de un partido de liga: 60hs.
-  \begin{itemize}
-    \item \underline{I01T08ST01} - 
-  \end{itemize}
+\hfill
 
-\item \underline{I01T09} - Realización de las tareas del (CU2)  Obteniendo datos en tiempo real: 40hs.
+
+\item \underline{I01T09} - Realización de las tareas del (CU22) Observando la transmisión de un partido de liga: \textbf{60hs}.
   \begin{itemize}
-    \item \underline{I01T09ST01} - 
+    \item \underline{I01T09ST01} - Reunirse con la empresa dueña de los derechos de televisión y la empresa proveedora de infraestructura para definir sus requerimientos y necesidades: 10hs.
+    \item \underline{I01T09ST02} - 
   \end{itemize}
+\hfill
+
   
-\item \underline{I01T10} - Realización de las tareas del (CU21) Mostrando simulación gráfica: 60hs.
-  \begin{itemize}
-    \item \underline{I01T10ST01} - 
-  \end{itemize}
   
 \end{itemize}
