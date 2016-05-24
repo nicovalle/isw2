@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Ingeniera de Software II TP 2" company="Los pibes de Javier" webLink="http://www.isw2.com.ar" view-date="2016-05-23" view-index="0" gantt-divider-location="321" resource-divider-location="300" version="2.7.2" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Ingeniera de Software II TP 2" company="" webLink="http://www.isw2.com.ar" view-date="2016-05-24" view-index="1" gantt-divider-location="321" resource-divider-location="300" version="2.7.2" locale="en_US">
     <description/>
     <view zooming-state="default:0" id="gantt-chart">
         <field id="tpd3" name="Name" width="42" order="0"/>
