@@ -1,4 +1,6 @@
-\section{Escenarios}
+\section{Atributos de calidad}
+
+En esta sección se presentan los atributos de calidad identificados en el TP (ordenados según la prioridad definida por los \emph{stakeholders} en el \emph{Quality Attribute Workshop}), junto a sus respectivos escenarios.
 
 \subsection{Disponibilidad}
 
@@ -7,11 +9,11 @@
 
 \item El sistema tiene que estar andando todo el tiempo.
 \item Cantidad de usuarios limitada - máxima por servidor
-\item Múltiples nodos distribuídos de pocos usuarios cada uno.
+\item Múltiples nodos distribuidos de pocos usuarios cada uno.
 \item Los partidos streameados deben darse en excelente calidad sin cortes.
-\item Cuando ninguno de los motores gráficos se encuentra disponible, debe usarse el streaming del engine 3d.
-\item Debe esforzarse por respetar a los países en los que su legislacion no permite que directamente se ingrese al sitio.
-\item Debe ser fácil desactivar una cuenta por un tiempo sin poder reactivarla tanto para usuarios adictos en recuperación como para usuarios de países en los que no está disponible el sitio.
+\item Cuando ninguno de los motores gráficos se encuentra disponible, debe usarse el streaming del engine 3D.
+\item Debe esforzarse por respetar a los países en los que la legislación vigente no permite directamente que se ingrese al sitio.
+\item Debe ser fácil desactivar una cuenta por un tiempo, sin poder reactivarla, tanto para usuarios adictos en recuperación como para usuarios de países en los que no está disponible el sitio.
 \end{itemize}
 
 % \begin{center}
@@ -30,13 +32,13 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & En caso de saturación de un nodo, debe direccionarse la conexión a otro nodo.\\  \hline
-	\textbf{Fuente} & Usuario\\  \hline
+	\textbf{Descripción} & En caso de saturación de un nodo, deben direccionarse nuevas conexiones a otro nodo.\\  \hline
+	\textbf{Fuente} & Usuario\\ \hline
 	\textbf{Estímulo} & Se realiza un request al sistema.\\  \hline
 	\textbf{Entorno} & Nodo saturado\\  \hline
-	\textbf{Artefacto} & UN ARTEFACTO\\  \hline
+	\textbf{Artefacto} & Nodo del sistema\\  \hline
 	\textbf{Respuesta} & Se selecciona un nuevo nodo regional y se continúa el servicio mediante una conexión con él.\\  \hline
-	\textbf{Medición} & El 99.99 \% de las conexiones se realizan sin inconveniente alguno y de forma transpartente al usuario.\\  \hline
+	\textbf{Medición} & El 99.99 \% de las nuevas conexiones se realizan sin inconveniente alguno y de forma transparente al usuario.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -44,12 +46,12 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & Los streams de partidos se realizan con la menor cantidad de cortes posibles.\\  \hline
+	\textbf{Descripción} & Los streamings de partidos se realizan con la menor cantidad de cortes posibles.\\  \hline
 	\textbf{Fuente} & Usuario\\  \hline
-	\textbf{Estímulo} & Stream de un partido\\  \hline
+	\textbf{Estímulo} & Solicita ver el streaming de un partido\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
-	\textbf{Artefacto} & Streameador de videos \\  \hline
-	\textbf{Respuesta} & Se realizan los cálculos pertinentes para determinar el ancho de banda del usuario y se comienza el stream con la calidad determinada.\\  \hline
+	\textbf{Artefacto} & Generador gráfico\\  \hline
+	\textbf{Respuesta} & Se realizan los cálculos pertinentes para determinar el ancho de banda del usuario y se comienza el streaming con la calidad determinada.\\  \hline
 	\textbf{Medición} & Se produce a lo sumo un corte con duración menor a 5 segundos por transmisión.\\  \hline
   \end{tabular}
 \end{center}
@@ -57,13 +59,13 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & Si los motores gráficos para una simulación no están disponibles, debe realizarse un streaming del engine 3d para la simulación. \\  \hline
-	\textbf{Fuente} & Usuario\\  \hline
-	\textbf{Estímulo} & Observación de una simulación\\  \hline
-	\textbf{Entorno} & Motores gráficos del dispositivo no disponibles.\\  \hline
+	\textbf{Descripción} & Si el dispositivo no está soportado por los motores gráficos, debe realizarse un streaming del engine 3D para la simulación. \\  \hline
+	\textbf{Fuente} & Usuario \\  \hline
+	\textbf{Estímulo} & Desea realizar una simulación\\  \hline
+	\textbf{Entorno} & Dispositivo imposibilitado para utilizar el motor gráfico.\\  \hline
 	\textbf{Artefacto} & Generador gráfico\\  \hline
-	\textbf{Respuesta} & Ante la detección de la imposibilidad de usar los motores gráficos en el dispositivo, se activa el stream del engine 3d de la simulación.\\  \hline
-	\textbf{Medición} & Se trasmite la simulación sin mayor inconvenientes en el 99\% de los casos.\\  \hline
+	\textbf{Respuesta} & Ante la detección de la imposibilidad de usar los motores gráficos en el dispositivo, se activa el streaming del engine 3D de la simulación.\\  \hline
+	\textbf{Medición} & Se trasmite la simulación 3D sin inconvenientes en el 99\% de los casos.\\  \hline
   \end{tabular}
 \end{center}  
 
@@ -375,10 +377,3 @@
 	\textbf{Medición} & En menos de de un minuto el administrador puede consultar la información que requiere del dashboard.\\  \hline
   \end{tabular}
 \end{center}
-
-
-
-
-
-
-

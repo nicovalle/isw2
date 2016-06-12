@@ -1,0 +1,1 @@
+* Los motores gráficos deberían poder correr también en los celulares. En caso de que estos no estén soportados, se debe realizar una transmisión de la simulación desde nuestros servidores.
