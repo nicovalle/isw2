@@ -90,6 +90,16 @@ Realizando \emph{zoom} sobre el \emph{Simulador de Minutos}, vemos que se descom
 \newpage
 \subsection{Generador Gráfico}
 \begin{center}
-\includegraphics[scale=0.90,angle=90]{diagramas/generador_grafico}
+\includegraphics[scale=0.86,angle=90]{diagramas/generador_grafico}
 \label{fig:generador_grafico}
 \end{center}
+
+Cuando un usuario solicite ver una simulación, será el \emph{Identificador de Dispositivo} el primero en recibir este pedido, y analizar las capacidades gráficas con las que cuenta el aparato en cuestión.
+
+Esta información es enviada al \emph{Selector de Motor}, quien toma la decisión sobre qué motor es el más adecuado para el dispositivo que realizó la solicitud, y envía el resultado mediante un pipe al \emph{Organizador de Simulación}.
+
+Este componente es el encargado de buscar todos los datos necesarios en el repositorio \emph{Almacén de Simulaciones y Ratings}, y publicarlos con un conector Publish/Subscribe junto a la información del motor necesario.
+
+Según el tipo de motor elegido (2D, 3D), el componente adecuado (\emph{Simulador \{2D,3D\}}) lee esa información del Publish/Subscribe, y es el encargado de calcular a partir de los datos recopilados, la simulación gráfica. Este componente consulta a su propio repositorio (\emph{Almacén de Operaciones Gráficas \{2D,3D\}}), con el fin de tener un caché de aquellos cálculos que se realizan de forma más frecuente.
+
+Una vez que la simulación gráfica fue generada, este stream de datos que se calcula en tiempo real, será enviado a un último componente, el \emph{Acomodador de Simulación}, que se encargará de enviar los paquetes en orden al dispositivo (de forma parecida al protocolo de sliding window en las conexiones TCP de Internet).
