@@ -96,10 +96,30 @@ Realizando \emph{zoom} sobre el \emph{Simulador de Minutos}, vemos que se descom
 
 Cuando un usuario solicite ver una simulación, será el \emph{Identificador de Dispositivo} el primero en recibir este pedido, y analizar las capacidades gráficas con las que cuenta el aparato en cuestión.
 
-Esta información es enviada al \emph{Selector de Motor}, quien toma la decisión sobre qué motor es el más adecuado para el dispositivo que realizó la solicitud, y envía el resultado mediante un pipe al \emph{Organizador de Simulación}.
+Esta información es enviada al \emph{Selector de Motor}, quien toma la decisión sobre qué motor es el más adecuado (si es que hay uno) para el dispositivo que realizó la solicitud, y envía el resultado mediante un pipe al \emph{Organizador de Simulación}.
 
 Este componente es el encargado de buscar todos los datos necesarios en el repositorio \emph{Almacén de Simulaciones y Ratings}, y publicarlos con un conector Publish/Subscribe junto a la información del motor necesario.
 
-Según el tipo de motor elegido (2D, 3D), el componente adecuado (\emph{Simulador \{2D,3D\}}) lee esa información del Publish/Subscribe, y es el encargado de calcular a partir de los datos recopilados, la simulación gráfica. Este componente consulta a su propio repositorio (\emph{Almacén de Operaciones Gráficas \{2D,3D\}}), con el fin de tener un caché de aquellos cálculos que se realizan de forma más frecuente.
+Según el tipo de motor elegido (2D, 3D), el componente adecuado (\emph{Simulador \{2D,3D\}}) lee esa información del Publish/Subscribe, y es el encargado de calcular a partir de los datos recopilados, las instrucciones que reciben los motores gráficos de los dispositivos. Este componente consulta a su propio repositorio (\emph{Almacén de Operaciones Gráficas \{2D,3D\}}), con el fin de tener un caché de aquellos cálculos que se realizan de forma más frecuente. En el caso de que no sea posible utilizar el motor gráfico del dispositivo, un \emph{Motor 3D} en nuestros servidores recibe directamente las instrucciones para la simulación, la genera y la envía al \emph{Streamer}.
 
-Una vez que la simulación gráfica fue generada, este stream de datos que se calcula en tiempo real, será enviado a un último componente, el \emph{Acomodador de Simulación}, que se encargará de enviar los paquetes en orden al dispositivo (de forma parecida al protocolo de sliding window en las conexiones TCP de Internet).
+Una vez que las instrucciones para los motores (2D, 3D) de la simulación gráfica fueron generadas, este stream de datos que se calcula en tiempo real, será enviado a un último componente, el \emph{Acomodador de Simulación}. La función del mismo es enviar el stream como una serie de paquetes ordenados al dispositivo (de forma parecida al protocolo de sliding window en las conexiones TCP de Internet).
+
+
+\newpage
+\subsection{Streamer}
+\begin{center}
+\includegraphics[scale=0.86,angle=90]{diagramas/streamer}
+\label{fig:streamer}
+\end{center}
+
+El componente \emph{Streamer} es el encargado de realizar la transmisión de video hacia los dispositivos de los usuarios en dos casos, cuando los motores gráficos no soportan al dispositivo en cuestión, o cuando el usuario decidió ver la transmisión de un partido en vivo.
+
+El usuario (\emph{Solicitante de Transmisión}) se comunica con el sistema cuando desea ver un partido en vivo antes de que empiece, y su pedido es recibido por el \emph{Receptor Solicitud de Transmisión}, quien lo reenvía al \emph{Transmisor}. Éste se subscribe al conector \emph{Publish/Subscribe} con el tipo de evento solicitado por el usuario, y queda a la espera de que sea transmitido.
+
+Cuando alguna empresa con los derechos de transmisión de algún partido (\emph{Transmisor de Partido en Vivo}) desea ofrecerlo en nuestra plataforma, se comunica con nuestro sistema y el pedido es recibido por el \emph{Receptor de Stream en Vivo}. El receptor encola este stream en el \emph{Integrador de Publicidades en Stream}. 
+
+Este componente agrega a las transmisiones (ya sean en vivo o simulaciones) las publicidades que se encuentren activas en el repositorio \emph{Almacén de Publicidades}. Luego, se conecta mediante el conector \textbf{Publish/Subscribe} al \emph{Transmisor}, al que le deja disponible el partido con publicidades 
+integradas y listo para transmistir al \emph{Solicitante de Transmisión}.
+
+En caso de las simulaciones que no pueden ser generadas en un dispositivo, llega el pedido desde el \emph{Generador Gráfico} al \emph{Receptor de Simulaciones Gráficas}, que encola también el video listo para transmitir en el \emph{Integrador de Publicidades en Stream}.
+
