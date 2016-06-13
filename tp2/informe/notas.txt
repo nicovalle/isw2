@@ -1,0 +1,19 @@
+* Los motores gráficos deberían poder correr también en los celulares. En caso de que estos no estén soportados, se debe realizar una transmisión de la simulación desde nuestros servidores.
+
+
+* introducción CORREGIDA 
+* casos de uso CORREGIDA
+* planificación FALTA
+
+
+
+DUDAS
+* CONTROLADOR DE USUARIOS?
+* NODOS? NODOS REGIONALES?
+* Anterior riesgo 3?
+* Los resultados de los desafíos se corresponden con los datos provistos por las empresas relevadoras de datos de los partidos  ???? No es lo mismo un desafío que un partido en vivo. No es lo mismo los resultados, que los datos que se usan como input (datos jugadores)
+
+CORREGIR
+* Controlador de Alta de Usuarios
+* Flecha controlador desafíos a almacén de simulaciones
+* gestor de crédito /controlador de alta mp

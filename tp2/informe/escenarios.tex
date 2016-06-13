@@ -2,20 +2,6 @@
 
 En esta sección se presentan los atributos de calidad identificados en el TP (ordenados según la prioridad definida por los \emph{stakeholders} en el \emph{Quality Attribute Workshop}), junto a sus respectivos escenarios.
 
-\subsection{Disponibilidad}
-
-\textbf{Motivos}
-\begin{itemize}
-
-\item El sistema tiene que estar andando todo el tiempo.
-\item Cantidad de usuarios limitada - máxima por servidor
-\item Múltiples nodos distribuidos de pocos usuarios cada uno.
-\item Los partidos streameados deben darse en excelente calidad sin cortes.
-\item Cuando ninguno de los motores gráficos se encuentra disponible, debe usarse el streaming del engine 3D.
-\item Debe esforzarse por respetar a los países en los que la legislación vigente no permite directamente que se ingrese al sitio.
-\item Debe ser fácil desactivar una cuenta por un tiempo, sin poder reactivarla, tanto para usuarios adictos en recuperación como para usuarios de países en los que no está disponible el sitio.
-\end{itemize}
-
 % \begin{center}
 %   \begin{tabular}{| l | p{10cm} | }
 %     \hline
@@ -29,6 +15,20 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 %   \end{tabular}
 % \end{center} 
 
+\subsection{Disponibilidad}
+
+\subsubsection*{Motivación}
+\begin{itemize}
+\item El sistema tiene que estar andando todo el tiempo.
+\item Cantidad de usuarios limitada - máxima por servidor
+\item Múltiples nodos distribuidos de pocos usuarios cada uno.
+\item Los partidos streameados deben darse en excelente calidad sin cortes.
+\item Cuando ninguno de los motores gráficos se encuentra disponible, debe usarse el streaming del engine 3D.
+\item Debe esforzarse por respetar a los países en los que la legislación vigente no permite directamente que se ingrese al sitio.
+\item Debe ser fácil desactivar una cuenta por un tiempo, sin poder reactivarla, tanto para usuarios adictos en recuperación como para usuarios de países en los que no está disponible el sitio.
+\end{itemize}
+
+\subsubsection*{Escenarios}
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
@@ -59,12 +59,12 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & Si el dispositivo no está soportado por los motores gráficos, debe realizarse un streaming del engine 3D para la simulación. \\  \hline
+	\textbf{Descripción} & Si los motores gráficos para una simulación no están disponibles, debe realizarse un streaming del engine 3D para la simulación. \\  \hline
 	\textbf{Fuente} & Usuario \\  \hline
-	\textbf{Estímulo} & Desea realizar una simulación\\  \hline
-	\textbf{Entorno} & Dispositivo imposibilitado para utilizar el motor gráfico.\\  \hline
+	\textbf{Estímulo} & Intenta observar una simulación\\  \hline
+	\textbf{Entorno} & Motores gráficos del dispositivo no disponibles.\\  \hline
 	\textbf{Artefacto} & Generador gráfico\\  \hline
-	\textbf{Respuesta} & Ante la detección de la imposibilidad de usar los motores gráficos en el dispositivo, se activa el streaming del engine 3D de la simulación.\\  \hline
+	\textbf{Respuesta} & Ante la detección de la imposibilidad de utilizar los motores gráficos en el dispositivo, se activa el streaming del engine 3D de la simulación.\\  \hline
 	\textbf{Medición} & Se trasmite la simulación 3D sin inconvenientes en el 99\% de los casos.\\  \hline
   \end{tabular}
 \end{center}  
@@ -91,7 +91,7 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 	\textbf{Entorno} & Normal\\  \hline
 	\textbf{Artefacto} & Controlador de Alta de Usuarios\\  \hline
 	\textbf{Respuesta} & Se le niega el acceso al sistema.\\  \hline
-	\textbf{Medición} & En el 99.9999 \% de los casos de intento de conexión de un usuario identificado como adicto en recuperación se le niega el acceso al sistema.\\  \hline
+	\textbf{Medición} & En el 99.9999 \% de los casos de intento de conexión proveniente de un usuario identificado como adicto en recuperación, se le niega el acceso al sistema con un cartel informativo.\\  \hline
   \end{tabular}
 \end{center}  
 
@@ -104,34 +104,34 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 	\textbf{Entorno} & Normal\\  \hline
 	\textbf{Artefacto} & Controlador de Alta de Usuarios\\  \hline
 	\textbf{Respuesta} & Se le niega el acceso al sistema.\\  \hline
-	\textbf{Medición} & En el 99.9999 \% de los casos de intento de conexión desde un país que no permite el acceso al sitio se bloquea.\\  \hline
+	\textbf{Medición} & En el 99.9999 \% de los casos de intento de conexión proveniente de un país que no permite el acceso al sitio, se le niega el accesso y se le muestra un cartel informativo.\\  \hline
   \end{tabular}
 \end{center} 
 
 
 \subsection{Seguridad}
 
-\textbf{Motivos}
+\subsubsection*{Motivación}
 \begin{itemize}
-
 \item Todo lo relativo al manejo del dinero (depósito y retiro de los participantes vía tarjeta de crédito o caja de ahorro) deber ser seguro y transparente.
-\item Se teme por la seguridad de los datos de los usuario, tanto por el robo de la información de las tarjetas de crédito o cajas de ahorro como de la explotación de los datos de los usuarios por terceros para fines no autorizados.
-\item Se teme por el resultado de los desafíos, el pago/cobro a los participantes y la coherencia con los datos provenientes de las empresas que relevan los resultados de los partidos.
-\item Se teme por la transparencia del funcionamiento de las simulaciones. 
-\item Los módulos de las simulaciones deben ser inspeccionados fácilmente por entidades de control.
-\item Se debe loguear todo movimiento de dinero para evitar cualquier tipo de evasión impositiva.
+\item Se teme por la seguridad de los datos de los usuarios, tanto por el robo de la información de las tarjetas de crédito o cajas de ahorro como de la explotación de los datos de los usuarios por terceros para fines no autorizados.
+\item Preocupa el resultado de los desafíos, por el pago/cobro a los participantes, y la coherencia con los datos provenientes de las empresas que relevan los resultados de los partidos.
+\item Es importante proveer transparencia acerca del funcionamiento de las simulaciones. 
+\item Los módulos de las simulaciones deben poder ser inspeccionados fácilmente por entidades de control.
+\item Se debe loggear todo movimiento de dinero para evitar cualquier tipo de evasión impositiva.
 \end{itemize}
 
+\subsubsection*{Escenarios}
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
 	\textbf{Descripción} & La información de los medios de pago de los usuarios está protegida contra el robo de datos\\  \hline
 	\textbf{Fuente} & Atacante externo\\  \hline
-	\textbf{Estímulo} & Intenta vulnerar la información de medios de pago de los usuarios mediante la desencriptación de los datos.\\  \hline
+	\textbf{Estímulo} & Intenta vulnerar la información de medios de pago de los usuarios mediante el descifrado de los datos.\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
-	\textbf{Artefacto} & Controlador de Medios de pago\\  \hline
-	\textbf{Respuesta} & Los datos no son accesibles al atacante en tiempos razonables.\\  \hline
-	\textbf{Medición} & En el 99.99 \% los ataques no son exitosos.\\  \hline
+	\textbf{Artefacto} & Datos del Almacén de información de crédito \\  \hline
+	\textbf{Respuesta} & Los datos en texto plano no son accesibles al atacante en tiempos razonables.\\  \hline
+	\textbf{Medición} & En el 99.9999 \% de los casos, los ataques no son exitosos.\\  \hline
   \end{tabular}
 \end{center}
 
@@ -143,8 +143,8 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 	\textbf{Estímulo} & Se apuesta dinero o se recibe un pago.\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
 	\textbf{Artefacto} & Gestor de crédito\\  \hline
-	\textbf{Respuesta} & Se realiza correctamente el movimiento y se loguea un registro con los datos de la transacción\\  \hline
-	\textbf{Medición} & El registro se guarda correctamente en el 99.99 \% de los casos.\\  \hline
+	\textbf{Respuesta} & Se realiza correctamente el movimiento y se loggea un registro con los datos de la transacción\\  \hline
+	\textbf{Medición} & El registro se guarda correctamente en el 99.999 \% de los casos.\\  \hline
   \end{tabular}
 \end{center}  
 
@@ -155,8 +155,8 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 	\textbf{Fuente} & Usuario\\  \hline
 	\textbf{Estímulo} & Intenta obtener los datos de pago de otro usuario.\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
-	\textbf{Artefacto} & Controlador de Medios de pago\\  \hline
-	\textbf{Respuesta} & Se rechaza el intento y se persiste un registro de la solicitud.\\  \hline
+	\textbf{Artefacto} & Gestor de crédito\\  \hline
+	\textbf{Respuesta} & Se rechaza el intento y se loggea un registro de la solicitud.\\  \hline
 	\textbf{Medición} & La solicitud se rechaza un 99.99 \% de las veces.\\  \hline
   \end{tabular}
 \end{center}
@@ -195,24 +195,26 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 	\textbf{Fuente} & Usuario\\  \hline
 	\textbf{Estímulo} & Intenta consultar o modificar sus datos de medios de pago\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
-	\textbf{Artefacto} & Controlador de Medios de pago\\  \hline
+	\textbf{Artefacto} & Controlador de Alta de Medios de pago\\  \hline
 	\textbf{Respuesta} & Se autoriza el acceso.\\  \hline
-	\textbf{Medición} & La solicitud se autoriza 99.99 \% de las veces.\\  \hline
+	\textbf{Medición} & La solicitud se autoriza 99.9999 \% de las veces.\\  \hline
   \end{tabular}
 \end{center} 
 
-\begin{center}
-  \begin{tabular}{| l | p{10cm} | }
-    \hline
-	\textbf{Descripción} & Un usuario puede acceder a sus datos de medio sde pago\\  \hline
-	\textbf{Fuente} & Usuario\\  \hline
-	\textbf{Estímulo} & Intenta consultar o modificar sus datos de medios de pago\\  \hline
-	\textbf{Entorno} & Normal\\  \hline
-	\textbf{Artefacto} & Controlador de Medios de pago\\  \hline
-	\textbf{Respuesta} & Se autoriza el acceso.\\  \hline
-	\textbf{Medición} & La solicitud se autoriza 99.99 \% de las veces.\\  \hline
-  \end{tabular}
-\end{center}
+
+%%% REPETIDO!
+%\begin{center}
+%  \begin{tabular}{| l | p{10cm} | }
+%    \hline
+%	\textbf{Descripción} & Un usuario puede acceder a sus datos de medios de pago\\  \hline
+%	\textbf{Fuente} & Usuario\\  \hline
+%	\textbf{Estímulo} & Intenta consultar o modificar sus datos de medios de pago\\  \hline
+%	\textbf{Entorno} & Normal\\  \hline
+%	\textbf{Artefacto} & Controlador de Medios de pago\\  \hline
+%	\textbf{Respuesta} & Se autoriza el acceso.\\  \hline
+%	\textbf{Medición} & La solicitud se autoriza 99.99 \% de las veces.\\  \hline
+%  \end{tabular}
+%\end{center}
 
 
 \begin{center}
@@ -220,9 +222,9 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
     \hline
 	\textbf{Descripción} & El funcionamiento de los módulos de simulación es el esperado\\  \hline
 	\textbf{Fuente} & Auditor\\  \hline
-	\textbf{Estímulo} & Prueba los módulos en sistemas testigos\\  \hline
+	\textbf{Estímulo} & Prueba los módulos en servidores testigo\\  \hline
 	\textbf{Entorno} & Entorno de prueba\\  \hline
-	\textbf{Artefacto} & Calculador de simulación\\  \hline
+	\textbf{Artefacto} & Calculador de jugadas\\  \hline
 	\textbf{Respuesta} & Se ejecutan los casos de prueba de los sistemas testigos.\\  \hline
 	\textbf{Medición} & Se superan todos los casos de prueba de los sistemas testigos.\\  \hline
   \end{tabular}
@@ -231,13 +233,13 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & El software instalado en los servidor del sistema se corresponden con el desarrollado por el equipo de desarrollo.\\  \hline
+	\textbf{Descripción} & El software instalado en los servidores del sistema se corresponde con el realizado por el equipo de desarrollo.\\  \hline
 	\textbf{Fuente} & Auditor y equipo de desarrollo\\  \hline
-	\textbf{Estímulo} & Se compara el software de los servidores con el desarrollado.\\  \hline
+	\textbf{Estímulo} & Se ejecutan mecanismos de hashing para comprar los componentes.\\  \hline
 	\textbf{Entorno} & Entorno de prueba\\  \hline
 	\textbf{Artefacto} & Sistema\\  \hline
-	\textbf{Respuesta} & Se ejecutan mecanismos de hashing para comparar los componentes.\\  \hline
-	\textbf{Medición} & En todos los casos el hash del software de los servidores se corresponde con el hash esperado por el equipo de desarrollo.\\  \hline
+	\textbf{Respuesta} & Se obtiene el hash del software instalado en los servidores.\\  \hline
+	\textbf{Medición} & En todos los casos el hash obtenido es igual al hash esperado por el equipo de desarrollo.\\  \hline
   \end{tabular}
 \end{center}  
 
@@ -245,36 +247,38 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 
 
 \subsection{Modificabilidad}
-\textbf{Motivos}
+
+\subsubsection*{Motivación}
 \begin{itemize}
-\item Se debe poder agregar fácilmente nuevos deportes
+\item Se deben poder agregar fácilmente nuevos deportes
 \item Debe resultar fácil modificar las simulaciones con el fin de mejorarlas.
-\item Los datos del sitio deben ser fácilmente minados y además debe poder crearse fácilmente reportes a partir de ellos.
-\item Se debe poder modificar fácilmente las publicidades tanto de las simulaciones, como del sistema.
+\item Los datos del sitio deben ser fácilmente minados, y además debe poder crearse fácilmente reportes a partir de ellos.
+\item Se deben poder modificar fácilmente las publicidades, tanto de las simulaciones como del sistema.
 \end{itemize}
 
+\subsubsection*{Escenarios}
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
 	\textbf{Descripción} & Es fácil agregar un nuevo deporte al sistema.\\  \hline
 	\textbf{Fuente} & Desarrollador\\  \hline
-	\textbf{Estímulo} & Se introduce un nuevo deporte al sistema.\\  \hline
+	\textbf{Estímulo} & Introduce un nuevo deporte al sistema.\\  \hline
 	\textbf{Entorno} & Tiempo de desarrollo y diseño\\  \hline
 	\textbf{Artefacto} & Sistema\\  \hline
 	\textbf{Respuesta} & Los cambios se agregan sin ninguna complicación y se pueden realizar simulaciones del nuevo deporte.\\  \hline
-	\textbf{Medición} & En menos de 40 horas hombre debe poder realizarse la integración del nuevo deporte al sistema sin afectar negativamente a las funcionalidades que ya se proveían. El grueso del costo temporal se dedica al modelado y relevado del deporte en cuestión y no en la integración al sistema.\\  \hline
+	\textbf{Medición} & En menos de 40 horas hombre debe poder realizarse la integración del nuevo deporte al sistema sin afectar negativamente a las funcionalidades previamente provistas. El grueso del costo temporal se dedica al modelado y relevado del deporte en cuestión y no a la integración en el sistema.\\  \hline
   \end{tabular}
 \end{center}
 
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & Se puede modificar fácilmente las simulaciones para mejorarlas.\\  \hline
+	\textbf{Descripción} & Se pueden modificar fácilmente las simulaciones para mejorarlas.\\  \hline
 	\textbf{Fuente} & Desarrollador\\  \hline
-	\textbf{Estímulo} & Se introducen cambios al módulo de simulación.\\  \hline
+	\textbf{Estímulo} & Introduce cambios en el módulo de simulación.\\  \hline
 	\textbf{Entorno} & Tiempo de desarrollo y diseño\\  \hline
 	\textbf{Artefacto} & Sistema\\  \hline
-	\textbf{Respuesta} & Los cambios se agregan sin ninguna complicación y la nueva versión del simulador inmediatamente se pone en marcha.\\  \hline
+	\textbf{Respuesta} & Los cambios se agregan sin ninguna complicación, y la nueva versión del simulador inmediatamente se pone en marcha.\\  \hline
 	\textbf{Medición} & En menos de 50 horas hombre se pueden agregar cambios a los módulos de simulación.\\  \hline
   \end{tabular}
 \end{center}
@@ -284,34 +288,34 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
     \hline
 	\textbf{Descripción} & Se pueden agregar nuevos reportes de manera fácil y rápida.\\  \hline
 	\textbf{Fuente} & Desarrollador\\  \hline
-	\textbf{Estímulo} & Se introducen un nuevo reporte.\\  \hline
+	\textbf{Estímulo} & Intorudce un nuevo reporte.\\  \hline
 	\textbf{Entorno} & Tiempo de desarrollo y diseño\\  \hline
 	\textbf{Artefacto} & Sistema\\  \hline
 	\textbf{Respuesta} & Se realiza el reporte y se lo agrega al sistema sin ningún incoveniente.\\  \hline
-	\textbf{Medición} & En menos de 50 se puede generar un nuevo reporte con los datos persistidos en el sistema.\\  \hline
+	\textbf{Medición} & En menos de 30 horas hombres se puede generar un nuevo reporte con los datos persistidos en el sistema.\\  \hline
   \end{tabular}
 \end{center}
 
 \subsection{Performance}
 
-\textbf{Motivos}
+\subsubsection*{Motivación}
 \begin{itemize}
 \item Se requiere que las transmisiones de los partidos se realicen con excelente calidad y sin cortes.
 \item Las simulaciones deben realizarse en tiempo real minuto a minuto.
 \item Los eventos globales deben funcionar correctamente.
 \end{itemize}
 
-
+\subsubsection*{Escenarios}
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-	\textbf{Descripción} & En lo posible las simulaciones se grafican en los dispositivos del usuario y no en el sistema.\\  \hline
+	\textbf{Descripción} & En lo posible las simulaciones se grafican en los dispositivos del usuario y no en el sistema.\\ \hline
 	\textbf{Fuente} & Usuario\\  \hline
 	\textbf{Estímulo} & Visualiza una simulación.\\  \hline
 	\textbf{Entorno} & Normal\\  \hline
 	\textbf{Artefacto} & Graficador de simulaciones\\  \hline
-	\textbf{Respuesta} & Se envían solamente los datos necesarios para que el engine opere en el dispositivo del cliente.\\  \hline
-	\textbf{Medición} & En 9 de cada 10 dispositivos se grafica la simulación en alguno de los dos motores gráficos en vez de streamear el engine 3d.\\  \hline
+	\textbf{Respuesta} & Se envían solamente los datos necesarios para que el engine opere en el dispositivo del cliente.\\ \hline
+	\textbf{Medición} & En 9 de cada 10 dispositivos se grafica la simulación en alguno de los dos motores gráficos en vez de streamear el engine 3D.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -344,13 +348,13 @@ En esta sección se presentan los atributos de calidad identificados en el TP (o
 
 \subsection{Usabilidad}
 
-\textbf{Motivos}
+\subsubsection*{Motivación}
 \begin{itemize}
 \item{Debe resultar simple y rápido crear equipos y participar de desafíos}
 \item{Los administradores deben poder acceder a un dashboard en tiempo real de estado de cuenta regional del sitio y de los grupos de usuarios y analizarlo fácilmente}
 \end{itemize}
 
-
+\subsubsection*{Escenarios}
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline

@@ -15,22 +15,21 @@ que detalla el manejo del streaming de partidos/simulaciones a todas las regione
 \textbf{\underline{Plan de Contingencia}}: Contratar los servicios de una empresa especializada en el tema
 que se encargue del desarrollo.
 
+%\subsection*{Riesgo 2}
+%\textbf{\underline{Descripción}}: Los datos correspondientes a los medios de pago, es decir, tarjetas de crédito y números de cuentas bancarias, deben almacenarse de forma segura y confidencial a modo de evitar ataques destinados al robo de información. Dada la sensibilidad de la información no sería totalmente inesperado ser objeto de un ataque.
+
+%\textbf{\underline{Probabilidad}}: Baja
+
+%\textbf{\underline{Impacto}}: Alto
+
+%\textbf{\underline{Exposición}}: Media
+
+%\textbf{\underline{Mitigación}}: Encriptar los datos de los medios de pago de los participantes y de los canales de comunicación de la plataforma. Además, agregar mecanismos verificación de la identidad de los participantes.
+
+%\textbf{\underline{Plan de Contingencia}}: En caso de detección de ataque, aislar los servidores donde se guardan los datos, desconectándolos del sistema, hasta tanto no se haya resuelto la intromisión.
+
+
 \subsection*{Riesgo 2}
-\textbf{\underline{Descripción}}: Los datos correspondientes a los medios de pago, es decir, tarjetas de crédito
-y números de cuentas bancarias, deben almacenarse de forma segura y confidencial a modo de evitar ataques destinados al robo de información. Dada la sensibilidad de la información no sería totalmente inesperado ser objeto de un ataque.
-
-\textbf{\underline{Probabilidad}}: Baja
-
-\textbf{\underline{Impacto}}: Alto
-
-\textbf{\underline{Exposición}}: Media
-
-\textbf{\underline{Mitigación}}: Encriptar los datos de los medios de pago de los participantes y de los canales de comunicación de la plataforma. Además, agregar mecanismos verificación de la identidad de los participantes.
-
-\textbf{\underline{Plan de Contingencia}}: En caso de detección de ataque, aislar los servidores donde se guardan los datos, desconectándolos del sistema, hasta tanto no se haya resuelto la intromisión.
-
-
-\subsection*{Riesgo 3}
 \textbf{\underline{Descripción}}: Es importante que el sistema esté disponible la mayor cantidad del tiempo posible. Hay que tener especial cuidado ya que se rumorea que los servidores de la empresa proveedora de servicios se caen sin previo aviso, y la caída del sistema implicaría pérdida de dinero.
 
 \textbf{\underline{Probabilidad}}: Media
@@ -44,7 +43,7 @@ y números de cuentas bancarias, deben almacenarse de forma segura y confidencia
 \textbf{\underline{Plan de Contingencia}}: Contratar otra empresa proveedora de servicios, ya sea como respaldo o reemplazando a la actual como proveedora principal.
 
 
-\subsection*{Riesgo 4} 
+\subsection*{Riesgo 3} 
 \textbf{\underline{Descripción}}: La trasmisión de la partidos debe hacerse con la mejor calidad posible y sin cortes ya que no hacerlo impediría cumplir con el estándar de calidad que exigen las ligas para mantener los derechos de transmisión.
 
 \textbf{\underline{Probabilidad}}: Media
@@ -53,27 +52,27 @@ y números de cuentas bancarias, deben almacenarse de forma segura y confidencia
 
 \textbf{\underline{Exposición}}: Alta
 
-\textbf{\underline{Mitigación}}: Desarrollar un mecanismo de bitrate variable para el streaming de video, dependiente de las características de la conexión de los usuarios.
+\textbf{\underline{Mitigación}}: Contratar un producto que permita ajustar el bitrate del streaming de video, dependiendo de las características de la conexión de los usuarios.
 
 \textbf{\underline{Plan de Contingencia}}: Tercerizar el streaming a través de una plataforma con harta experiencia en el tema, como YouTube o TwitchTV.
 
 
-\subsection*{Riesgo 5}
-\textbf{\underline{Descripción}}: Dado el método de definición de las simulaciones y de los desafíos, es de vital
-importancia que los datos provenientes de las empresas proveedoras de los resultados minuto a minuto de los encuentros sean totalmente confiables y representaciones correctas de los desarrollos de los encuentros de la realidad. La inconsistencia de estos datos puede traer como consecuencia resultados incorrectos en los desafíos y el pago erróneo de premios.
+% Este vuela porque no llega a exposición ALTA
+%\subsection*{Riesgo 5}
+%\textbf{\underline{Descripción}}: Dado el método de definición de las simulaciones y de los desafíos, es de vital importancia que los datos provenientes de las empresas proveedoras de los resultados minuto a minuto de los encuentros sean totalmente confiables y representaciones correctas de los desarrollos de los encuentros de la realidad. La inconsistencia de estos datos puede traer como consecuencia resultados incorrectos en los desafíos y el pago erróneo de premios.
 
-\textbf{\underline{Probabilidad}}: Baja
+%\textbf{\underline{Probabilidad}}: Baja
 
-\textbf{\underline{Impacto}}: Alto
+%\textbf{\underline{Impacto}}: Alto
 
-\textbf{\underline{Exposición}}: Media
+%\textbf{\underline{Exposición}}: Media
 
-\textbf{\underline{Mitigación}}: Diseñar un mecanismo de transmisión de los datos de las empresas proveedoras de los resultados minuto a minuto que sea confiable, íntegro y seguro. Además, desarrollar un algoritmo que se base en contrastar los resultados provistos por más de una empresa para el mismo encuentro con el fin de detectar inconsistencias.
+%\textbf{\underline{Mitigación}}: Diseñar un mecanismo de transmisión de los datos de las empresas proveedoras de los resultados minuto a minuto que sea confiable, íntegro y seguro. Además, desarrollar un algoritmo que se base en contrastar los resultados provistos por más de una empresa para el mismo encuentro con el fin de detectar inconsistencias.
 
-\textbf{\underline{Plan de Contingencia}}: Deshabilitar el minuto a minuto en el momento en el que se desconfíe de los datos y congelar los pagos, hasta tanto no se solucione el tema. En tal situación, los resultados de los desafíos se definirán basados en los datos que se puedan obtener luego de los encuentros, en cuyo caso pueden validarse de manera más fácil.
+%\textbf{\underline{Plan de Contingencia}}: Deshabilitar el minuto a minuto en el momento en el que se desconfíe de los datos y congelar los pagos, hasta tanto no se solucione el tema. En tal situación, los resultados de los desafíos se definirán basados en los datos que se puedan obtener luego de los encuentros, en cuyo caso pueden validarse de manera más fácil.
 
 
-\subsection*{Riesgo 6}
+\subsection*{Riesgo 4}
 \textbf{\underline{Descripción}}: Es importante proveer el acceso correspondiente tanto a la plataforma en su totalidad como a sus diferentes secciones de acuerdo a la legislación vigente de cada país. No hacerlo podría incurrir en la comisión de delitos.
 
 \textbf{\underline{Probabilidad}}: Media
@@ -87,21 +86,21 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 \textbf{\underline{Plan de Contingencia}}: En caso de poseer dudas con respecto a la legalidad del funcionamiento de la plataforma en un país, impedir el ingreso al sitio hasta tanto se haya validado y consultado sobre las normativas, evitando así potenciales actos ilegales.
 
 
-\subsection*{Riesgo 7}
+\subsection*{Riesgo 5}
 \textbf{\underline{Descripción}}: Es menester mantener la transparencia de los módulos de simulaciones, a modo de evitar la interferencia de agentes externos en su ejecución. Un ataque al sistema podría involucrar la alteración del módulo de simulación, provocando la existencia de resultados adulterados.
 
-\textbf{\underline{Probabilidad}}: Baja
+\textbf{\underline{Probabilidad}}: Media
 
-\textbf{\underline{Impacto}}: Medio
+\textbf{\underline{Impacto}}: Alto
 
-\textbf{\underline{Exposición}}: Baja
+\textbf{\underline{Exposición}}: Alto
 
-\textbf{\underline{Mitigación}}: Desarrollar mecanismos de testeo de la simulación en servidores testigo donde los resultados se sepan de antemano. Diseñar un mecanismo que ante inconsistencias realice un deploy de una versión válida del módulo simulador.
+\textbf{\underline{Mitigación}}: Desarrollar mecanismos de testeo de la simulación en servidores testigo, utilizando como input un conjunto de datos para los cuales ya se conozca el resultado y contrastar. Diseñar un mecanismo que ante inconsistencias realice un deploy de una versión válida del módulo simulador.
 
-\textbf{\underline{Plan de Contingencia}}: Prohibir la realización de simulaciones hasta tanto se verifique el correcto funcionamiento del módulo correspondiente.
+\textbf{\underline{Plan de Contingencia}}: Cuando se detecte alguna incosistencia en el módulo simulación de algún servidor, inhabilitarlo y redirigir las peticiones a otro, hasta tanto se verifique el correcto funcionamiento del módulo correspondiente.
 
 
-\subsection*{Riesgo 8}
+\subsection*{Riesgo 6}
 \textbf{\underline{Descripción}}: Los stakeholders quieren tener confianza en que vamos a ser capaces de guardar los datos de tarjetas de crédito, como hacen otros sitios exitosos. Si no nos mostramos seguros, pueden darle (parte de) el proyecto a otro equipo de desarrollo.
 
 \textbf{\underline{Probabilidad}}: Baja.
@@ -117,11 +116,11 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 \subsection*{Riesgo 9}
 \textbf{\underline{Descripción}}: Los distintos sponsors tienen intereses distintos, algunos de ellos contrapuestos. Por ejemplo, las empresas televisivas están en contra de las simulaciones. Puede ser que parte del proyecto cambie o se cancele.
 
-\textbf{\underline{Probabilidad}}: Baja.
+\textbf{\underline{Probabilidad}}: Media.
 
-\textbf{\underline{Impacto}}: Medio.
+\textbf{\underline{Impacto}}: Alta.
 
-\textbf{\underline{Exposición}}: Baja.
+\textbf{\underline{Exposición}}: Alta.
 
 \textbf{\underline{Mitigación}}: Mantener reuniones periódicas con los sponsors para convencerlos de que ambas funcionalidades son buenas para el proyecto.
 
@@ -132,9 +131,9 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 
 \textbf{\underline{Probabilidad}}: Media.
 
-\textbf{\underline{Impacto}}: Medio.
+\textbf{\underline{Impacto}}: Alto.
 
-\textbf{\underline{Exposición}}: Media.
+\textbf{\underline{Exposición}}: Alto.
 
 \textbf{\underline{Mitigación}}: Mantener comunicación fluida con los stakeholders para estar al tanto de sus decisiones y lograr que las comuniquen lo antes posible.
 
@@ -143,7 +142,7 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 \subsection*{Riesgo 11}
 \textbf{\underline{Descripción}}: El equipo nunca trabajó con esta metodología. Puede ocurrir que la adaptación lleve más tiempo de lo planeado.
 
-\textbf{\underline{Probabilidad}}: Media.
+\textbf{\underline{Probabilidad}}: Alta.
 
 \textbf{\underline{Impacto}}: Medio.
 
@@ -156,15 +155,15 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 \subsection*{Riesgo 12}
 \textbf{\underline{Descripción}}: El equipo tuvo problemas de comunicación antes. Si se repiten, pueden afectar todo el trabajo. Trabajamos mucho de manera remota y tenemos distintos horarios.
 
-\textbf{\underline{Probabilidad}}: Media.
+\textbf{\underline{Probabilidad}}: Alta.
 
 \textbf{\underline{Impacto}}: Alto.
 
 \textbf{\underline{Exposición}}: Alta.
 
-\textbf{\underline{Mitigación}}: Reuniones periódicas e intercambio de mails diarios.
+\textbf{\underline{Mitigación}}: Reuniones periódicas (semanales) e intercambio fluido de mails.
 
-\textbf{\underline{Plan de contingencia}}: Reuniones de emergencia y buscar vías de comunicación instantáneas, como chats y teléfono.
+\textbf{\underline{Plan de contingencia}}: Reuniones de emergencia (en caso de que algún miembro se encuentre imposibilitado para seguir con sus tareas asignadas) y buscar vías de comunicación instantáneas, como chats y teléfono.
 
 \subsection*{Riesgo 13}
 \textbf{\underline{Descripción}}: Es probable que la planificación no sea exacta, tanto en las tareas como en los tiempos pensados para cada una.
@@ -175,7 +174,7 @@ importancia que los datos provenientes de las empresas proveedoras de los result
 
 \textbf{\underline{Exposición}}: Alta.
 
-\textbf{\underline{Mitigación}}: Sobreestimar los tiempos y las dificultades.
+\textbf{\underline{Mitigación}}: Sobreestimar los tiempos y las dificultades en un 25\% de horas hombre extra.
 
 \textbf{\underline{Plan de contingencia}}: Evaluar y adaptar la planificación luego de la primera iteración.
 
