@@ -9,7 +9,7 @@ Consideramos nuestra arquitectura con un estilo predominantemente Cliente-Servid
 
 En la figura \ref{fig:arquitectura_general} se ven los principales componentes del sistema, sobre los cuales se hace zoom en las secciones posteriores, además de los repositorios utilizados para nuestra solución.
 
-\subsection{Controlador de Usuarios}
+\subsection{Controlador de Alta de Usuarios}
 \includegraphics[scale=0.65]{diagramas/controlador_de_usuarios}
 \label{fig:controlador_de_usuarios}
 
@@ -21,9 +21,40 @@ Una vez validados los datos, si el usuario incluyó en su registro un método de
 
 Por último, la tercer etapa, el \emph{Persistidor de Usuarios}, es el encargado, ya con todos los datos anteriores validados, de almacenarlos en el repositorio \emph{Almacén de Usuarios}, efectivizando así el registro del usuario.
 
+\newpage
+\subsection{Gestor de Crédito}
+\begin{center}
+\includegraphics[scale=0.80,angle=90]{diagramas/gestor_de_credito}
+\label{fig:gestor_de_credito}
+\end{center}
+
+Si un usuario desea pasar del servicio de modalidad gratuita (p.ej., en caso de no haber ingresado un medio de pago a la hora de registrarse) de nuestro sistema al servicio pago, puede realizarlo en cualquier momento (\emph{Ingresante de Medio de Pago}. El componente \emph{Controlador de Alta de Medio de Pago} es el encargado de recibir tales solicitudes, que siempre se encuentran encriptadas.
+
+Este componente cuenta de dos pasos. El primero, \emph{Validador de Medio de Pago}, se encarga de validar la información ingresada comunicándose con el correspondiente servicio de medio de pago externo. El segundo, \emph{Persistidor de Medio de Pago}, es quien -una vez todas las validaciones hayan sido corroboradas y aceptadas- persiste esta información en el \emph{Almacén de Información Crediticia}.
+
+Un usuario puede cargar crédito a su cuenta en cualquier momento (\emph{Cargador de Crédito}). Esta información llega al componente de manera encriptada, y deberá pasar por un pipeline de validaciones, que comienza en el \emph{Gestor de Cuenta}. Este primer paso consta de obtener todos los datos correspondientes a la cuenta, y validar que todavía esté activa. Una vez esta información haya sido confirmada por el \emph{Sistema de Pago (externo)}, el validador de saldo será el encargado de corroborar que la cifra a cargar en cuestión, tenga un respaldo en saldo en el edio de pago del usuario (consultando, nuevamente, al \emph{Sistema de Pago (externo)}). Si se confirma esto, el \emph{Acreditador de Saldo} será el que se comunique con el repositorio \emph{Almacén de Información Crediticia} e ingrese el nuevo saldo del usuario.
+
+Cuando un usuario administrador desee consultar los datos de alguna cuenta (\emph{Análisis de Cuentas}), lo hará a través de un componente con privilegios especiales, el \emph{Administrador de Cuenta}, que tiene la capacidad de mostrar y analizar la información crediticia de todos los usuarios. Las comunicaciones con este componente se encuentran también cifradas.
+
+\newpage
+\subsection{Gestor de Chats}
+\begin{center}
+\includegraphics[scale=0.80]{diagramas/gestor_de_chats}
+\label{fig:gestor_de_chats}
+\end{center}
+
+Los usuarios pueden escribir chats (\emph{Escritor de Chats}) o bien ser quien los recibe (\emph{Receptor de Chats}). Esto ocurre en los distintos tipos de chats que ofrece el sistema, tanto el global del desafío como el individual. 
+
+Quien desee escribirle a otro usuario, se comunicará con el \emph{Controlador de Chats}, quien validará que la persona está disponible para comunicarse en ese chat global en el caso de que sea un chat de desafío, o creará/buscará un chat con el nuevo participante en el caso de los chats individuales. Una vez validada esta información, el componente publicará mediante uno conector del tipo \textbf{Publish/Subscribe} la nueva información de chat, y será alguno de los \emph{Mensajero de Usuario} quien se encargará de ponerlo a disponibilidad del receptor. 
+
+Si el usuario receptor no está conectado para recibir el mensaje, el \emph{Mensajero de usuario} cuenta con su propio repositorio (\emph{Almacén de Mensajes Pendientes}, lo que le permite mantener control sobre los mensajes que aún le restan enviar.
+
+\newpage
 \subsection{Controlador de Desafíos}
-\includegraphics[scale=0.63]{diagramas/controlador_de_desafios}
+\begin{center}
+\includegraphics[scale=0.80,angle=90]{diagramas/controlador_de_desafios}
 \label{fig:controlador_de_desafios}
+\end{center}
 
 El \emph{Controlador de Desafíos} es ya un componente más complejo que el anterior, y ofrece diversas interacciones.
 
@@ -36,3 +67,4 @@ Estos datos, luego, pasan por un pipe al componente siguiente, quien es el encar
 Finalmente, el \emph{Generador de Chat} es quien inscribe al nuevo usuario en el chat global del desafío.
 
 Por otro lado, las noticias y comunicaciones relativas a los desafíos, estén dirigidas a usuarios inscriptos o no, son leídas por el \emph{Consumidor de Desafíos}, quien es el encargado de, a partir de los datos de los desafíos generados y las simulaciones, ofrecer la información correspondiente a quien sigue un desafío (\emph{Seguidor de Desafíos}).
+
