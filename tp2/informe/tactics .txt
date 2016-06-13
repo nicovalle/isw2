@@ -1,0 +1,77 @@
+﻿Disponibilidad:
+
+En caso de saturación de un nodo, deben direccionarse nuevas conexiones a otro nodo.
+Táctica: redundancia pasiva 
+
+Los streamings de partidos se realizan con la menor cantidad de cortes posibles.
+
+Si el dispositivo no está soportado por los motores gráficos, debe realizarse un streaming del engine 3D para la simulación.
+Táctica: 
+
+Si se detecta que los motores gráficos vuelven a estar disponibles, se los vuelve a utilizar en lugar del streaming de la simulación
+Táctica: 
+
+Si un usuario idenficado como adicto en recuperación intenta conectarse, se le niega el acceso al sistema.
+(me parece modificabilidad)
+Táctica: anticipar cambios esperados, archivos de configuración
+
+Se bloquea el acceso desde países que prohiben el uso del sistema.
+(me parece modificabilidad)
+Táctica: anticipar cambios esperados, archivos de configuración
+
+
+Seguridad 
+
+La información de los medios de pago de los usuarios está protegida contra el robo de datos
+Táctica:
+
+Los movimientos de dinero se registran en el sistema
+Táctica: audit trail 
+
+Un usuario no puede consultar los datos de pago que no le corres- ponden.
+Táctica: autorización 
+
+Los resultados de los desafíos se corresponden con los datos provistos por las empresas relevadoras de datos de los partidos
+Táctica: autenticación
+
+Se rechazan los datos de los partidos de fuentes no autenticadas correctamente
+Táctica: autenticación 
+
+Un usuario puede acceder a sus datos de medios de pago
+Táctica: autorización 
+
+El funcionamiento de los módulos de simulación es el esperado
+Táctica: UAT?
+
+El software instalado en los servidor del sistema se corresponden con el desarrollado por el equipo de desarrollo.
+Táctica: mantener integridad de datos
+
+
+Modificabilidad 
+Es fácil agregar un nuevo deporte al sistema.
+Táctica: anticipar cambios esperados, generalizar módulo
+
+Se puede modificar fácilmente las simulaciones para mejorarlas. 
+Táctica: anticipar cambios esperados, generalizar módulo
+
+Se pueden agregar nuevos reportes de manera fácil y rápida.
+Táctica: generalizar módulo?
+
+
+Performance 
+
+En lo posible las simulaciones se grafican en los dispositivos del usuario y no en el sistema.
+
+Se puede consumir la transmisión de un partido de manera rápida y con buena calidad.
+
+Los eventos globales se visualizan correctamente
+
+
+Usabilidad 
+
+Es fácil y rápido crear un equipo.
+
+Un administrador puede acceder al dashboard de estado de cuenta y de los grupos de participantes de manera rápida y simple.
+
+
+
