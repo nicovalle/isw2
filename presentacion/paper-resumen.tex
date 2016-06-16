@@ -129,21 +129,17 @@ Ingeniería de Software II - 1er Cuatrimestre 2016 \\ % Your institution for the
 \begin{frame}
 \frametitle{Dificultades esenciales vs. Dificultades accidentales}
 
-Dos tipos de dificultades, vistas a través de un prisma aristotélico:\\
-	\begin{itemize}
-		\item \textbf{Esenciales}: inherentes a la naturaleza del software; la lógica para resolver el problema.
-		\item \textbf{Accidentales}: que tienen que ver con la producción del software y que no son inherentes; el lenguaje  de programación, o el entorno de desarrollo.	
-	\end{itemize}
-\end{frame}
+Dos tipos de dificultades
+  \begin{itemize}
+    \item Esenciales
+    \item Accidentales
+  \end{itemize}
 
-\section{Esencia}
-\begin{frame}
-\frametitle{Esencia}
-
-	\begin{itemize}
-		\item \textbf{Construcción de conceptos entrelazados}: conjuntos de datos, relaciones entre elementos de datos, algoritmos e invocaciones de funciones.
-		\item \textbf{Abstracta}: la contrucción conceptual es la misma bajo muchas diferentes representaciones.				
-	\end{itemize}
+Esencia del software
+  \begin{itemize}
+	  \item Construcción de conceptos entrelazados
+	  \item Abstracta
+  \end{itemize}
 
 \textbf{La parte difícil de contruir software es la especificación, diseño y testeo de la construcción conceptual, no representar y probar la fidelidad de la representación.}
 \end{frame}
@@ -151,169 +147,53 @@ Dos tipos de dificultades, vistas a través de un prisma aristotélico:\\
 \subsection{Propiedades inherentes a la esencia del software}
 \frametitle{Propiedades inherentes a la esencia del software}
 \begin{frame}
-\frametitle{Propiedades inherentes a la esencia del software (1 / 2)}
+\frametitle{Propiedades inherentes a la esencia del software}
 \begin{itemize}
-	\item \textbf{Complejidad}:
-	  \begin{itemize}
-		  \item Las entidades de software son más complejas en tamaño que cualquier otra construcción humana.
-		  \item Los sistemas tienen gran número de estados lo que los hace difícil de concebir, describir y probar.
-		  \item Escalar software no es repetir elementos con tamaño más grande: es necesario incrementar la cantidad de elementos (ergo, sus interacciones, y su complejidad).
-	  \end{itemize}
-\item \textbf{Conformidad}:
-	  \begin{itemize}
-		  \item Mucha de la complejidad es arbitraria y viene de la mano de las interfaces con las que un sistema debe conformar.			
-	  \end{itemize}
-	
+  \item Complejidad
+  \item Conformidad
+  \item Modificabilidad
+  \item Invisibilidad
 \end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Propiedades inherentes a la esencia del software (2 / 2)}
-\begin{itemize}
-	\item \textbf{Modificabilidad}:
-			\begin{itemize}
-				\item El software de un sistema encarna su función, que es la parte que más siente el peso del cambio, en parte porque es extremadamente maleable.
-				\item A veces el cambio viene porque surgen nuevos casos que no pertenecían al dominio original.
-				\item Otras, porque el software sobrevive el ciclo de vida de la máquina para la cual fue escrito.			
-			\end{itemize}
-	\item \textbf{Invisibilidad}:
-			\begin{itemize}
-				\item El software es invisible e invisualizable.
-				\item No tiene una representación espacial.
-				\item Diagramar una estructura de software involucra diversos diargramas que miran cosas distintas.
-				\item Priva a la mente de usar algunas de sus herramientas conceptuales más potentes y dificulta el diseño y la comunicación. 			
-			\end{itemize}
-	  
-\end{itemize}
-
 \end{frame}
 
 \section{Avances pasados sobre dificultades accidentales}
 \begin{frame}
 \frametitle{Avances pasados sobre dificultades accidentales}
 \begin{itemize}
-	\item \textbf{Lenguajes de Alto Nivel}:
-			\begin{itemize}
-				\item Eliminó todo un nivel de complejidad que no era inherente al programa al encarnar las contrucciones que se querían en el programa abtracto y al ignorar los detalles de más bajo nivel.
-			\end{itemize}
-	\item \textbf{Time-Sharing}:
-			\begin{itemize}
-				\item Preserva la inmediatez, y nos permite tener en la mira a la complejidad.
-				\item Disminuye el tiempo de respuesta del sistema.
-				\item Si sigue evolucionando, eventualmente va a ser imposible notarlo y no se obtendrán más ventajas
-			\end{itemize}
-	\item \textbf{Ambientes de desarrollo unificados}:
-			\begin{itemize}
-				\item Atacan la complejidad accidental de usar programas en conjunto al proveer bibliotecas integradas, formatos unificados, etc.
-			\end{itemize}
-	  
+  \item Lenguajes de Alto Nivel
+  \item Time-Sharing
+  \item Ambientes de desarrollo unificados
+  \item Ada y otros avances en lenguajes de alto nivel
+  \item Programación Orientada a Objetos
 \end{itemize}
-
 \end{frame}
-
 
 
 \section{Hopes for the Silver}
 \begin{frame}
-  \frametitle{Hopes for the Silver (1/5)}
+  \frametitle{Hopes for the Silver}
   \begin{itemize}
-    \item \textbf{Ada y otros avances en lenguajes de alto nivel}:
-      \begin{itemize}
-	\item Ya hablamos de los lenguajes de alto nivel.
-	\item El gran avance de Ada tiene que ver con su filosofía de modularización, tipos de datos abstractos y estructuración jerárquica. 
-      \end{itemize}
-    \item \textbf{Programación Orientada a Objetos}:
-      \begin{itemize}
-	\item Dos conceptos diferentes: tipos de datos abstractos y tipos jerárquicos (o clases).
-	\item Remueven una dificultad accidental al permitirle al diseñador expresar la esencia de su diseño sin tener que usar mucha sintaxis que no suma información.
-	\item Eliminan las dificultades accidentales de la expresión del diseño a un mayor nivel, pero no la complejidad del diseño.
-      \end{itemize}
-\end{itemize}
-\end{frame}
-
-\subsection*{Hopes for the Silver}
-\begin{frame}
-  \frametitle{Hopes for the Silver (2/5)}      
-  \begin{itemize}
-    \item \textbf{Inteligencia Artificial}: (dos definiciones, según Parnas)
-      \begin{itemize}
-	\item AI-1: usar las computadoras para resolver problemas que sólo se podían resolver con inteligencia humana.
-	\item AI-2: determinar reglas y heurísticas usadas por expertos para resolver problemas, y diseñar un programa para que los resuelva de la misma manera.
-	\item Problema AI-1: algo es AI-1 hoy, pero cuando veamos cómo funciona el programa, y entendamos la solución, deja de ser AI. Además, las soluciones suelen ser específicas de un problema (image recognition, speech recognition), y no universales.
-      \end{itemize}
+    \item Lenguajes de Alto Nivel
+    \item Programación Orientada a Objetos
+    \item Inteligencia Artificial
+    \item Sistemas Expertos
+    \item Programación Automática
+    \item Programación gráfica
+    \item Verificación de Programas
+    \item Entornos y Herramientas
+    \item Workstations
   \end{itemize}
 \end{frame}
-
-\subsection*{Hopes for the Silver}
-\begin{frame}
-  \frametitle{Hopes for the Silver (3/5)}
-  \begin{itemize}
-    \item \textbf{Sistemas Expertos}: (AI-2)		
-      \begin{itemize}
-	\item Un programa con un motor de inferencia y una regla base. Se le dan datos de entrada y presunciones.
-	\item Infiere (probabilística o determinísticamente), y devuelve conclusiones y consejos, con el camino para llegar a ellos.
-	\item Su poder está en bases de datos que reflejen cada vez mejor el mundo real.
-	\item ¿Aplicación al software? Poder sugerir reglas de interfaz, aconsejar estrategias de testing, recordar frecuencias de tipos de bugs, ofrecer pistas de optimización.
-      \end{itemize}
-    \item \textbf{Programación Automática}:
-      \begin{itemize}
-	\item Generar un programa que solucione un problema, indicando la especificación del problema.
-	\item Según Parnas, eufemismo para ``lenguaje de nivel más alto que los disponibles hasta ahora''.
-	\item Hay algunas aplicaciones (sorting, ecuaciones diferenciales), pero no generalizables al mundo del desarrollo de software.
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-
-\subsection*{Hopes for the Silver}
-\begin{frame}
-  \frametitle{Hopes for the Silver (4/5)}
-  \begin{itemize}
-    \item \textbf{Programación gráfica}:	
-      \begin{itemize}
-	\item Uso de estructuras gráficas para desarrollar software.
-	\item Flowchart: abstracción pobre de una estructura de software.
-	\item (Queja obsoleta) Pantallas chicas y con pocos pixeles para mostrar un diagrama detallado.
-	\item Es muy díficil visualizar software, y una dimensión no alcanza para una visión global.
-      \end{itemize}
-    \item \textbf{Verificación de Programas}:
-      \begin{itemize}
-	\item Eliminar errores en la fase de diseño.
-	\item Concepto poderoso, pero lleva mucho trabajo aplicarlo.
-	\item No implica que los programas no tengan errores, sino que el software cumple su especificación. ¿Y si la especificación está mal? \item La parte más difícil es arrivar a una especificación completa y consistente.
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-
-\subsection*{Hopes for the Silver}
-\begin{frame}
-  \frametitle{Hopes for the Silver (5/5)}
-  \begin{itemize}
-    \item \textbf{Entornos y Herramientas}:
-      \begin{itemize}
-	\item Es una ayuda para evitar errores sintácticos y semánticos.
-	\item Pueden ofrecer al programador constantemente detalles a tener en cuenta del sistema, evitándole tener que recordarlos en su memoria.
-	\item Sin dudas mejora la productividad, pero la mejora es marginal
-      \end{itemize}
-    \item \textbf{Workstations}:
-      \begin{itemize}
-	\item El cuello de botella va a seguir estando en la cabeza del programador
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
 
 
 \section{Promising Attacks}
 \begin{frame}
   \frametitle{Promising Attacks}
   \begin{itemize}
-    \item \textbf{Buy, don't build}: Producir software es costoso, a veces es más conveniente comprar software ya desarrollado.
-    \item Refinamiento de requerimientos y prototipado rápido.
-    \item Cambio de metáfora: De contruir software a \textbf{crecer software}. Tomar la autopista del desarrollo iterativo e incremental.
-    \item Mantener buenos diseñadores: \textbf{Se puede enseñar a diseñar bien, pero no a ser un excelente diseñador.} Hay que identificar a los grandes diseñadores, son tan importantes como los gerentes.
+    \item Buy, don't build
+    \item Refinamiento de requerimientos y prototipado rápido
+    \item Build vs Grow
+    \item Mantener buenos diseñadores
   \end{itemize}
 \end{frame}
 
@@ -324,11 +204,10 @@ Dos tipos de dificultades, vistas a través de un prisma aristotélico:\\
   \textbf{``No Silver Bullet`` Refired}
   \begin{itemize}
     \item Mejoras en productividad, pero no en órdenes de magnitud.
-    \item Buy, don't build: esto parece cumplirse. Uno no implementa todos los aspectos de un sistema.
-    \item Desarrollo incremental, iterativo con feedback de usuarios: hoy se usa mucho. Diversas metodologías en la actualidad adoptan esta filosofía.
-    \item Reusar código (buen diseño, buena documentación, vocabulario común): es mejora marginal, pero ayuda.
-    \item OOP: ayuda, pero no cambió al mundo... todavía
-    \item Mantener buenos diseñadores: son rockstars. Identificarlos, retenerlos, mimarlos. Todavía falta énfasis en este aspecto.
+    \item Buy, don't build
+    \item Desarrollo incremental, iterativo con feedback de usuarios (Scrum, UP)
+    \item Reusar código
+    \item OOP
   \end{itemize}
   
   \begin{block}{F.P. Brooks}
