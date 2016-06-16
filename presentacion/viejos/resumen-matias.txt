@@ -1,0 +1,50 @@
+Peor pesadilla: hombres lobo, porque se transforman de lo familiar en un horror, y uno busca la bala de plata.
+
+El proyecto de software, familiar, comparte esa característica. Inocente y simple, capaz de convertirse en un monstruo (deadlines, presupuestos, fallas). Hay bala de plata? Parecería que no, no hay un desarrollo, tecnología o técnica de mgmt que promete un incremento de una orden de magnitud en productividad. Pero, hay un camino.
+
+No hay ninguna tecnología en la historia de la civilización que haya mejorado tanto como el hardware (2x cada 2 años), y donde se pueda elegir si se quiere ganar en performance o bajar costos. No es factible esperar esto en el software.
+
+Dos tipos de problemas en el software: en la esencia (inherentes a su naturaleza) y accidentes (dificultades de hoy en su producción, pero que no son inherentes).
+
+Esencia del software: construcción de conceptos que se entrelazan (conjuntos de datos, relaciones entre items de los datos, algoritmos, funciones). Esta esencia es abstracta pues la construcción conceptual es la misma bajo muchas representaciones distintas. La parte difícil de construir software es la especificación, diseño y testeo de esta construcción conceptual (no representarla o testear la fidelidad de la representación). Si esto es verdad, construir software siempre va a ser difícil. Propiedades de esta esencia: complejidad, conformidad, modificabilidad e invisibilidad.
+
+Complejidad: el software es más complejo que cualquier otra construcción porque no hay dos partes iguales. Escalar software no es repetir los mismos elementos en tamaños más grandes, sino aumentar la cantidad de elementos, que interactúan entre sí de manera no lineal, por lo que toda la complejidad aumenta de manera mucho más que lineal. Este crecimiento en la complejidad lleva a dificultades de comunicación entre los miembros, lo cual conduce a fallas en el producto, exceso de gastos, delays. 
+
+Complejidad -> dificultad de enumerar los estados del programa -> falta de fiabilidad. 
+Complejidad en funciones -> dificultad de invocar una función -> programa difícil de usar
+Complejidad en estructura -> dificultad de extender programas con nueva funcionalidad sin side effects.
+Complejidad en mgmt -> overview más difícil -> falta de integridad conceptual. Difícil atar todos los cabos sueltos.
+
+
+Conformidad: la complejidad del software es arbitraria -otras instituciones, otros sistemas-, y uno debe ajustarse a ellas para poder usarlas. Mucha complejidad proviene de ajustarse a otras interfaces, y no se puede simplificar.
+
+Modificabilidad: algo que se fabrica difícilmente pueda ser cambiado después, se cambia el modelo completo, o se mejora. Pero el software implica función, y la funcionalidad es la parte con más presión para cambiar; y, además, el software es más fácil de cambiar. El soft cambia por dos razones: si es útil, la gente usa casos límites y quiere extender su funcionalidad, inventando nuevos usos; además, si es exitoso, sobrepasa la vida útil de la máquina en la cual corre, y debe adaptarse a nuevo hardware.
+
+Invisibilidad: invisible e invisiualizable. No hay representación geométrica para el software, sólo grafos que abarcan una posible vista (flujo de datos, de control, dependencias, secuencia temporal, relaciones nombre-espacio). A la mente le cuesta usar sus herramientas conceptuales para tratar con esto.
+
+AVANCES SOBRE COMPLEJIDADES ACCIDENTALES
+* Lenguajes de alto nivel: es el golpe más poderoso para la productividad, confiabilidad y simplicidad. Elimina complejidades no inherentes al programa.
+* Timesharing: de menor impacto que los lenguajes de alto nivel, pero preserva la inmediatez y permite mantener un overview de la complejidad. No hay que esperar como en un sistema batch a que nuestro programa tarde en ejecutarse y ahí recordar qué hacía.
+* Unified programming environments: ofrecen herramientas por lo que tratan de proveer un estándar, que se usen las mismas librerías, mismo formato, etc.
+
+
+
+HOPES FOR THE SILVER
+* Lenguajes de alto nivel: la filosofía de ADA (modularización, tipos de datos abstractos, estructura jerárquica), si bien útil, no va a ser la bala de plata. Las mejoras van a ser cada vez menores.
+
+* OOP: remueven dificultades accidentales de la expresión del diseño, pero no de su complejidad.
+
+* Inteligencia artificial: Parnas da dos definiciones. 
+** AI-1: usar la computadora para resolver problemas que antes se resolvían aplicando inteligencia humana. Por qué no es silver bullet: tal vez hoy es AI, pero cuando veamos cómo funciona el programa y entendamos el problema, deja de ser AI.
+** AI-2: estudiar expertos para determinar las reglas o heurísticas con las que resuelven problemas, y diseñar programas que las usen para lo mismo.
+Esto es "Sistemas expertos". Un programa que contiene un motor de interferencias y una regla base, toma datos de entrada y suposiciones, y explora las inferencias deribables, dando conclusiones y consejos y el camino por el cual llegó hasta ahí. Muy útil para diseminar buenas prácticas que partan de la experiencia de los expertos para todos.
+
+* Automatic programming: según parnas, es un eufemismo para programar con un lenguaje de nivel más alto que el que estaba presente en la actualizad.
+
+* Programación gráfica: usar estructuras gráficas para desarrollar software, pero un flowchart es una abstracción pobre de la estructura de software; en su momento, las pantallas eran muy chicas para ver un sistema medianamente grande; por último, el software es difícil de visualizar, y en una pantalla se ve una sola dimensión.
+
+* Verificación de programas: eliminar errores en la fuente, la fase de diseño. Es un concepto muy poderoso, como para dar seguridad en kernels de OS, pero llevan mucho trabajo, y tampoco implica que los programas no tengan errores. Significan que el software cumple con su especificación, pero y si esta estaba mal?
+
+* Environments and tools: sin dudas es algo que ayuda, para evitar errores sintácticos, semánticos, tener una DB para ofrecer detalles del sistema que deben ser tenidos en cuenta por cada programador, etc., pero es una mejora marginal.
+
+* Workstation: el cuello de botella sigue siendo la cabeza del programador.
