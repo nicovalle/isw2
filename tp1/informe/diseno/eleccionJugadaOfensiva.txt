@@ -1,0 +1,16 @@
+title Elección de Acción Ofensiva
+
+
+sender -> jugadaOfensivaColect4pasesy3ptos: proximaAccionOfensiva(unContexto)
+jugadaOfensivaColect4pasesy3ptos -> unContexto: jugadorConPosesion()
+unContexto --> jugadaOfensivaColect4pasesy3ptos:  unBase
+jugadaOfensivaColect4pasesy3ptos -> unContexto: pasoDeJugadaOfensiva()
+unContexto --> jugadaOfensivaColect4pasesy3ptos : 3
+jugadaOfensivaColect4pasesy3ptos -> unContexto: equipoAtacante()
+unContexto --> jugadaOfensivaColect4pasesy3ptos : losSpurs
+jugadaOfensivaColect4pasesy3ptos -> jugadaOfensivaColect4pasesy3ptos: elegirJugadorDistintoA(unBase, losSpurs)
+jugadaOfensivaColect4pasesy3ptos --> jugadaOfensivaColect4pasesy3ptos: unEscolta
+jugadaOfensivaColect4pasesy3ptos -> Pase: new(unBase, unEscolta)
+Pase --> jugadaOfensivaColect4pasesy3ptos: unPaseDelBaseAlEscolta
+jugadaOfensivaColect4pasesy3ptos --> sender: unPaseDelBaseAlEscolta
+
