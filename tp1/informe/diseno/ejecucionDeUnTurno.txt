@@ -1,0 +1,26 @@
+title Ejecución de un Turno
+
+
+sender -> unTurno: jugar(losSpurs, losWarriors, unSimulador)
+unTurno -> unContexto: equipoAtacante(losSpurs)
+unTurno -> unContexto: equipoDefensor(losWarriors)
+unTurno -> unContexto: pasoDeJugadaOfensiva(0)
+unTurno -> unSimulador: obtenerJugadaOfensivaPara(self)
+unSimulador -->unTurno: jugadaOfensivaColect4pasesy3Ptos
+unTurno -> unSimulador: obtenerJugadaDefensivaPara(self)
+unSimulador --> unTurno: jugadaDefensivaHombreAHombre
+unTurno -> unSimulador: proximaAccionOfensivaPara( jugadaOfensivaColect4pasesy3Ptos, self)
+unSimulador -> unTurno: contexto()
+unTurno --> unSimulador: unContexto
+unSimulador -> jugadaOfensivaColect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
+jugadaOfensivaColect4pasesy3Ptos --> unSimulador: unPaseDelBaseAlEscolta
+unSimulador --> unTurno: unPaseDelBaseAlEscolta
+unTurno -> unSimulador: proximaAccionDefensivaPara(self, unPaseDelBaseAlEscolta)
+unSimulador -> unTurno: contexto()
+unTurno --> unSimulador: unContexto
+unSimulador -> jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto) 
+jugadaDefensivaHombreAHombre --> unSimulador: unaIntercepcionDelBaseDeLosWarriors
+unSimulador --> unTurno: unaIntercepcionDelBaseDeLosWarriors
+unTurno -> unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta, unaIntercepcionDelBaseDeLosWarriors, self)
+unSimulador --> unTurno : unResultado
+unTurno --> sender: unResultado
