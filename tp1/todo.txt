@@ -1,0 +1,2 @@
+* Agregar cuando se settean los equipos en el contexto (por primera vez) uqe el contexto le pida los jugadores al equipo y arme un diccionario de sus modificadores
+* Fijarse que en los pases, cuando se llega al pase k, se le debe pasar a los jugadores 1, 2 o 3

@@ -1,0 +1,7 @@
+sender -> unTurno: iniciarPosesion(losSpurs, losWarriors)
+unTurno -> unContexto: equipoAtacante(losSpurs)
+unContexto --> unTurno:
+unTurno -> unContexto: equipoDefensor(losWarriors)
+unContexto --> unTurno:
+unTurno -> unContexto: pasoDeJugadaOfensiva(0)
+unContexto --> unTurno:

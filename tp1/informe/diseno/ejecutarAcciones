@@ -1,0 +1,30 @@
+sender -> unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta,\n unaIntercepcionDelBaseDeLosWarriors, unTurno)
+
+unSimulador -> unTurno: contexto()
+unTurno --> unSimulador: unContexto
+
+unSimulador ->  unPaseDelBaseAlEscolta: resolvedorPara(self)
+unPaseDelBaseAlEscolta --> unSimulador: unResolvedorDePase
+
+unSimulador -> unResolvedorDePase: resolver(unPaseDelBaseAlEscolta)
+unResolvedorDePase --> unSimulador: true
+
+unSimulador -> unaIntercepcionDelBaseDeLosWarriors: resolvedorPara(self)
+unaIntercepcionDelBaseDeLosWarriors --> unSimulador: unResolvedorDeIntercepcion
+
+unSimulador -> unResolvedorDeIntercepcion: resolver(unaIntercepcionDelBaseDeLosWarriors)
+unResolvedorDeIntercepcion --> unSimulador : false
+
+## gana ofensiva
+unSimulador -> unResolvedorDePase: continuarTurnoConExito(unPaseDelBaseAlEscolta, unTurno, self)
+
+## gana defensiva
+#unSimulador -> unResolvedorDeIntercepcion: continuarTurnoConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
+
+## no gana nadie
+#unSimulador -> unResolvedorDePase:  return continuarConFallo(unTurno, self)
+
+
+unPaseDelBaseAlEscolta --> unSimulador: unResultado
+
+unSimulador --> sender: unResultado

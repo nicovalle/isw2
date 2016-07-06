@@ -1,37 +1,4 @@
-* Los motores grÃ¡ficos deberÃ­an poder correr tambiÃ©n en los celulares. En caso de que estos no estÃ©n soportados, se debe realizar una transmisiÃ³n de la simulaciÃ³n desde nuestros servidores.
-
-
-* introducciÃ³n CORREGIDA 
-* casos de uso CORREGIDA
-* planificaciÃ³n FALTA
-
-ARQUITECTURA
-* CONTROLADOR DE DESAFÍOS
-se conecta con el creador de desafíos, consultor de desafíos, inscriptor de desafíos, almacén de desafíos (2 lecturas, 2 escrituras), seguidor de desafíos, almacén de simulaciones y ratings
-
-* GENERADOR GRÁFICO
-Se conecta con solicitante de simulación, almacén de simulación y rating, almacén de oepraciones 2d, almacén 3d
-
-* GESTOR DE CRÉDITOS
-Ingresador de medio de pago, acreditador de cuenta, almacén de inf de crédito x3, sistema de pago (ext) x3
-* GESTOR DE CHATS
-* CONTROLADOR DE ALTA DE USUARIOS
-Se conecta con solicitud de registro, almacén de usuarios, almacén de reglas gubernamental
-* CONTROLADOR DE DESAFÍOS
-Creador de desafíos, consultor de desafíos, suscriptor de desafíos, almacén de desafíos, almacén de usuarios, almacén de chats, observador de desafíos
-* SIMULADOR DE JUGADAS
-Almacén de desafíos, almacén de posiciones, almacén de chats, almacén de simulaciones y ratings, almacén de equipos, empresas proveedoras de datos, redes sociales
-
-* Cómo vuelve el "acomodador de simulación" al solicitante de simulación?
-
-DUDAS
-* CONTROLADOR DE USUARIOS?
-* NODOS? NODOS REGIONALES?
-* Anterior riesgo 3?
-* Los resultados de los desafÃ­os se corresponden con los datos provistos por las empresas relevadoras de datos de los partidos  ???? No es lo mismo un desafÃ­o que un partido en vivo. No es lo mismo los resultados, que los datos que se usan como input (datos jugadores)
-* ANALISTA DE CUENTAS??
-* Observador de desafíos?
-
-CORREGIR
-* Flecha controlador desafÃ­os a almacÃ©n de simulaciones
-* gestor de crÃ©dito /controlador de alta mp
+TODO
+* Agregar controlador de pago al controlador de usuarios
+* Achicar verticalmente controlador de desafíos, fijarse de arreglar el título
+* Agregar flecha entre el "Persistidor de inscripciones" y el "Almacén de Desafíos"

@@ -1,0 +1,9 @@
+sender -> unResolvedorDePase: continuarConFallo(unTurno, unSimulador):
+
+unResolvedorDePase -> Reboteo: new Reboteo()
+Reboteo --> unResolvedorDePase: unReboteo
+
+unResolvedorDePase -> unReboteo: ejecutarParaUnTurno(unTurno, unSimulador)
+unReboteo --> unResolvedorDePase : unResultado
+
+unResolvedorDePase --> sender: unResultado

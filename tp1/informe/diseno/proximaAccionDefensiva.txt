@@ -1,4 +1,4 @@
-title Elección de Acción Defensiva
+title Próxima Acción Defensiva
 
 
 sender -> jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
@@ -9,7 +9,7 @@ unContexto --> jugadaDefensivaHombreAHombre : losSpurs
 jugadaDefensivaHombreAHombre -> unPaseDelBaseAlEscolta : jugadorEjecutante()
 unPaseDelBaseAlEscolta --> jugadaDefensivaHombreAHombre: unBaseDeLosSpurs
 jugadaDefensivaHombreAHombre -> losSpurs: posicionDe(unBaseDeLosSpurs)
-losSpurs --> jugadaDefensivaHombreAHombre : posicionBase
+losSpurs --> jugadaDefensivaHombreAHombre : unaPosicionBase
 jugadaDefensivaHombreAHombre -> losWarriors: jugadorEnPosicion(losWarriors, posicionBase)
 losWarriors -> unaPosicionBase: jugadorConPosicion(self)
 unaPosicionBase -> losWarriors : base()
