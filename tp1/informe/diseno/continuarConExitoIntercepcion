@@ -1,0 +1,15 @@
+sender -> unResolvedorDeIntercepcion: continuarConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
+
+unResolvedorDeIntercepcion -> unTurno: contexto()
+unTurno --> unResolvedorDeIntercepcion: unContexto
+
+unResolvedorDeIntercepcion -> unContexto: equipoAtacante()
+unContexto --> unResolvedorDeIntercepcion: losSpurs
+
+unResolvedorDeIntercepcion -> unContexto: equipoDefensor()
+unContexto --> unResolvedorDeIntercepcion: losWarriors
+
+unResolvedorDeIntercepcion -> unTurno: jugarPosesion(losWarriors, losSpurs, unSimulador)
+unTurno --> unResolvedorDeIntercepcion: unResultado
+
+unResolvedorDeIntercepcion --> sender: unResultado

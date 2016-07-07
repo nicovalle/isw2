@@ -1,0 +1,7 @@
+sender -> unResolvedorDeTiro2Puntos: continuarConExito(unTurno, unSimulador):
+
+unResolvedorDeTiro2Puntos -> unSimulador: encestarDoble(unTurno)
+unSimulador --> unResolvedorDeTiro2Puntos: unResultado
+
+unResolvedorDeTiro2Puntos --> sender: unResultado
+

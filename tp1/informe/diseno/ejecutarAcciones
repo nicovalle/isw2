@@ -16,10 +16,10 @@ unSimulador -> unResolvedorDeIntercepcion: resolver(unaIntercepcionDelBaseDeLosW
 unResolvedorDeIntercepcion --> unSimulador : false
 
 ## gana ofensiva
-unSimulador -> unResolvedorDePase: continuarTurnoConExito(unPaseDelBaseAlEscolta, unTurno, self)
+unSimulador -> unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, unTurno, self)
 
 ## gana defensiva
-#unSimulador -> unResolvedorDeIntercepcion: continuarTurnoConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
+#unSimulador -> unResolvedorDeIntercepcion: continuarConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
 
 ## no gana nadie
 #unSimulador -> unResolvedorDePase:  return continuarConFallo(unTurno, self)
