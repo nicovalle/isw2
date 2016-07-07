@@ -3,6 +3,7 @@ title Ejecución completa de un Turno
 
 sender -> unTurno: jugarPosesion(losSpurs, losWarriors, unSimulador)
 unTurno -> unTurno: iniciarPosesion(losSpurs, losWarriors)
+unTurno --> unTurno:
 #unTurno -> unContexto: equipoAtacante(losSpurs)
 #unTurno -> unContexto: equipoDefensor(losWarriors)
 #unTurno -> unContexto: pasoDeJugadaOfensiva(0)

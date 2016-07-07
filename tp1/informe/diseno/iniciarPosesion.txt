@@ -5,3 +5,4 @@ unTurno -> unContexto: equipoDefensor(losWarriors)
 unContexto --> unTurno:
 unTurno -> unContexto: pasoDeJugadaOfensiva(0)
 unContexto --> unTurno:
+unTurno --> sender:
