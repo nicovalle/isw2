@@ -24,7 +24,6 @@ unSimulador -> unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, unT
 ## no gana nadie
 #unSimulador -> unResolvedorDePase:  return continuarConFallo(unTurno, self)
 
-
-unPaseDelBaseAlEscolta --> unSimulador: unResultado
+unResolvedorDePase --> unSimulador: unResultado
 
 unSimulador --> sender: unResultado

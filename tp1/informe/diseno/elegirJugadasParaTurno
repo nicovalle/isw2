@@ -1,4 +1,8 @@
 sender -> unSimulador: elegirJugadasParaTurno(unTurno)
+
+unSimulador -> unTurno: contexto()
+unTurno --> unSimulador: unContexto
+
 unSimulador -> unSimulador: obtenerJugadaOfensivaParaTurno(unTurno)
 unSimulador --> unSimulador: jugadaOfensivaColec4PasesY3Ptos
 

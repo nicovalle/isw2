@@ -1,4 +1,4 @@
-sender -> unResolvedorDeIntercepcion: continuarConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
+sender -> unResolvedorDeIntercepcion: continuarConExito(unTurno, unSimulador, self)
 
 unResolvedorDeIntercepcion -> unTurno: contexto()
 unTurno --> unResolvedorDeIntercepcion: unContexto
