@@ -1,5 +1,8 @@
-from posicion import *
+from posicion import Posicion
 
 class AlaPivot(Posicion):
-	def jugadorConPosicion(self, unEquipo):
-		return unEquipo.alapivot()
+    def __init__(self):
+        self._nombre = "alapivot"
+
+    def jugadorConPosicion(self, unEquipo):
+        return unEquipo.alapivot()

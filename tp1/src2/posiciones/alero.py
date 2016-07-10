@@ -1,5 +1,8 @@
-from posicion import *
+from posicion import Posicion
 
 class Alero(Posicion):
-	def jugadorConPosicion(self, unEquipo):
-		return unEquipo.alero()
+    def __init__(self):
+        self._nombre = "alero"
+
+    def jugadorConPosicion(self, unEquipo):
+        return unEquipo.alero()

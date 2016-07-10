@@ -18,7 +18,7 @@ class Equipo(object):
     def tecnico(self):
         return self._tecnico
 
-    def jugadores(self):
+    def jugadoresYPosiciones(self):
         return self._jugadores
 
     def jugadorEstrella(self):
@@ -31,6 +31,12 @@ class Equipo(object):
 
     def jugadorEnPosicion(self, unaPosicion):
         return unaPosicion.jugadorConPosicion(self)
+
+    def jugadorEnPosiciones3(self, unaPosicion, otraPosicion, unaOtraPosicion):
+        return random.choice([jugador[0] for jugador in filter(lambda x: x[1] == unaPosicion or x[1] == otraPosicion or x[1] == unaOtraPosicion, self._jugadores)])
+
+    def jugadorDistintoA(self, unJugador):
+        return random.choice([jugador[0] for jugador in filter(lambda x: x[0] != unJugador, self._jugadores)])
 
     def base(self):
         return self._jugadores[0][0]
