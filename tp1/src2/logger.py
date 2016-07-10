@@ -1,6 +1,18 @@
 class Logger(object):
 
-    def loggearinicioPosesion(equipoAtacante):
+    def loggearInicioTurno(numeroTurno):
+        #arranca el turno numero X
+        return true
+
+    def loggearEmpate(numeroTurno):
+        #Empate en el turno numero X
+        return true
+
+    def loggearVictoria(equipoGanador, equipoPerdedor, puntajeGanador, puntajePerdedor):
+        #El equipo A, vence al equipo B por X tantos contra Y
+        return true
+
+    def loggearInicioPosesion(equipoAtacante):
         #arranca atacando tal equipo
         return true
 
@@ -16,26 +28,26 @@ class Logger(object):
         #A le bloquea el tiro a B
         return true
 
-    def loggearIntercepcionExito(tirador, bloqueador):
-        #A le intercepta el pase a B
+    def loggearIntercepcionExito(paseEmisor, paseReceptor, paseInterceptor):
+        #A le intercepta el pase a B, cuando le hacia un pase a C
         return true
 
     def loggearPaseIntercepcionFracaso(paseEmisor, paseReceptor, paseInterceptor):
-        #A no se la logra pasar a B y C no la logra interceptar, sale de la cancha.
+        #A no se la logra pasar a B y C no la logra interceptar -> sale de la cancha.
         return true
 
-    def loggearEncesatarDoble(tirador, bloqueador):
-        #A lanza un doble, B no lo logra bloquear, y convierte
+    def loggearEncestarDoble(tirador, bloqueador):
+        #A lanza un doble, B no lo logra bloquear, y A convierte
         return true
 
-    def loggearEncesatarTriple(tirador, bloqueador):
-        #A lanza un triple, B no lo logra bloquear, y convierte
+    def loggearEncestarTriple(tirador, bloqueador):
+        #A lanza un triple, B no lo logra bloquear, y A convierte
         return true
 
-    def loggearReboteoIntento(jugador):
+    def loggearReboteoIntento(jugador, equipo):
         #El jugador A del equipo B, intenta agarrar un rebote
         return true
 
-    def loggearReboteoExito(jugador):
+    def loggearReboteoExito(jugador, equipo):
         #El jugador A del equipo B, logra agarrar un rebote
         return true
