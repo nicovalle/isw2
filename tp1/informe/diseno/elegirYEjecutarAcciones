@@ -1,21 +1,21 @@
-sender -> unSimulador: elegirYEjecutarAcciones(unTurno)
+sender -> +unSimulador: elegirYEjecutarAcciones(unTurno)
 
-unSimulador -> unTurno: contexto()
-unTurno --> unSimulador: unContexto
+unSimulador -> +unTurno: contexto()
+unTurno --> -unSimulador: unContexto
 
-unSimulador -> unContexto: jugadaOfensiva()
+unSimulador -> +unContexto: jugadaOfensiva()
 unContexto --> unSimulador: jugadaOfensivaColect4pasesy3Ptos
 
-unSimulador -> jugadaOfensivaColect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
-jugadaOfensivaColect4pasesy3Ptos --> unSimulador: unPaseDelBaseAlEscolta
+unSimulador -> +jugadaOfensivaColect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
+jugadaOfensivaColect4pasesy3Ptos --> -unSimulador: unPaseDelBaseAlEscolta
 
 unSimulador -> unContexto: jugadaDefensiva()
-unContexto --> unSimulador: jugadaDefensivaHombreAHombre
+unContexto --> -unSimulador: jugadaDefensivaHombreAHombre
 
-unSimulador -> jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
-jugadaDefensivaHombreAHombre --> unSimulador: unaIntercepcionDelBaseDeLosWarriors
+unSimulador -> +jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
+jugadaDefensivaHombreAHombre --> -unSimulador: unaIntercepcionDelBaseDeLosWarriors
 
 unSimulador -> unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta, \nunaIntercepcionDelBaseDeLosWarriors, unTurno)
 
 unSimulador --> unSimulador: unResultado
-unSimulador --> sender: unResultado
+unSimulador --> -sender: unResultado

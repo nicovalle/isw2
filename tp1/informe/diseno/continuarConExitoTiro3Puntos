@@ -1,7 +1,8 @@
-sender -> unResolvedorDeTiro3Puntos: continuarConExito(unTurno, unSimulador):
+sender -> +unResolvedorDeTiro3Puntos: continuarConExito(unTurno, unSimulador):
 
-unResolvedorDeTiro3Puntos -> unSimulador: encestarTriple(unTurno)
-unSimulador --> unResolvedorDeTiro3Puntos: unResultado
+unResolvedorDeTiro3Puntos -> +unSimulador: encestarTriple(unTurno)
+unSimulador --> -unResolvedorDeTiro3Puntos: unResultado
 
-unResolvedorDeTiro3Puntos --> sender: unResultado
+unResolvedorDeTiro3Puntos --> -sender: unResultado
+
 

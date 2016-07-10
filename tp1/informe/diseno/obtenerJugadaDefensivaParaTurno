@@ -1,15 +1,15 @@
-sender -> unSimulador: obtenerJugadaDefensivaParaTurno(unTurno)
+sender -> +unSimulador: obtenerJugadaDefensivaParaTurno(unTurno)
 
-unSimulador -> unTurno: contexto()
-unTurno --> unSimulador: unContexto
+unSimulador -> +unTurno: contexto()
+unTurno --> -unSimulador: unContexto
 
-unSimulador -> unContexto: equipoDefensor()
-unContexto --> unSimulador: losWarriors
+unSimulador -> +unContexto: equipoDefensor()
+unContexto --> -unSimulador: losWarriors
 
-unSimulador -> losWarriors: tecnico()
-losWarriors --> unSimulador: unTecnico
+unSimulador -> +losWarriors: tecnico()
+losWarriors --> -unSimulador: unTecnico
 
 unSimulador -> unSimulador: elegirJugadaDefensivaConTecnico(unTecnico)
 unSimulador --> unSimulador: jugadaDefensivaHombreAHombre
 
-unSimulador --> sender: jugadaDefensivaHombreAHombre
+unSimulador --> -sender: jugadaDefensivaHombreAHombre

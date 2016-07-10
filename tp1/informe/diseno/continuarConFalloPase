@@ -1,7 +1,7 @@
-sender -> unResolvedorDePase: continuarConFallo(unTurno, unSimulador):
+sender -> +unResolvedorDePase: continuarConFallo(unTurno, unSimulador):
 
-unResolvedorDePase -> unSimulador: pelotaAfueraPara(unTurno)
-unSimulador --> unResolvedorDePase: unResultado
+unResolvedorDePase -> +unSimulador: pelotaAfueraPara(unTurno)
+unSimulador --> -unResolvedorDePase: unResultado
 
-unResolvedorDePase --> sender: unResultado
+unResolvedorDePase --> -sender: unResultado
 

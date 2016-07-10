@@ -1,18 +1,18 @@
-sender -> unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta,\n unTurno, unSimulador):
+sender -> +unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta,\n unTurno, unSimulador):
 
-unResolvedorDePase -> unTurno: contexto()
-unTurno --> unResolvedorDePase: unContexto
+unResolvedorDePase -> +unTurno: contexto()
+unTurno --> -unResolvedorDePase: unContexto
 
-unResolvedorDePase -> unPaseDelBaseAlEscolta: jugadorReceptor()
-unPaseDelBaseAlEscolta --> unResolvedorDePase : unEscoltaDeLosSpurs
+unResolvedorDePase -> +unPaseDelBaseAlEscolta: jugadorReceptor()
+unPaseDelBaseAlEscolta --> -unResolvedorDePase : unEscoltaDeLosSpurs
 
-unResolvedorDePase -> unContexto: jugadorConPosesion(unEscoltaDeLosSpurs)
+unResolvedorDePase -> +unContexto: jugadorConPosesion(unEscoltaDeLosSpurs)
 unContexto --> unResolvedorDePase :
 
 unResolvedorDePase -> unContexto: incrementarPasoJugadaOfensiva()
-unContexto --> unResolvedorDePase :
+unContexto --> -unResolvedorDePase :
 
-unResolvedorDePase -> unSimulador : elegirYEjecutarAcciones(unTurno)
-unSimulador --> unResolvedorDePase : unResultado
+unResolvedorDePase -> +unSimulador : elegirYEjecutarAcciones(unTurno)
+unSimulador --> -unResolvedorDePase : unResultado
 
-unResolvedorDePase --> sender: unResultado
+unResolvedorDePase --> -sender: unResultado

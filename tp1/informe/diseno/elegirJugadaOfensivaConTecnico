@@ -1,14 +1,14 @@
-sender -> unSimulador: elegirJugadaOfensivaConTecnico(unTecnico)
+sender -> +unSimulador: elegirJugadaOfensivaConTecnico(unTecnico)
 
-unSimulador -> unTecnico: libroDeJugadas()
-unTecnico --> unSimulador: unLibroDeJugadas
+unSimulador -> +unTecnico: libroDeJugadas()
+unTecnico --> -unSimulador: unLibroDeJugadas
 
-unSimulador -> unLibroDeJugadas: jugadasOfensivasConFrecuencias()
-unLibroDeJugadas --> unSimulador: unDiccDeOfensivasConFrecuencias
+unSimulador -> +unLibroDeJugadas: jugadasOfensivasConFrecuencias()
+unLibroDeJugadas --> -unSimulador: unDiccDeOfensivasConFrecuencias
 
-unSimulador -> generadorDeNumerosAleatorios: obtenerNumeroEntre(0,1)
-generadorDeNumerosAleatorios --> unSimulador : unaFrecuencia
+unSimulador -> +generadorDeNumerosAleatorios: obtenerNumeroEntre(0,1)
+generadorDeNumerosAleatorios --> -unSimulador : unaFrecuencia
 
 unSimulador -> unSimulador: elegirJugadaConFrecuencia\n(unDiccDeOfensivasConFrecuencias, unaFrecuencia)
 unSimulador --> unSimulador : jugadaOfensivaColec4PasesY3Ptos
-unSimulador --> sender: jugadaOfensivaColec4PasesY3Ptos
+unSimulador --> -sender: jugadaOfensivaColec4PasesY3Ptos

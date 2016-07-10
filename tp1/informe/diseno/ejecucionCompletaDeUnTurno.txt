@@ -1,14 +1,14 @@
 title Ejecución completa de un Turno
 
 
-sender -> unTurno: jugarPosesion(losSpurs, losWarriors, unSimulador)
+sender -> +unTurno: jugarPosesion(losSpurs, losWarriors, unSimulador)
 unTurno -> unTurno: iniciarPosesion(losSpurs, losWarriors)
 unTurno --> unTurno:
 #unTurno -> unContexto: equipoAtacante(losSpurs)
 #unTurno -> unContexto: equipoDefensor(losWarriors)
 #unTurno -> unContexto: pasoDeJugadaOfensiva(0)
 
-unTurno -> unSimulador: elegirJugadasParaTurno(self)
+unTurno -> +unSimulador: elegirJugadasParaTurno(self)
 unSimulador --> unTurno:
 #unTurno -> unSimulador: obtenerJugadaOfensivaPara(self)
 #unSimulador -->unTurno: jugadaOfensivaColect4pasesy3Ptos
@@ -34,5 +34,5 @@ unTurno -> unSimulador: elegirYEjecutarAcciones(self)
 
 
 #unTurno -> unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta, unaIntercepcionDelBaseDeLosWarriors, self)
-unSimulador --> unTurno : unResultado
-unTurno --> sender: unResultado
+unSimulador --> -unTurno : unResultado
+unTurno --> -sender: unResultado
