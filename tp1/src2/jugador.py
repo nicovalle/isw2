@@ -1,4 +1,3 @@
-import equipo
 import random
 
 class Jugador(object):
