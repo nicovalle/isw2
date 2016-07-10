@@ -1,15 +1,15 @@
-sender -> unSimulador: encestarTriple(unTurno)
+sender -> +unSimulador: encestarTriple(unTurno)
 
-unSimulador -> unTurno: contexto()
-unTurno --> unSimulador: unContexto
+unSimulador -> +unTurno: contexto()
+unTurno --> -unSimulador: unContexto
 
-unSimulador -> unContexto: equipoAtacante()
+unSimulador -> +unContexto: equipoAtacante()
 unContexto --> unSimulador: losSpurs
 
 unSimulador -> unContexto: equipoDefensor()
-unContexto --> unSimulador: losWarriors
+unContexto --> -unSimulador: losWarriors
 
-unSimulador -> Resultado: new(losSpurs, 3, losWarriors, 0)
-Resultado --> unSimulador: unResultado
+unSimulador -> +Resultado: new(losSpurs, 3, losWarriors, 0)
+Resultado --> -unSimulador: unResultado
 
-unSimulador --> sender: unResultado
+unSimulador --> -sender: unResultado

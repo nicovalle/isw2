@@ -1,7 +1,7 @@
 title Próxima Acción Defensiva
 
 
-sender -> jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
+sender -> +jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
 jugadaDefensivaHombreAHombre -> +unContexto: equipoDefensor()
 unContexto --> -jugadaDefensivaHombreAHombre:  losWarriors
 jugadaDefensivaHombreAHombre -> +unContexto: equipoAtacante()
@@ -22,4 +22,4 @@ jugadaDefensivaHombreAHombre -> +Intercepcion : new(elBaseDeLosWarriors)
 Intercepcion --> -jugadaDefensivaHombreAHombre: unaIntercepcionDelBaseDeLosWarriors
 jugadaDefensivaHombreAHombre --> -unPaseDelBaseAlEscolta: unaIntercepcionDelBaseDeLosWarriors
 unPaseDelBaseAlEscolta --> -jugadaDefensivaHombreAHombre : unaIntercepcionDelBaseDeLosWarriors
-jugadaDefensivaHombreAHombre -->sender: unaIntercepcionDelBaseDeLosWarriors
+jugadaDefensivaHombreAHombre --> -sender: unaIntercepcionDelBaseDeLosWarriors

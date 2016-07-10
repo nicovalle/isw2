@@ -1,9 +1,9 @@
-sender -> unResolvedorDeTiro2Puntos: continuarConFallo(unTurno, unSimulador):
+sender -> +unResolvedorDeTiro2Puntos: continuarConFallo(unTurno, unSimulador):
 
-unResolvedorDeTiro2Puntos -> Reboteo: new Reboteo()
-Reboteo --> unResolvedorDeTiro2Puntos: unReboteo
+unResolvedorDeTiro2Puntos -> +Reboteo: new Reboteo()
+Reboteo --> -unResolvedorDeTiro2Puntos: unReboteo
 
-unResolvedorDeTiro2Puntos -> unReboteo: ejecutarParaUnTurno(unTurno, unSimulador)
-unReboteo --> unResolvedorDeTiro2Puntos : unResultado
+unResolvedorDeTiro2Puntos -> +unReboteo: ejecutarParaUnTurno(unTurno, unSimulador)
+unReboteo --> -unResolvedorDeTiro2Puntos : unResultado
 
-unResolvedorDeTiro2Puntos --> sender: unResultado
+unResolvedorDeTiro2Puntos --> -sender: unResultado
