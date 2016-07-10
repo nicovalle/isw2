@@ -33,9 +33,9 @@ class Logger(object):
         return true
 
     def loggearReboteoIntento(jugador):
-        #El jugador A deel equipo B, intenta agarrar un rebote
+        #El jugador A del equipo B, intenta agarrar un rebote
         return true
 
     def loggearReboteoExito(jugador):
-        #El jugador A deel equipo B, logra agarrar un rebote
+        #El jugador A del equipo B, logra agarrar un rebote
         return true
