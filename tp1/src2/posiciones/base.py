@@ -1,5 +1,4 @@
-from posicion import *
-from equipo import *
+from posicion import Posicion
 
 class Base(Posicion):
 	def jugadorConPosicion(self, unEquipo):
