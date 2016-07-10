@@ -15,14 +15,13 @@
   <graph edgedefault="directed" id="G">
     <data key="d0"/>
     <node id="n0">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="95.0" width="232.0" x="34.0" y="144.0"/>
+          <y:Geometry height="95.0" width="250.0" x="34.0" y="144.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="75.455078125" x="78.2724609375" y="4.0">Presupuesto</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="custom" textColor="#000000" visible="true" width="229.708984375" x="2.0" y="30.1328125">- cantidad()
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="78.314453125" x="85.8427734375" y="4.0">Presupuesto</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="59.875" modelName="custom" textColor="#000000" visible="true" width="241.890625" x="2.0" y="29.96875">- cantidad()
 
 +Presupuesto(unaCantEnteraYPositiva)
 
@@ -40,14 +39,13 @@
       </data>
     </node>
     <node id="n1">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="147.0" width="367.25" x="52.0" y="442.0"/>
+          <y:Geometry height="147.0" width="374.25" x="52.0" y="442.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="196.3046875" x="85.47265625" y="4.0">RegistroDeEstadisticasDeJugador</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="custom" textColor="#000000" visible="true" width="352.87890625" x="2.0" y="30.1328125">-estadisticasDe(unJugador)
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="204.49609375" x="84.876953125" y="4.0">RegistroDeEstadisticasDeJugador</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="101.78125" modelName="custom" textColor="#000000" visible="true" width="367.392578125" x="2.0" y="29.96875">-estadisticasDe(unJugador)
 -actualizarEstadistica(unJugador, unaEstadistica)
 -registrarEstadistica(unJugador, unaEstadistica)
 
@@ -67,14 +65,13 @@
       </data>
     </node>
     <node id="n2">
-      <data key="d5"/>
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
           <y:Geometry height="189.0" width="268.0" x="396.0" y="144.0"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="62.541015625" x="102.7294921875" y="4.0">Estatistica</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="159.4609375" modelName="custom" textColor="#000000" visible="true" width="250.298828125" x="2.0" y="30.1328125">-fgp()
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="17.96875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="69.0859375" x="99.45703125" y="4.0">Estadistica</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="157.65625" modelName="custom" textColor="#000000" visible="true" width="256.486328125" x="2.0" y="29.96875">-fgp()
 -3pp()
 -rpg()
 -apg()
@@ -99,13 +96,12 @@
     </node>
     <edge id="e0" source="n1" target="n0">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-26.961191061073748" y="-110.54150390625">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="65.4296875" x="-26.905830492541952" y="-110.45947265625">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -119,13 +115,12 @@
     </edge>
     <edge id="e1" source="n1" target="n2">
       <data key="d8"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="66.41178213945801" y="-59.69883552439137">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="17.96875" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="65.4296875" x="63.977312687677795" y="-59.637364928223064">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
