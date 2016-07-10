@@ -1,4 +1,6 @@
-class ResolvedorIntercepcion(object):
+from resolvedor import *
+
+class ResolvedorIntercepcion(Resolvedor):
     #def __init__(self):
 
     def continuarConExito(self, unaIntercepcion, unTurno, unSimulador):

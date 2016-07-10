@@ -1,3 +1,5 @@
+from resolvedores import resolvedor
+
 class Simulador(object):
 #    def __init__(self):
 #        return ""
@@ -98,6 +100,26 @@ class Simulador(object):
 
         return unResultado
 
+    ### Resolvedores
+    def resolvedorParaBloqueo(self):
+        unResolvedorDeBloqueo = resolvedor.ResolvedorBloqueo()
+        return unResolvedorDeBloqueo
+
+    def resolvedorParaIntercepcion(self):
+        unResolvedorDeIntercepcion = resolvedor.ResolvedorIntercepcion()
+        return unResolvedorDeIntercepcion
+
+    def resolvedorParaPase(self):
+        unResolvedorDePase = resolvedor.ResolvedorPase()
+        return unResolvedorDePase
+
+    def resolvedorParaTiro2Puntos(self):
+        unResolvedorDeTiro2Puntos = resolvedor.ResolvedorTiro2Puntos()
+        return unResolvedorDeTiro2Puntos
+
+    def resolvedorParaTiro3Puntos(self, unTiro3Puntos):
+        unResolvedorDeTiro3Puntos = resolvedor.ResolvedorTiro3Puntos()
+        return unResolvedorDeTiro3Puntos
 
     ### Fin de turno
     def pelotaAfueraPara(self, unTurno):

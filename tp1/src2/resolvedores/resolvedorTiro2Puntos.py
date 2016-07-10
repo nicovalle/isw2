@@ -1,4 +1,6 @@
-class ResolvedorTiro2Puntos(object):
+from resolvedor import *
+
+class ResolvedorTiro2Puntos(Resolvedor):
     #def __init__(self):
 
     def continuarConFallo(self, unTurno, unSimulador):

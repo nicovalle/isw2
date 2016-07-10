@@ -2,6 +2,9 @@ class Turno(object):
     def __init__(self, unContexto):
         self._contexto = unContexto
 
+    def contexto(self):
+        return self._contexto
+
     def jugarPosesion(self, equipoAtacante, equipoDefensor, unSimulador):
         iniciarPosesion(equipoAtacante, equipoDefensor)
 

@@ -1,4 +1,6 @@
-class ResolvedorPase(object):
+from resolvedor import *
+
+class ResolvedorPase(Resolvedor):
     #def __init__(self):
 
     def continuarConFallo(self, unTurno, unSimulador):

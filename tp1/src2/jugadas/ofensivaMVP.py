@@ -1,10 +1,6 @@
 from ofensiva import *
 
 class OfensivaMVP(Ofensiva):
-    __metaclass__ = ABCMeta
-
-    def __init__(self):
-
     def proximaAccionOfensiva(self, unContexto):
         jugadorAtacante = unContexto.jugadorConPosesion()
         equipoAtacante = unContexto.equipoAtacante()

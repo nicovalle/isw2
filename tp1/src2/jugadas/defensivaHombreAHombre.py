@@ -1,6 +1,6 @@
-from acciones import *
+from defensiva import *
 
-class DefensivaHombreAHombre(object):
+class DefensivaHombreAHombre(Defensiva):
     def accionParaDefender(self, unaAccionOfensiva, unContexto):
         equipoDefensor = unContexto.equipoDefensor()
         equipoAtacante = unContexto.equipoAtacante()
