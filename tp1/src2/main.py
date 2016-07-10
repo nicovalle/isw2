@@ -50,7 +50,7 @@ equipo2 = Equipo("losWarriors", [jugador6, jugador7, jugador8, jugador9, jugador
 
 print equipo1.jugadorEnPosicion(posicion.Base()).nombre()
 
-#print equipo1.jugadorEnPosiciones3(posicion.Base(), posicion.Escolta(), posicion.Alero()).nombre()
-print equipo1.jugadorDistintoA(jugador1).nombre()
+print equipo1.jugadorEntrePosiciones([posicion.Base(), posicion.Escolta(), posicion.Alero()]).nombre()
+#print equipo1.jugadorDistintoA(jugador1).nombre()
 
 print equipo2.tecnico().nombre()

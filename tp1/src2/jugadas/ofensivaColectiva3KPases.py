@@ -1,18 +1,37 @@
 # TODO -> PARA HACER. Tener en cuenta ultimo pase.
-class Tecnico(object):
-    def __init__(self, unNombre, unApellido, unLibroDeJugadas):
-        self._nombre = unNombre
-        self._apellido = unApellido
-        self._libroDeJugadas = unLibroDeJugadas
+import os
+parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(0,parentdir)
 
-    def nombre(self):
-        return self._nombre
+from posiciones import posicion
+from acciones import accion
 
-    def apellido(self):
-        return self._apellido
+class OfensivaColectiva3KPases(OfensivaColectiva):
+    def __init__(self, cantPases):
+        self._k = cantPases
+        self._posicionesFinales = [posicion.Base(), posicion.Escolta(), posicion.Alero()]
 
-    def nombreCompleto(self):
-        return self._nombre+" "+self._apellido
-
-    def libroDeJugadas(self):
-        return self._libroDeJugadas
+#    def proximaAccionOfensiva(self, unContexto):
+#        jugadorAtacante = unContexto.jugadorConPosesion()
+#        equipoAtacante = unContexto.equipoAtacante()
+#        pasoJugadaOfensiva = unContexto.pasoDeJugadaOfensiva()
+#        cantidadPases = self._k
+#
+#        if(pasoJugadaOfensiva == (cantidadPases + 1)):
+#            unaAccionOfensiva = accion.Tiro2Puntos(self, jugadorAtacante)
+#        else:
+#            if(pasoJugadaOfensiva < cantidadPases):
+#                unJugadorReceptor = self.elegirJugadorDistintoA(self, jugadorAtacante, equipoAtacante)
+#            elif(pasoJugadaOfensiva == cantidadPases):
+#                unJugadorReceptor = self.elegirJugadorEntrePosiciones(self._posicionesFinales, equipoAtacante)
+#
+#            unaAccionOfensiva = accion.Pase(jugadorAtacante, unJugadorReceptor)
+#
+#        return unaAccionOfensiva
+#
+#    def elegirJugadorDistintoA(self, unJugador, unEquipo):
+#        return unEquipo.jugadorDistintoA(unJugador)
+#
+#    def elegirJugadorEntrePosiciones(unaListaDePosiciones, unEquipo):
+#        return unEquipo.jugadorEnPosiciones(listaDePosiciones)
+#
