@@ -69,7 +69,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="293.447265625" x="2.0" y="30.1328125">-proximaAccionOfensiva(unContexto)
 -elegirJugadorDistintoA(unJugador,unEquipo)
 -elegirJugadorEntrePosiciciones
-     (unaCollecionDePosiciones,unEquipo)
+     (unaColeccionDePosiciones,unEquipo)
 
 +OfensivaColectiva2KPases(unaCantidadDePases)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -94,7 +94,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="293.447265625" x="2.0" y="30.1328125">-proximaAccionOfensiva(unContexto)
 -elegirJugadorDistintoA(unJugador,unEquipo)
 -elegirJugadorEntrePosiciciones
-     (unaCollecionDePosiciones,unEquipo)
+     (unaColeccionDePosiciones,unEquipo)
 
 +OfensivaColectiva3KPases(unaCantidadDePases)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -119,7 +119,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="269.294921875" x="2.0" y="30.1328125">-proximaAccionOfensiva(unContexto)
 -elegirJugadorDistintoA(unJugador,unEquipo)
 -elegirJugadorEntrePosiciciones
-     (unaCollecionDePosiciones,unEquipo)
+     (unaColeccionDePosiciones,unEquipo)
 
 +OfensivaMVP()<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -144,7 +144,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="269.294921875" x="2.0" y="30.1328125">-proximaAccionOfensiva(unContexto)
 -elegirJugadorDistintoA(unJugador,unEquipo)
 -elegirJugadorEntrePosiciciones
-     (unaCollecionDePosiciones,unEquipo)
+     (unaColeccionDePosiciones,unEquipo)
 
 +OfensivaContraataque()<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -186,13 +186,15 @@
     <node id="n7">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="122.0" width="202.0" x="236.6821289062508" y="392.8217197158185"/>
+          <y:Geometry height="132.9999999999999" width="218.11911349826357" x="236.6821289062508" y="392.8217197158185"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="30.0625" x="85.96875" y="4.0">Pase</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="74.6640625" modelName="custom" textColor="#000000" visible="true" width="196.38671875" x="2.0" y="30.1328125">-jugadorEjecutante()
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="30.0625" x="94.02830674913179" y="4.0">Pase</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="102.9296875" modelName="custom" textColor="#000000" visible="true" width="216.033203125" x="2.0" y="30.1328125">-jugadorEjecutante()
 -jugadorReceptor()
 -resolvedorPara(unSimulador)
+-defenderCon
+     (unaJugadaDefensiva, unJugador)
 
 +Pase(unEjecutante, unReceptor)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -210,12 +212,14 @@
     <node id="n8">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="122.0" width="202.0" x="537.9817572699642" y="392.8217197158185"/>
+          <y:Geometry height="132.9999999999999" width="229.5505913628474" x="537.9817572699642" y="392.8217197158185"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="104.9921875" x="48.50390625" y="4.0">TiroDeDosPuntos</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="custom" textColor="#000000" visible="true" width="197.400390625" x="2.0" y="30.1328125">-jugadorEjecutante()
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="104.9921875" x="62.2792019314237" y="4.0">TiroDeDosPuntos</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="216.033203125" x="2.0" y="30.1328125">-jugadorEjecutante()
 -resolvedorPara(unSimulador)
+-defenderCon
+     (unaJugadaDefensiva, unJugador)
 
 +TiroDeDosPuntos(unEjecutante)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -233,12 +237,14 @@
     <node id="n9">
       <data key="d6">
         <y:GenericNode configuration="com.yworks.entityRelationship.big_entity">
-          <y:Geometry height="122.0" width="202.0" x="-46.9414876302078" y="392.8217197158185"/>
+          <y:Geometry height="122.0" width="217.0" x="-46.9414876302078" y="392.8217197158185"/>
           <y:Fill color="#E8EEF7" color2="#B7C9E3" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="107.81640625" x="47.091796875" y="4.0">TiroDeTresPuntos</y:NodeLabel>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="custom" textColor="#000000" visible="true" width="200.224609375" x="2.0" y="30.1328125">-jugadorEjecutante()
+          <y:NodeLabel alignment="center" autoSizePolicy="content" backgroundColor="#B7C9E3" configuration="com.yworks.entityRelationship.label.name" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasLineColor="false" height="18.1328125" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="107.81640625" x="54.591796875" y="4.0">TiroDeTresPuntos</y:NodeLabel>
+          <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="88.796875" modelName="custom" textColor="#000000" visible="true" width="216.033203125" x="2.0" y="30.1328125">-jugadorEjecutante()
 -resolvedorPara(unSimulador)
+-defenderCon
+     (unaJugadaDefensiva, unJugador)
 
 +TiroDeTresPuntos(unEjecutante)<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
@@ -310,7 +316,7 @@
           <y:NodeLabel alignment="left" autoSizePolicy="content" configuration="com.yworks.entityRelationship.label.attributes" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="60.53125" modelName="custom" textColor="#000000" visible="true" width="271.234375" x="2.0" y="30.1328125">-proximaAccionOfensiva(unContexto)&lt;&lt;A&gt;&gt;
 -elegirJugadorDistintoA(unJugador,unEquipo)
 -elegirJugadorEntrePosiciciones
-     (unaCollecionDePosiciones,unEquipo))<y:LabelModel>
+     (unaColeccionDePosiciones,unEquipo))<y:LabelModel>
               <y:ErdAttributesNodeLabelModel/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -343,7 +349,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-32.5276413030158" y="52.360720244651304">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-30.262202917780996" y="52.79965554794575">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -363,7 +369,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-108.74140205945457" y="50.90276282004152">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-105.42432690230629" y="51.316208610605145">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -383,7 +389,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-12.127905253441384" y="54.26178010583703">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-11.592531630008864" y="54.32847880357508">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -415,7 +421,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="58.81422260979238" y="194.81603826145977">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="61.53875560406749" y="194.94529327015056">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -435,7 +441,7 @@
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="plain"/>
-          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-140.165707183721" y="252.36846068481924">&lt;&lt;usa&gt;&gt;<y:LabelModel>
+          <y:EdgeLabel alignment="center" configuration="AutoFlippingLabel" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.1328125" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="62.34765625" x="-132.10461607717718" y="252.3443002996874">&lt;&lt;usa&gt;&gt;<y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -452,7 +458,7 @@
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="-41.65603298611188" ty="60.98030671494712">
+          <y:Path sx="0.0" sy="0.0" tx="-44.98008409299578" ty="66.47853109088491">
             <y:Point x="-273.57565646701" y="594.5149603949652"/>
             <y:Point x="296.0260959201389" y="594.5149603949652"/>
           </y:Path>
@@ -475,7 +481,7 @@
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="-48.373263888889255" ty="60.98030671494712">
+          <y:Path sx="0.0" sy="0.0" tx="-51.9653379400444" ty="60.98030671494712">
             <y:Point x="790.6238064236117" y="639.019761827257"/>
             <y:Point x="5.685248480902942" y="639.019761827257"/>
           </y:Path>
@@ -498,7 +504,7 @@
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
-          <y:Path sx="-106.44737413194804" sy="44.837989047282264" tx="27.91768391927178" ty="2.9402838649106116">
+          <y:Path sx="-106.44737413194804" sy="44.837989047282264" tx="14.142388237848081" ty="66.4740523068528">
             <y:Point x="-390.61941189236086" y="452.52345106336804"/>
             <y:Point x="-390.61941189236086" y="713.1944308810763"/>
             <y:Point x="-373.1816406249961" y="713.1944308810763"/>
