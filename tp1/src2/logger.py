@@ -1,53 +1,56 @@
 class Logger(object):
 
     def loggearInicioTurno(numeroTurno):
-        #arranca el turno numero X
-        return true
+        print 'Se inicia el turno numero ' + numeroTurno
+        return
 
     def loggearEmpate(numeroTurno):
-        #Empate en el turno numero X
-        return true
+        print 'Empate en el turno numero ' + numeroTurno
+        return
 
     def loggearVictoria(equipoGanador, equipoPerdedor, puntajeGanador, puntajePerdedor):
-        #El equipo A, vence al equipo B por X tantos contra Y
-        return true
+        print 'El equipo ' + equipoGanador.nombre + ' vence al equipo ' + equipoPerdedor.nombre + ' por ' + puntajeGanador + ' tantos contra ' + puntajePerdedor
+        return
 
     def loggearInicioPosesion(equipoAtacante):
-        #arranca atacando tal equipo
-        return true
+        print 'Se inicia la posesion del equipo ' + equipoAtacante.nombre
+        return
 
     def loggearPelotaAfuera():
-        #la pelota se fue
-        return true
+        print 'La pelota sale de la cancha!'
+        return
 
     def loggearPaseExitoso(paseEmisor, paseReceptor, paseInterceptor):
-        #pase exitoso entre A y B, que C no logra interceptar
-        return true
+        print paseEmisor.nombre + ' se la pasa a ' + paseReceptor.nombre + ' y ' + paseInterceptor + ' no logra interceptarla'
+        return
 
     def loggearBloqueo(tirador, bloqueador):
-        #A le bloquea el tiro a B
-        return true
+        print tirador.nombre + ' lanza el balon hacia el aro, pero ' + bloqueador + ' la intercepta'
+        return
 
     def loggearIntercepcionExito(paseEmisor, paseReceptor, paseInterceptor):
-        #A le intercepta el pase a B, cuando le hacia un pase a C
-        return true
+        print paseEmisor.nombre + ' se la pasa a ' + paseReceptor.nombre + ' y ' + paseInterceptor + ' no logra interceptarla'
+        return
 
     def loggearPaseIntercepcionFracaso(paseEmisor, paseReceptor, paseInterceptor):
-        #A no se la logra pasar a B y C no la logra interceptar -> sale de la cancha.
-        return true
+        print paseEmisor.nombre + ' no logra realizar el pase  a ' + paseReceptor.nombre + ' y ' + paseInterceptor + ' no logra interceptarla'
+        return
 
-    def loggearEncestarDoble(tirador, bloqueador):
-        #A lanza un doble, B no lo logra bloquear, y A convierte
-        return true
+    def loggearEncestarDoble(tirador, bloqueador, equipoTirador):
+        print tirador.nombre + 'lanza al aro, ' + bloqueador.nombre + ' no logra interceptarla, y anota. Dos puntos para ' + equipoTirador.nombre
+        return
 
-    def loggearEncestarTriple(tirador, bloqueador):
-        #A lanza un triple, B no lo logra bloquear, y A convierte
-        return true
+    def loggearEncestarTriple(tirador, bloqueador, equipoTirador):
+        print tirador.nombre + 'lanza al aro, ' + bloqueador.nombre + ' no logra interceptarla, y anota. Tres puntos para ' + equipoTirador.nombre
+        return
+
+    def loggearInicioReboteo():
+        print 'La pelota queda rebotando y los jugadores se acercan a tratar de tomarla!'
 
     def loggearReboteoIntento(jugador, equipo):
-        #El jugador A del equipo B, intenta agarrar un rebote
-        return true
+        print jugador.nombre + ' del equipo ' + equipo.nombre + ', intenta agarrar el rebote.'
+        return
 
     def loggearReboteoExito(jugador, equipo):
-        #El jugador A del equipo B, logra agarrar un rebote
-        return true
+        print jugador.nombre + ' del equipo ' + equipo.nombre + ', logra agarrar el rebote!'
+        return
