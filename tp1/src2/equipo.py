@@ -1,16 +1,16 @@
 import random
-from posicion import Posicion
+from posiciones import posicion
 
 class Equipo(object):
-    def __init__(self, unNombre, losJugadores, elMVP, unTecnico):
+    def __init__(self, unNombre, losJugadores, elJugadorEstrella, unTecnico):
         self._nombre = unNombre
         self._tecnico = unTecnico
-        self._mvp = elMVP
-        self._jugadores = [(losJugadores[0], Posicion("Base")),
-							(losJugadores[1], Posicion("Escolta")),
-							(losJugadores[2], Posicion("Alero")),
-							(losJugadores[3], Posicion("Ala Pivot")),
-							(losJugadores[4], Posicion("Pivot"))]
+        self._jugadorEstrella = elJugadorEstrella
+        self._jugadores = [(losJugadores[0], posicion.Base()),
+							(losJugadores[1], posicion.Escolta()),
+							(losJugadores[2], posicion.Alero()),
+							(losJugadores[3], posicion.AlaPivot()),
+							(losJugadores[4], posicion.Pivot())]
 
 	def nombre(self):
 		return self._nombre
@@ -21,8 +21,8 @@ class Equipo(object):
     def jugadores(self):
         return self._jugadores
 
-    def mvp(self):
-        return self._mvp
+    def jugadorEstrella(self):
+        return self._jugadorEstrella
 
     def posicionDe(self, unJugador):
         for jugpos in self._jugadores:
@@ -43,6 +43,6 @@ class Equipo(object):
 
     def alapivot(self):
         return self._jugadores[3][0]
-    
+
     def pivot(self):
         return self._jugadores[4][0]
