@@ -1,3 +1,5 @@
+title Ejecutar acciones
+
 sender -> +unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta,\n unaIntercepcionDelBaseDeLosWarriors, unTurno)
 
 unSimulador -> +unTurno: contexto()
@@ -7,7 +9,7 @@ unSimulador ->  +unPaseDelBaseAlEscolta: resolvedorPara(self)
 unPaseDelBaseAlEscolta --> -unSimulador: unResolvedorDePase
 
 unSimulador -> +unResolvedorDePase: resolver(unPaseDelBaseAlEscolta)
-unResolvedorDePase --> unSimulador: true
+unResolvedorDePase --> -unSimulador: true
 
 unSimulador -> +unaIntercepcionDelBaseDeLosWarriors: resolvedorPara(self)
 unaIntercepcionDelBaseDeLosWarriors --> -unSimulador: unResolvedorDeIntercepcion
@@ -16,7 +18,7 @@ unSimulador -> +unResolvedorDeIntercepcion: resolver(unaIntercepcionDelBaseDeLos
 unResolvedorDeIntercepcion --> -unSimulador : false
 
 ## gana ofensiva
-unSimulador -> unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, unTurno, self)
+unSimulador -> +unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, unTurno, self)
 
 ## gana defensiva
 #unSimulador -> unResolvedorDeIntercepcion: continuarConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)

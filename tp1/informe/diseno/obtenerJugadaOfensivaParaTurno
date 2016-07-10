@@ -1,3 +1,5 @@
+title Obtener jugada ofensiva para turno
+
 sender -> +unSimulador: obtenerJugadaOfensivaParaTurno(unTurno)
 
 unSimulador -> +unTurno: contexto()
@@ -9,7 +11,7 @@ unContexto --> -unSimulador: losSpurs
 unSimulador -> +losSpurs: tecnico()
 losSpurs --> -unSimulador: unTecnico
 
-unSimulador -> unSimulador: elegirJugadaOfensivaConTecnico(unTecnico)
-unSimulador --> unSimulador: jugadaOfensivaColec4PasesY3Ptos
+unSimulador -> +unSimulador: elegirJugadaOfensivaConTecnico(unTecnico)
+unSimulador --> -unSimulador: jugadaOfensivaColec4PasesY3Ptos
 
 unSimulador --> -sender: jugadaOfensivaColec4PasesY3Ptos

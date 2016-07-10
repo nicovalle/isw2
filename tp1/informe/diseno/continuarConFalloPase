@@ -1,3 +1,5 @@
+title Continuar con fallo - Pase
+
 sender -> +unResolvedorDePase: continuarConFallo(unTurno, unSimulador):
 
 unResolvedorDePase -> +unSimulador: pelotaAfueraPara(unTurno)

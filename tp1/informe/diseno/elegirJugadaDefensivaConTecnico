@@ -1,3 +1,5 @@
+title Elegir jugada defenisva
+
 sender -> +unSimulador: elegirJugadaDefensivaConTecnico(unTecnico)
 
 unSimulador -> +unTecnico: libroDeJugadas()

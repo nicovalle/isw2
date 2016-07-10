@@ -1,18 +1,20 @@
+title Elegir jugadas para turno
+
 sender -> +unSimulador: elegirJugadasParaTurno(unTurno)
 
 unSimulador -> +unTurno: contexto()
 unTurno --> -unSimulador: unContexto
 
-unSimulador -> unSimulador: obtenerJugadaOfensivaParaTurno(unTurno)
-unSimulador --> unSimulador: jugadaOfensivaColec4PasesY3Ptos
+unSimulador -> +unSimulador: obtenerJugadaOfensivaParaTurno(unTurno)
+unSimulador --> -unSimulador: jugadaOfensivaColec4PasesY3Ptos
 
 unSimulador -> +unContexto: jugadaOfensiva(jugadaOfensivaColec4PasesY3Ptos)
-unContexto --> unSimulador:
+unContexto --> -unSimulador:
 
-unSimulador -> unSimulador: obtenerJugadaDefensivaParaTurno(unTurno)
-unSimulador --> unSimulador: jugadaDefensivaHombreAHombre
+unSimulador -> +unSimulador: obtenerJugadaDefensivaParaTurno(unTurno)
+unSimulador --> -unSimulador: jugadaDefensivaHombreAHombre
 
-unSimulador -> unContexto: jugadaDefensiva(jugadaDefensivaHombreAHombre)
+unSimulador -> +unContexto: jugadaDefensiva(jugadaDefensivaHombreAHombre)
 unContexto --> -unSimulador:
 
 unSimulador --> -sender:

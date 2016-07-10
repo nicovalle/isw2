@@ -1,12 +1,14 @@
+title Encestar triple
+
 sender -> +unSimulador: encestarTriple(unTurno)
 
 unSimulador -> +unTurno: contexto()
 unTurno --> -unSimulador: unContexto
 
 unSimulador -> +unContexto: equipoAtacante()
-unContexto --> unSimulador: losSpurs
+unContexto --> -unSimulador: losSpurs
 
-unSimulador -> unContexto: equipoDefensor()
+unSimulador -> +unContexto: equipoDefensor()
 unContexto --> -unSimulador: losWarriors
 
 unSimulador -> +Resultado: new(losSpurs, 3, losWarriors, 0)

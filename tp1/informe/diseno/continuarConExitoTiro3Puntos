@@ -1,3 +1,5 @@
+title Continuar con exito - Tiro 3 puntos
+
 sender -> +unResolvedorDeTiro3Puntos: continuarConExito(unTurno, unSimulador):
 
 unResolvedorDeTiro3Puntos -> +unSimulador: encestarTriple(unTurno)

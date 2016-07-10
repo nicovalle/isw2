@@ -1,3 +1,5 @@
+title Obtener jugada defensiva para turno
+
 sender -> +unSimulador: obtenerJugadaDefensivaParaTurno(unTurno)
 
 unSimulador -> +unTurno: contexto()
@@ -9,7 +11,7 @@ unContexto --> -unSimulador: losWarriors
 unSimulador -> +losWarriors: tecnico()
 losWarriors --> -unSimulador: unTecnico
 
-unSimulador -> unSimulador: elegirJugadaDefensivaConTecnico(unTecnico)
-unSimulador --> unSimulador: jugadaDefensivaHombreAHombre
+unSimulador -> +unSimulador: elegirJugadaDefensivaConTecnico(unTecnico)
+unSimulador --> -unSimulador: jugadaDefensivaHombreAHombre
 
 unSimulador --> -sender: jugadaDefensivaHombreAHombre
