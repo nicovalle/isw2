@@ -1,12 +1,20 @@
 # TODO -> PARA HACER. Tener en cuenta ultimo pase.
-class Tecnico(object):
-    def __init__(self, unNombre, unApellido, unLibroDeJugadas):
-        self._nombre = unNombre
-        self._apellido = unApellido
-        self._libroDeJugadas = unLibroDeJugadas
+class OfensivaColectiva2KPases(object):
+    def __init__(self, cantPases):
+        self._k = cantPases
 
-    def nombre(self):
+    def proximaAccionOfensiva(self, unContexto):
+        jugadorAtacante = unContexto.jugadorConPosesion()
+        pasoJugadaOfensiva = unContexto.pasoDeJugadaOfensiva()
+        equipoAtacante = unContexto.equipoAtacante()
+        e
         return self._nombre
+
+    def elegirJugadorDistintoA(self, unJugador, unEquipo):
+        return unEquipo.jugadorDistintoA(unJugador)
+
+    def elegirJugadorEntre(unaPosicion, otraPosicion, unaOtraPosicion, unEquipo):
+        return unEquipo.jugadorEnPosiciones3(unaPosicion, otraPosicion, unaOtraPosicion)
 
     def apellido(self):
         return self._apellido
