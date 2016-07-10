@@ -2,7 +2,6 @@ class Simulador(object):
 #    def __init__(self):
 #        return ""
 
-
     def apellido(self):
         return self._apellido
 
@@ -12,7 +11,7 @@ class Simulador(object):
     def libroDeJugadas(self):
         return self._libroDeJugadas
 
-
+    ### Eleccion de jugadas
     def elegirJugadasParaTurno(self, unTurno):
         unContexto = unTurno.contexto()
 
@@ -64,6 +63,8 @@ class Simulador(object):
         # TODO
         return false
 
+
+    ### Ejecucion de jugadas
     def elegirYEjecutarAcciones(self, unTurno):
         unContexto = unTurno.contexto()
 
@@ -96,6 +97,7 @@ class Simulador(object):
                 unResultado = unResolvedorDeAccionOfensiva.continuarConFallo(unTurno, self)
 
         return unResultado
+
 
     ### Fin de turno
     def pelotaAfueraPara(self, unTurno):
