@@ -46,7 +46,7 @@ tecnico1 = Tecnico("pep", "guardiola", "unlibro")
 tecnico2 = Tecnico("carlo", "antilope", "otrolibro")
 
 equipo1 = Equipo("losSpurs", [jugador1, jugador2, jugador3, jugador4, jugador5], jugador1, tecnico1)
-equipo2 = Equipo("losWarriors", [jugador6, jugador7, jugador8, jugador9, jugador10], jugador6, tecnico2)
+equipo2 = Equipo("losWarriors", [jugador6, jugador7, jugador8, jugador9, jugador10], jugador8, tecnico2)
 
 print equipo1.jugadorEnPosicion(posicion.Base()).nombre()
 

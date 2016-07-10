@@ -1,10 +1,4 @@
-import os
-parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir)
-
 from ofensiva import *
-from posiciones import posicion
-from acciones import accion
 
 from abc import ABCMeta, abstractmethod
 
@@ -32,9 +26,3 @@ class OfensivaColectiva(Ofensiva):
             unaAccionOfensiva = accion.Pase(jugadorAtacante, unJugadorReceptor)
 
         return unaAccionOfensiva
-
-    def elegirJugadorDistintoA(self, unJugador, unEquipo):
-        return unEquipo.jugadorDistintoA(unJugador)
-
-    def elegirJugadorEntrePosiciones(unaListaDePosiciones, unEquipo):
-        return unEquipo.jugadorEnPosiciones(listaDePosiciones)

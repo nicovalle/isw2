@@ -1,20 +1,22 @@
+import os
+parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.sys.path.insert(0,parentdir)
+
 from abc import ABCMeta, abstractmethod
+
+from posiciones import *
+from acciones import *
+import random
 
 class Ofensiva(object):
     __metaclass__ = ABCMeta
 
     @abstractmethod
-    def __init__(self):
-        pass
-
-    @abstractmethod
     def proximaAccionOfensiva(self, unContexto):
         pass
 
-    @abstractmethod
     def elegirJugadorDistintoA(self, unJugador, unEquipo):
-        pass
+        return unEquipo.jugadorDistintoA(unJugador)
 
-    @abstractmethod
-    def elegirJugadorEntrePosiciones(self, unaListaDePosiciones, unEquipo):
-        pass
+    def elegirJugadorEntrePosiciones(unaListaDePosiciones, unEquipo):
+        return unEquipo.jugadorEnPosiciones(listaDePosiciones)

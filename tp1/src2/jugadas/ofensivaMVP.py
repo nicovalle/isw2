@@ -1,18 +1,19 @@
-# TODO -> PARA HACER
-class Tecnico(object):
-    def __init__(self, unNombre, unApellido, unLibroDeJugadas):
-        self._nombre = unNombre
-        self._apellido = unApellido
-        self._libroDeJugadas = unLibroDeJugadas
+from ofensiva import *
 
-    def nombre(self):
-        return self._nombre
+class OfensivaMVP(Ofensiva):
+    __metaclass__ = ABCMeta
 
-    def apellido(self):
-        return self._apellido
+    def __init__(self):
 
-    def nombreCompleto(self):
-        return self._nombre+" "+self._apellido
+    def proximaAccionOfensiva(self, unContexto):
+        jugadorAtacante = unContexto.jugadorConPosesion()
+        equipoAtacante = unContexto.equipoAtacante()
+        jugadorEstrella = equipoAtacante.jugadorEstrella()
+        pasoJugadaOfensiva = unContexto.pasoDeJugadaOfensiva()
 
-    def libroDeJugadas(self):
-        return self._libroDeJugadas
+        if(pasoJugadaOfensiva == 0 and jugadorAtacante != jugadorEstrella):
+            unaAccionOfensiva = accion.Pase(jugadorAtacante, jugadorEstrella)
+        else:
+            unaAccionOfensiva = random.choice([accion.Tiro2Puntos(jugadorEstrella), accion.Tiro3Puntos(jugadorEstrella)])
+
+        return unaAccionOfensiva
