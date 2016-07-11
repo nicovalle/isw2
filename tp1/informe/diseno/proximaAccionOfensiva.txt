@@ -6,7 +6,7 @@ sender -> +jugadaOfensivaColect4pasesy3ptos: proximaAccionOfensiva(unContexto)
 jugadaOfensivaColect4pasesy3ptos -> +unContexto: jugadorConPosesion()
 unContexto --> -jugadaOfensivaColect4pasesy3ptos:  unBase
 jugadaOfensivaColect4pasesy3ptos -> +unContexto: pasoDeJugadaOfensiva()
-unContexto --> -jugadaOfensivaColect4pasesy3ptos : 3
+unContexto --> -jugadaOfensivaColect4pasesy3ptos : 2
 jugadaOfensivaColect4pasesy3ptos -> +unContexto: equipoAtacante()
 unContexto --> -jugadaOfensivaColect4pasesy3ptos : losSpurs
 jugadaOfensivaColect4pasesy3ptos -> +jugadaOfensivaColect4pasesy3ptos: elegirJugadorDistintoA(unBase, losSpurs)

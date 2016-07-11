@@ -1,6 +1,6 @@
 title Continuar con exito - Intercepcion
 
-sender -> +unResolvedorDeIntercepcion: continuarConExito(unTurno, unSimulador, self)
+sender -> +unResolvedorDeIntercepcion: continuarConExito\n(unTurno, unSimulador, self)
 
 unResolvedorDeIntercepcion -> +unTurno: contexto()
 unTurno --> -unResolvedorDeIntercepcion: unContexto
@@ -11,7 +11,7 @@ unContexto --> -unResolvedorDeIntercepcion: losSpurs
 unResolvedorDeIntercepcion -> +unContexto: equipoDefensor()
 unContexto --> -unResolvedorDeIntercepcion: losWarriors
 
-unResolvedorDeIntercepcion -> +unTurno: jugarPosesion(losWarriors, losSpurs, unSimulador)
+unResolvedorDeIntercepcion -> +unTurno: jugarPosesion\n(losWarriors, losSpurs,\n unSimulador)
 unTurno --> -unResolvedorDeIntercepcion: unResultado
 
 unResolvedorDeIntercepcion --> -sender: unResultado

@@ -1,12 +1,12 @@
 title Continuar con exito - Pase
 
-sender -> +unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta,\n unTurno, unSimulador):
+sender -> +unResolvedorDePase: continuarConExito\n(unPaseDelBaseAlEscolta, \nunTurno, unSimulador):
 
 unResolvedorDePase -> +unTurno: contexto()
 unTurno --> -unResolvedorDePase: unContexto
 
-unResolvedorDePase -> +unPaseDelBaseAlEscolta: jugadorReceptor()
-unPaseDelBaseAlEscolta --> -unResolvedorDePase : unEscoltaDeLosSpurs
+unResolvedorDePase -> +unPaseDel\nBaseAlEscolta: jugadorReceptor()
+unPaseDel\nBaseAlEscolta --> -unResolvedorDePase : unEscoltaDeLosSpurs
 
 unResolvedorDePase -> +unContexto: jugadorConPosesion(unEscoltaDeLosSpurs)
 unContexto --> -unResolvedorDePase :

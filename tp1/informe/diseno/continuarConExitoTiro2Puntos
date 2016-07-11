@@ -1,6 +1,6 @@
 title Continuar con exito - Tiro 2 puntos
 
-sender -> +unResolvedorDeTiro2Puntos: continuarConExito(unTurno, unSimulador):
+sender -> +unResolvedorDeTiro2Puntos: continuarConExito\n(unTurno, unSimulador):
 
 unResolvedorDeTiro2Puntos -> +unSimulador: encestarDoble(unTurno)
 unSimulador --> -unResolvedorDeTiro2Puntos: unResultado
