@@ -1,8 +1,24 @@
 \section{Diseño}
 A continuación se presentan y explican algunas de las desiciones de diseño elegidas durante el desarrollo del trabajo practico.
-Se decidió dividir la presentación en subsecciones para facilitar la comprensión de la misma, haciendo especial enfasis en aquellas que sentiamos eran de importancia para la comprensión del mismo.
+Se decidió dividir la presentación en subsecciones para facilitar la comprensión de la misma, haciendo especial énfasis en aquéllas que consideramos son de mayor importancia para la comprensión del mismo.
 
-Vale mencionar que si bien es cierto que se genero una idea general en el grupo antes de comenzar a reflejar las decisiones tomadas en codigo, el diseño en profundidad se termino de desarrollar y afinar en paralelo, mientras surgian cuestiones mismas relacionadas al propio desarrollo que no habian sido tenidas en cuenta en papel. 
+%Vale mencionar que si bien es cierto que se genero una idea general en el grupo antes de comenzar a reflejar las decisiones tomadas en codigo, el diseño en profundidad se termino de desarrollar y afinar en paralelo, mientras surgian cuestiones mismas relacionadas al propio desarrollo que no habian sido tenidas en cuenta en papel. 
+
+
+\subsection{Participantes, cap y fichas}
+Decidimos que un en un modelado correcto del participante no tenía sentido desde el punto de vista de responsabilidades del objeto que lo represente que conozca su cap (presupuesto para armar equipos) ni su cantidad de fichas disponibles, puesto que no son esenciales. Por lo tanto, diseñamos dos clases, el GestorDeCap y el GestorDeFichas, cuyas instancias son objetos que conocen para un participante dado el cap y la cantidad de fichas disponibles respectivamente, además de proveer un protocolo para la actualización de esos valores, que nos permiten desligar a las instancias de la clase Participante de dichas responsabilidades.\\
+El nombre Gestor para ambas clases proviene del hecho de que sus instancias gestionan las fichas/caps de los participantes, no són solo objetos que proveen información, sino que la mantienen también.\\
+Instancias de ambas clases se utilizan también en la gestión de desafíos, dado que las apuestas afectan la cantidad de fichas disponibles de un participantes y el resultado de un desafíos afecta no sólo a las fichas disponibles de un participante, sino también a su cap.\\
+El GestorDeCap entonces utiliza también la clase Presupuesto, que representa en el contextor del Gestor al presupuesto que un participante tiene como límite a la hora de conformar equipos.\\
+Análogamente, el GestorDeFichas utiliza la clase Fichas, que representa una cantidad de fichas dada.\\
+Si bien ambas clases parecen representar conceptos parecidos, preferimos organizar el conocimiento en dos clases distintas, para dejar en claro la diferencia existente entre ambas entidades en el dominio del problema.\\
+
+\begin{center}
+\includegraphics[scale=0.4]{diseno/gestorDeCapYFichas.jpg} 
+\end{center}
+
+Finalmente, con el mismo argumento esgrimado en párrafos anteriores, no es esencial al participante conocer directamente sus equipos. Resolvimos esto de una manera similar, como explicaremos en la siguiente subsección.\\
+
 
 \subsection{Acciones}
 Todas las jugadas que pueden desarrollarse durante la simulacion de un partido, se divide claramente en dos grupos. Aquellas que realiza el equipo que esta atacando, y aquellas que realiza aquel que esta defendiendo. En base a esta idea, planteamos nuestro diseño clasificando a todas las acciones que pueden realizarse dentro de una jugada, en alguno de estos dos grupos (Ofensivas y Defensivas) y sub clasificando luego, de acuerdo al tipo de accion.
@@ -51,12 +67,6 @@ A continuación veremos como se integran el tecnico con su libro de jugadas para
 El gesto de equipos es aquel encargado de dar de alta y realizar cada una de las validaciones necesarias para confirmar la creacion de un equipo. Es por eso que se necesita de un gestor de Cap y una entidad que represente una lista de cada uno de los posibles jugadores. Esta elección nos permite disminuir la cohesión del modelo, permitiendo asi que futuras validaciones o modificaciones a las ya existentes, se agreguen de forma simple y sin agregar complejidad.
 \begin{center}
 \includegraphics[scale=0.4]{diseno/gestorDeEquipos.jpg}
-\end{center}
-
-\subsection{Gestor de Cap y Fichas}
-Estas dos entidades usan la misma logica y, conociendo al participante y la entidad a gestionar, permiten registrar y actualizar el cap y la cantidad de fichas de los participantes
-\begin{center}
-\includegraphics[scale=0.4]{diseno/gestorDeCapYFichas.jpg} 
 \end{center}
 
 \subsection{Registro de estadisticas}
