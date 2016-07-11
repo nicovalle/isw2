@@ -1,16 +1,16 @@
 title Elegir jugada ofensiva
 
-sender -> +unSimulador: elegirJugadaOfensivaConTecnico(unTecnico)
+sender -> +unSimulador: elegirJugadaOfensiva\nConTecnico(unTecnico)
 
-unSimulador -> +unTecnico: libroDeJugadas()
-unTecnico --> -unSimulador: unLibroDeJugadas
+unSimulador -> +unTecnico: libroDe\nJugadas()
+unTecnico --> -unSimulador: unLibro\nDeJugadas
 
-unSimulador -> +unLibroDeJugadas: jugadasOfensivasConFrecuencias()
-unLibroDeJugadas --> -unSimulador: unDiccDeOfensivasConFrecuencias
+unSimulador -> +unLibro\nDeJugadas: jugadasOfensivas\nConFrecuencias()
+unLibro\nDeJugadas --> -unSimulador: unDiccDeOfensivas\nConFrecuencias
 
-unSimulador -> +generadorDeNumerosAleatorios: obtenerNumeroEntre(0,1)
-generadorDeNumerosAleatorios --> -unSimulador : unaFrecuencia
+unSimulador -> +generadorDe\nNumerosAleatorios: obtenerNumeroEntre(0,1)
+generadorDe\nNumerosAleatorios --> -unSimulador : unaFrecuencia
 
-unSimulador -> +unSimulador: elegirJugadaConFrecuencia\n(unDiccDeOfensivasConFrecuencias, unaFrecuencia)
+unSimulador -> +unSimulador: elegirJugadaConFrecuencia\n(unDiccDeOfensivasConFrecuencias,\n unaFrecuencia)
 unSimulador --> -unSimulador : jugadaOfensivaColec4PasesY3Ptos
 unSimulador --> -sender: jugadaOfensivaColec4PasesY3Ptos

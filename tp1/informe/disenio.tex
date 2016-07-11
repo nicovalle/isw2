@@ -100,6 +100,13 @@ En el caso de las jugadas defensivas, sólo hereda de ella la jugada DefensivaHo
 
 Modelamos las jugadas defensivas como una respuesta a las jugadas ofensivas. Por esa razón, deben poder responder mensajes con la información de con qué acción defensiva hacen frente a una acción ofensiva. Este mecanismo, de double dispatch, se verá mejor en los diagramas de secuencia presentados a continuación.
 
+A continuación veremos cómo se integran el tecnico con su libro de jugadas para elegir una jugada (en este caso, una ofensiva) con la simulación. Nótese que, dado que las jugadas se eligen en base a la frecuencia de las mismas, se necesitó de un generador de numeros aleatorios para simular el comportamiento de aleatoriedad en la elección de las mismas. \\
+(Nota: si bien no aparecen Tecnico y LibroDeJugadas en el diagrama de clases anterior, conceptualmente este diagrama de secuencias tiene más sentido aquí, que en la sección \textbf{3.2.2  - Equipos}, en particular porque la jugada ofensiva se usa en los diagramas posteriores).
+\begin{center}
+\includegraphics[scale=0.45]{diseno/Elegir_jugada_ofensiva.png} 
+\end{center}
+
+
 El mecanismo para elegir la próxima acción (ofensiva) en una jugada ofensiva es bastante simple. La jugada recibe el contexto del turno como parámetro, y le consulta toda la información que necesita para poder resolver cuál será la próxima acción. Dado que la jugada es de 4 pases, y nos encontramos en el paso 2 (es decir, en el próximo paso no se tirará al aro), la próxima acción será un pase a cualquier jugador del equipo atacante, que no sea el que tiene actualmente la posesión de la pelota. La jugada crea finalmente un pase, con el jugador ejecutante y el jugador receptor, y devuelve esa acción al sender.
 
 \begin{center}
@@ -108,13 +115,14 @@ El mecanismo para elegir la próxima acción (ofensiva) en una jugada ofensiva e
 
 El mecanismo para la próxima acción de una jugada defensiva es más interesante por hacer uso de double dispatch.
 
+Como la jugada defensiva hombre a hombre es siempre en respuesta a una ofensiva, es necesario conocer información de la acción respectiva de la jugada ofensiva que se está ejecutando , y quién es el jugador del equipo atacante en posesión de la pelota, ya que quien realice la acción defensiva deberá ocupar la misma posición, pero en el equipo defensor.
+
+El double dispatch aparece por duplicado, en la interacción entre losWarriors y unaPosicionBase (para saber quién es el jugador de losWarriors que ocupa la posición de base), y luego entre la jugadaDefensivaHombreAHombre y la acción ofensiva unPaseDelBaseAlEscolta (para poder responder de qué manera la jugada defensiva hará frente a la acción ofensiva: mediante una intercepción).
+
 \begin{center}
 \includegraphics[scale=0.4]{diseno/Proxima_accion_defensiva.png}
 \end{center}
 
-Como la jugada defensiva hombre a hombre es siempre en respuesta a una ofensiva, es necesario conocer información de la acción respectiva de la jugada ofensiva que se está ejecutando , y quién es el jugador del equipo atacante en posesión de la pelota, ya que quien realice la acción defensiva deberá ocupar la misma posición, pero en el equipo defensor.
-
-El double dispatch aparece por duplicado, en la interacción entre losWarriors y unaPosicionBase (para saber quién es el jugador de losWarriors que ocupa la posición de base), y luego entre la jugadaDefensivaHombreAHombre y la acción ofensiva unPaseDelBaseAlEscolta (para poder responder de qué manera la jugada defensiva hará frente a la acción ofensiva: mediante una intercepción).
 
 \subsubsection{Ejecución de acciones}
 En el siguiente diagrama de secuencia se puede apreciar cómo el simulador realiza los pasos de las jugadas en un turno dado. Ya se dispone de una acción ofensiva y de otra ofensiva (elegido en los diagramas previos), por lo que el simulador ejecuta ambas acciones para un turno determinado. A cada una de las acciones le pide su resolvedor correspondiente, a los que les pregunta luego si la acción es exitosa, o no. En base a eso los resultados de las distintas acciones, decide el simulador cómo continúa.
@@ -165,15 +173,20 @@ Modelamos las apuestas con una jerarquía polimórfica simple. La clase abstract
 \input{gestionDeDesafios.tex}
 
 
-A continuación veremos cómo se integran el tecnico con su libro de jugadas para elegir una jugada (en este caso, una ofensiva) con la simulación. Nótese que, dado que las jugadas se eligen en base a la frecuencia de las mismas, se necesitó de un generador de numeros aleatorios para simular el comportamiento de aleatoriedad en la elección de las mismas. 
-\begin{center}
-\includegraphics[scale=0.30]{diseno/Elegir_jugada_ofensiva.png} 
-\end{center}
-
-
 \subsection{Partido}
-Analicemos ahora el diagrama de clases de las entidades que componen un partido podemos ver, en un planteo un poco mas general, como se realiza tambien el loggeo de las distintas acciones que realizan los jugadores y como se integra la entidad resultado para poder dar cuenta de como finalizan las distintas acciones que mencionamos en secciones anteriores. Todo el loggeo de las distintas acciones se realiza mediante una clase abstracta que permite que, en un futuro en lugar de imprimir la salida por consola como sucede actualmente, la forma de logear los resultados pueda ser alterada con un minimo impacto en el resto del sistema, disminuyendo la complejidad.
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/partido.jpg}
 \end{center}
+Analicemos ahora el diagrama de clases de las entidades que componen un partido. Podemos ver, en un planteo un poco más general, cómo se realiza tambien el loggeo de las distintas acciones que realizan los jugadores, y cómo se integra la entidad Resultado para poder dar cuenta de cómo finalizan las distintas acciones que mencionamos en secciones anteriores. 
+
+Todo el loggeo de las distintas acciones se realiza mediante una clase abstracta que permite que en un futuro, en lugar de imprimir la salida por consola como sucede actualmente, el output donde se loggeen los resultados pueda ser alterado (por ejemplo, que escriba a un archivo) con un mínimo impacto en el resto del sistema, disminuyendo la complejidad.
+
+El partido comienza con el llamado a JugarCon(), donde un partido comienza a jugar con un simulador y logger dados. Al partido le interesa tener conocimiento de cuál es el último equipo que empezó un turno (para poder invertirlos en el próximo turno; cabe destacar que esta información no se puede sacar del Contexto, ya que el equipo atacante/defensor puede no ser el mismo que sacó en el Turno), qué equipo va ganando y cuál no va ganando, y si el partido está empatado (en cuyo caso se debería \textbf{jugarTiempoExtra()}), 
+
+Es el partido el que va creando los distintos turnos, les da un contexto, y va acumulando los resultados parciales de cada uno. Luego de crear cada turno, el partido llama a jugarPosesion(), donde estipula qué equipo sacará y qué equipo no saca, y a partir de allí se eligen las jugadas para cada turno, y las acciones. Notar también que jugarPosesion() es el método al que se llama cuando hay un cambio de posesión en un mismo turno (con una intercepción exitosa, o en un reboteo), es posible usarlo en ambos ámbitos sin ningún problema.
+
+\begin{center}
+\includegraphics[scale=0.4]{diseno/Ejecucion_completa_de_un_turno.png}
+\end{center}
+
 

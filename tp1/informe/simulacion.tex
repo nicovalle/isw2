@@ -1,10 +1,11 @@
 \section{Organización de la Simulación}
-La implementación de la simulación se organiza de la siguiente manera:
+La implementación de la demo de la simulación se organiza de la siguiente manera:
 \begin{itemize}
- \item Un archivo main.py donde se cargan algunos datos de prueba y se inicia una simulación.
- \item Cuatro carpetas que aquellas clases que tienen alguna jerarquización, junto a sus clases herederas.
+ \item Un archivo main.py donde se cargan los datos de prueba y se inicia una simulación.
+ \item Cuatro carpetas de aquellas clases que tienen alguna jerarquización (acciones, jugadas, resolvedores y posiciones), junto a sus clases herederas.
  \item El resto de las clases necesarias para correr una simulación.
 \end{itemize}
 
-Para correr una simulación, deberá ejecutarse el comando $python$ $main.py$ en una consola, aunque previamente puede ingresarse para modificar algunas estadísticas dadas de alta de forma manual, el nombre de los equipos o de los jugadores, etc y personalizar la salida por consola.
-Además, se pueden modificar las ecuaciones utilizadas para calcular el éxito o fracaso de una acción ingresando en la carpeta resolvedores y alterando los cálculos planteados en la función esExitoso() de cada uno de las clases correspondientes. 
+Para correr una simulación, deberá ejecutarse el comando $python$ $main.py$ en una consola. Es posible ingresar previamente al archivo para modificar algunas estadísticas (dadas de alta de forma manual), el nombre de los equipos o de los jugadores, etc. y personalizar la salida por consola.
+
+Además, se pueden modificar las ecuaciones utilizadas para calcular el éxito o fracaso de una acción, ingresando en la carpeta resolvedores y alterando los cálculos planteados en la función esExitoso() de cada uno de las clases correspondientes. 
