@@ -9,9 +9,9 @@ unResolvedorDePase -> +unPaseDelBaseAlEscolta: jugadorReceptor()
 unPaseDelBaseAlEscolta --> -unResolvedorDePase : unEscoltaDeLosSpurs
 
 unResolvedorDePase -> +unContexto: jugadorConPosesion(unEscoltaDeLosSpurs)
-unContexto --> unResolvedorDePase :
+unContexto --> -unResolvedorDePase :
 
-unResolvedorDePase -> unContexto: incrementarPasoJugadaOfensiva()
+unResolvedorDePase -> +unContexto: incrementarPasoJugadaOfensiva()
 unContexto --> -unResolvedorDePase :
 
 unResolvedorDePase -> +unSimulador : elegirYEjecutarAcciones(unTurno)

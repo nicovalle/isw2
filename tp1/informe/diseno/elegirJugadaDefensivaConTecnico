@@ -11,6 +11,6 @@ unLibroDeJugadas --> -unSimulador: unDiccDeDefensivasConFrecuencias
 unSimulador -> +generadorDeNumerosAleatorios: obtenerNumeroEntre(0,1)
 generadorDeNumerosAleatorios --> -unSimulador : unaFrecuencia
 
-unSimulador -> unSimulador: elegirJugadaConFrecuencia\n(nunDiccDeDefensivasConFrecuencias, unaFrecuencia)
-unSimulador --> unSimulador : jugadaDefensivaColec4PasesY3Ptos
+unSimulador -> +unSimulador: elegirJugadaConFrecuencia\n(nunDiccDeDefensivasConFrecuencias, unaFrecuencia)
+unSimulador --> -unSimulador : jugadaDefensivaColec4PasesY3Ptos
 unSimulador --> -sender: jugadaDefensivaColec4PasesY3Ptos
