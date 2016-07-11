@@ -11,10 +11,22 @@ Este diseño, ademas de presentar de forma simple la realidad, nos permite exten
 \includegraphics[scale=0.35]{diseno/acciones.jpg}
 \end{center}
 
+Veamos entonces como es que estas acciones se elijen y se ejecutan:
+\begin{center}
+\includegraphics[scale=0.35]{diseno/Elegir_y_ejecutar_acciones.png}
+\end{center}
+Queda entonces claro como es que el simulador se encarga de tomar la jugada que se esta realizando del contexto y solicitarle las acciones correspondientes a cada una de estas para, luego de recibidas, proceder a ejecutarlas.
+
 \subsection{Jugadas y acciones}
 A continuación, presentamos entonces, como es que cada una de las acciones mencionadas en el apartado anterior, se integra con las jugadas defensivas/ofensivas, que componen los libros de los tecnicos.
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/jugadasYAcciones.jpg}
+\end{center}
+
+En el siguiente diagrama de secuencia, podremos ver ademas, como estas distintas entidades encargadas de modelar las acciones de una jugada se relacionan con sus propios resolvedores. Estas ultimas son las entidades donde se calculan las distintas posibilidades de exito y fracaso para todas las interacciones entre dos jugadores. El hecho de que estos calculos no sean parte de las acciones en si, nos permite modificar los valores de las ecuaciones encargadas de calcular los resultados de cada accion de forma aislada y sin afectar al resto del modelo.
+
+\begin{center}
+\includegraphics[scale=0.4, angle=90]{diseno/Ejecutar_acciones.png}
 \end{center}
 
 
@@ -27,7 +39,12 @@ Decidimos que la mejor forma de clasificar las apuestas era mediante una jerarqu
 \subsection{Equipo, jugadores y tecnico}
 Para modelar al equipo, decidimos que exista una clase abstracta posición donde se hereden cada una de las posibles posiciones que puede adoptar un jugador. Nos parecio que es la forma mas correcta de representar la realidad, y si bien es cierto que en el tiempo las posibles posiciones no vayan a variar, nos permite diferenciar a cada jugador de manera sencilla a la hora de saber su interaccion dentro de una jugada. El tecnico, a su vez, cuenta con un libro de jugadas que puede usar tanto ofensivas como defensivas. Una forma simple de representar y distinguir ambas formas de juego.
 \begin{center}
-\includegraphics[scale=0.4]{diseno/equipo.jpg} 
+\includegraphics[scale=0.30]{diseno/equipo.jpg} 
+\end{center}
+
+A continuación veremos como se integran el tecnico con su libro de jugadas para elegir una jugada (en este caso, una ofensiva) con la simulación. Notese que, dado que las jugadas se eligen en base a la frecuencia de las mismas, se necesito de un generador de numeros aleatorios para simular el comportamiento de aleatoriedad en la eleccion de las mismas.
+\begin{center}
+\includegraphics[scale=0.30]{diseno/Elegir_jugada_ofensiva.png} 
 \end{center}
 
 \subsection{Gestor de Equipos}
@@ -46,5 +63,10 @@ Estas dos entidades usan la misma logica y, conociendo al participante y la enti
 Por ultimo, decidimos contar con una entidad encargada de llevar un registro de las estadisticas de cada uno de los jugadores porque no tenia sentido que un jugador sepa responder sus estadisticas. Esto nos permitia modelar la realidad de forma mas fehaciente, dejando abierta la posibilidad de cambios en las estadisticas de forma limpia para el futuro.
 \begin{center}
 \includegraphics[scale=0.4]{diseno/registroDeEstadisticas.jpg}
+\end{center}
+
+\subsection{Partido}
+\begin{center}
+\includegraphics[scale=0.4]{diseno/partido.jpg}
 \end{center}
 
