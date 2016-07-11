@@ -1,15 +1,15 @@
 \section{Diseño}
-A continuación se presentan y explican algunas de las desiciones de diseño elegidas durante el desarrollo del trabajo practico.
-Se decidió dividir la presentación en subsecciones para facilitar la comprensión de la misma, haciendo especial énfasis en aquéllas que consideramos son de mayor importancia para la comprensión del mismo.
+A continuación se presentan y explican algunas de las decisiones de diseño elegidas durante el desarrollo del trabajo práctico.
+Se decidió dividir la presentación en subsecciones para facilitar su comprensión, haciendo especial énfasis en aquellas que consideramos que son de mayor importancia.
 
 %Vale mencionar que si bien es cierto que se genero una idea general en el grupo antes de comenzar a reflejar las decisiones tomadas en codigo, el diseño en profundidad se termino de desarrollar y afinar en paralelo, mientras surgian cuestiones mismas relacionadas al propio desarrollo que no habian sido tenidas en cuenta en papel. 
 
 
 \subsection{Participantes, cap y fichas}
-Decidimos que un en un modelado correcto del participante no tenía sentido desde el punto de vista de responsabilidades del objeto que lo represente que conozca su cap (presupuesto para armar equipos) ni su cantidad de fichas disponibles, puesto que no son esenciales. Por lo tanto, diseñamos dos clases, el GestorDeCap y el GestorDeFichas, cuyas instancias son objetos que conocen para un participante dado el cap y la cantidad de fichas disponibles respectivamente, además de proveer un protocolo para la actualización de esos valores, que nos permiten desligar a las instancias de la clase Participante de dichas responsabilidades.\\
+Decidimos que en un modelado correcto del participante, no se encontraba entre sus responsabilidades el conocer su cap (presupuesto para armar equipos) ni su cantidad de fichas disponibles, puesto que no son esenciales. Por lo tanto diseñamos dos clases, \textbf{GestorDeCap} y \textbf{GestorDeFichas}, cuyas instancias son objetos que conocen para un participante dado el cap y la cantidad de fichas disponibles, respectivamente, además de proveer un protocolo para la actualización de esos valores. De este modo, estas dos clases nos permiten desligar a las instancias de la clase Participante de dichas responsabilidades.\\
 El nombre Gestor para ambas clases proviene del hecho de que sus instancias gestionan las fichas/caps de los participantes, no són solo objetos que proveen información, sino que la mantienen también.\\
-Instancias de ambas clases se utilizan también en la gestión de desafíos, dado que las apuestas afectan la cantidad de fichas disponibles de un participantes y el resultado de un desafíos afecta no sólo a las fichas disponibles de un participante, sino también a su cap.\\
-El GestorDeCap entonces utiliza también la clase Presupuesto, que representa en el contextor del Gestor al presupuesto que un participante tiene como límite a la hora de conformar equipos.\\
+Instancias de ambas clases se utilizan también en la gestión de desafíos: las apuestas afectan la cantidad de fichas disponibles de un participante para otros desafíos, al igual que el resultado de un desafío, y éste también afecta al cap del participante.\\
+El GestorDeCap, entonces, utiliza también la clase Presupuesto, que representa en el contextor del Gestor al presupuesto máximo que un participante tiene como límite a la hora de conformar equipos.\\
 Análogamente, el GestorDeFichas utiliza la clase Fichas, que representa una cantidad de fichas dada.\\
 Si bien ambas clases parecen representar conceptos parecidos, preferimos organizar el conocimiento en dos clases distintas, para dejar en claro la diferencia existente entre ambas entidades en el dominio del problema.\\
 
@@ -23,9 +23,9 @@ Finalmente, con el mismo argumento esgrimido en párrafos anteriores, no es esen
 \subsection{Gestión de Equipos y Equipos}
 
 \subsubsection{Gestor de Equipos}
-Al no resultar esencial al participante conocer sus equipos, y no al no parecernos esencial al equipo conocer al participante, resolvimos diseñar una clase cuyas instancias proveen un protocolo para obtener los equipos de un participante, al igual que para crear, agregar y remover equipos para un participante dado.\\
-Este objeto, además, es el encargado de realizar las validaciones correspondientes a la hora de registrar un equipo para un participantes. Es por esta razón que posee como colaboradores internos al GestorDeCap de la sección anterior (con el objetivo de no permitir la creación de equipos que superen el presupuesto de un participante), al igual que un objeto de la clase ListaPreciosJugador, encargado de conocer los precios de cada uno de los jugadores que viven en el modelo.\\
-Esta última clases surgió también con un argumento similar a los expresados hasta ahora: no parecía ser ni esencial ni responsabilidad del jugador conocer su precio, sino que era un dato que se podría consultar a otra entidad.\\
+Al no resultar esencial al participante conocer sus equipos, ni que el equipo conozca a su dueño/participante, resolvimos diseñar una clase cuyas instancias proveen un protocolo para obtener los equipos de un participante, al igual que crearlos, agregarlos y/o removerlos.\\
+Este objeto, además, es el encargado de realizar las validaciones correspondientes a la hora de registrar un equipo para un participante. Es por esta razón que posee como colaboradores internos al GestorDeCap de la sección anterior (con el objetivo de no permitir la creación de equipos que superen el presupuesto de un participante), al igual que un objeto de la clase ListaPreciosJugador, encargado de conocer los precios de cada uno de los jugadores que viven en el modelo.\\
+Esta última clase surgió también con un argumento similar a los expresados hasta ahora: no parecía ser ni esencial ni responsabilidad de un jugador conocer su precio, sino que era un dato que se podría consultar a otra entidad.\\
 
 \begin{center}
 \includegraphics[scale=0.4]{diseno/gestorDeEquipos.jpg}
@@ -34,61 +34,65 @@ Esta última clases surgió también con un argumento similar a los expresados h
 \subsubsection{Equipos}
 
 Un equipo está conformado por sus cinco jugadores, uno de los cuales es un jugador estrella, y un técnico.
-Lo primero a notar en nuestro modelado del equipo es que en realidad no debería ser esencial a un jugador su posición. La razón es simple: la posición en la que un jugador juega en un equipo es un componente estratégico, que incluso podría tener efectos a la hora de simular un partido. Por esta razón, es el equipo quien conoce la posición de un jugador dentro de sí mismo. Así, las instancias de la clases Equipo utilizarán las clases que subclasifican a la clase abstracta Posición. Modelar la posición con una jerarquía de clases cuyas instancias representarán los distintas posiciones nos permitirá que un equipo pueda responder con facilidad mensajes que devuelvan en qué posición juega un jugador en el equipo o qué jugador juega en el equipo en una posición dada, algo que resultó extremadamente útil a la hora de implementar la jugada defensiva Hombre a Hombre. Las posiciones y el equipo colaborarán en este caso en el contexto de un simulación haciendo uso del mecanismo de double dispatch, a fin de evitar la aparición de estructuras de control como if innecesariamente en el código fuente.\\
-Además, de la misma manera en que no es responsabilidad de un jugador conocer su precio, tampoco lo es conocer sus estadísticas. Los objetos de la clase RegistroDeEstadisticas es quien conoce las estadísticas de los jugadores, como veremos en secciones subsiguientes.\\
-Finalmente, un técnico conoce su nombre, su apellido, su nombre completo y su libro de jugadas de preferencia, esto último representado con instancias de la clase LibroDeJugadas, que hará uso de las clases JugadasOfensivas y JugadasDefensivas, a la vez que mantiene la frecuencia con la que se usa cada jugada, y que se usarán a la hora de elegir jugadas defensivas u ofensivas para el equipo según corresponda en el contexto de la simulación.\\
+Lo primero a notar en nuestro modelado del equipo es que en realidad no debería ser esencial a un jugador conocer su posición. La razón es simple: la posición en la que un jugador juega en un equipo es un componente estratégico, que incluso podría tener efectos a la hora de simular un partido. Por esta razón, es el equipo quien conoce la posición de un jugador que forma parte del mismo. \\
+Así, las instancias de la clases Equipo utilizarán las clases que subclasifican a la clase abstracta Posición. Modelar la posición con una jerarquía de clases cuyas instancias representarán los distintas posiciones, nos permitirá que un equipo pueda responder con facilidad mensajes que devuelvan en qué posición juega un jugador en el equipo o qué jugador juega en el equipo en una posición dada. \\
+Esto resultó extremadamente útil a la hora de implementar la jugada defensiva Hombre a Hombre. Las posiciones y el equipo colaborarán en este caso en el contexto de una simulación haciendo uso del mecanismo de double dispatch, a fin de evitar la aparición de estructuras de control (como \textbf{if}) innecesariamente en el código fuente.\\
+Además, de la misma manera en que no es responsabilidad de un jugador conocer su precio, tampoco lo es conocer sus estadísticas. Los objetos de la clase RegistroDeEstadisticas son quienes conocen las estadísticas de los jugadores, como veremos en secciones subsiguientes.\\
+Finalmente, un técnico conoce su nombre, su apellido, su nombre completo y su libro de jugadas, representado con instancias de la clase LibroDeJugadas, que hará uso de las clases JugadasOfensivas y JugadasDefensivas, a la vez que mantiene la frecuencia con la que el técnico elige cada una de las jugadas. Estas clases se usarán a la hora de elegir jugadas defensivas u ofensivas para el equipo, según corresponda en el contexto de la simulación.\\
+
 \begin{center}
 \includegraphics[scale=0.30]{diseno/equipo.jpg} 
 \end{center}
 
 \subsection{Registro de estadísticas}
-Mencionamos en la sección anterior que no es responsabilidad de un jugador conocer sus estadísticas. Esta responsabilidad, entonces, recae en las instancias de la clase RegistroDeEstadísticas, que sabrán responder las estadísticas de un jugador dado, al igual que proveer un protocolo para actualizar las estadísticas de un jugador.\\
-El nombre de Registro tiene sentido si le piensa como una entidad donde se pueden consultar y registrar las estadísticas de un jugador.\\
-Para ello, además, modelamos a las estadísticas como instancias de la clase Estadística, que provee los mensajes necesarios para obtener las distintas estadísticas del jugador. Lo interesante de modelarla así es que en un futuro se podrán agregar nuevos tipos de estadísticas para el jugador de básquet: bastará con subclasificar la clase existente y definir los métodos a agregar.\\
+Mencionamos en la sección anterior que no es responsabilidad de un jugador conocer sus estadísticas. Esta responsabilidad, entonces, recae en las instancias de la clase RegistroDeEstadísticas, que sabrán responder las estadísticas de un jugador dado, al igual que proveer un protocolo para actualizarlas.\\
+El nombre de Registro tiene sentido si se lo piensa como una entidad donde se pueden consultar, registrar y mantener las estadísticas de un jugador.\\
+Para ello, además, modelamos a las estadísticas como instancias de la clase Estadística, quien provee los mensajes necesarios para obtener los distintos valores necesarios del jugador. Lo interesante de modelarlo de este modo es que provee modificabilidad: en un futuro se podrán incorporar nuevos tipos de estadísticas para el jugador de básquet; bastará con subclasificar la clase existente y definir los métodos a agregar.\\
+
 \begin{center}
 \includegraphics[scale=0.4]{diseno/registroDeEstadisticas.jpg}
 \end{center}
 
 
-
 \subsection{Acciones}
 
-Diferenciamos principalmente dos tipos de acciones: las acciones ofensivas, como lo son los pases y los tiros al aro; y las defensivas, como el bloqueo y la intercepción.
+Diferenciamos principalmente dos tipos de acciones: las ofensivas, como lo son los pases y los tiros al aro, y las defensivas, como el bloqueo y la intercepción.
 Hay además una acción especial, el rebote, que se utiliza cuando al simular el reboteo durante un turno y que no es ni ofensiva ni defensiva.\\
-Modelamos esto mediante la jerarquía de clases de Acciones. La clase abstracta Acciones define un protocolo abstracto de mensajes: jugadorEjecutante() y resolvedorPara(self). El primero viene a cuento de que en nuestro modelado de acciones, una acción conoce quién la va a ejecutar. Una acción colaborará con un simulador usando double dispatch para definir el resolvedor a usar para tal acción en el turno, que es el objeto que conoce las ecuaciones de resolución de las acciones.\\
-La clase abstracta Accion se subclasifica entones en dos clases abstractas AccionOfensiva, AccionDefensiva y Rebote. A su vez, la AccionOfensiva se subclasifica en Pase (que además del ejecutante de la acción sabe responder el receptor del pase), Tiro2Puntos y Tiro3Puntos; y AccionDefensiva se subclasifica en Bloqueo e Intercepción.
+Modelamos esto mediante la jerarquía de clases de Acciones. La clase abstracta Acciones define un protocolo abstracto de mensajes: jugadorEjecutante() y resolvedorPara(self). El primero viene a cuento de que en nuestro modelado de acciones, una acción conoce quién la va a ejecutar. Una acción colaborará con un simulador, usando double dispatch, para definir el \textit{resolvedor} a usar para tal acción en el turno; el \textit{resolvedor} (mala traducción de \textit{solver}) es el objeto que conoce las ecuaciones de resolución de las acciones.\\
+La clase abstracta Accion se subclasifica entonces en dos clases a su vez abstractas, AccionOfensiva y AccionDefensiva, y también en Rebote. Asimismo, la AccionOfensiva se subclasifica en Pase (que además del ejecutante de la acción sabe responder el receptor del pase), Tiro2Puntos y Tiro3Puntos; AccionDefensiva, en cambio, se subclasifica en Bloqueo e Intercepción.
 
 \begin{center}
 \includegraphics[scale=0.35]{diseno/acciones.jpg}
 \end{center}
 
-Mencionamos que un Simulador colabora con la acción para obtener un resolvedor, que conoce las reglas de resolución de las acciones. El siguiente diagrama de clases muestra la relación entre el Simulador y los distintos Resolvedores.
+Mencionamos que un Simulador colabora con la acción para obtener su resolvedor correspondiente, que conoce las reglas de resolución de las acciones. El siguiente diagrama de clases muestra la relación entre el Simulador y los distintos Resolvedores.
 
 
 \begin{center}
 \includegraphics[scale=0.35, angle=90]{diseno/simuladorYResolvedor.jpg}
 \end{center}
 
-La clase abstracta Resolvedor representa a un resolvedor de acción, y conoce las reglas de resolución de la acción, al igual que hay acciones tomar en caso de éxito o fallo.\\
+La clase abstracta Resolvedor representa a un resolvedor de acción, y conoce sus reglas de resolución, al igual que el camino a seguir en caso de éxito o fallo de la misma.\\
 Se subclasifica a Resolvedor con Resolvedores concretos para cada una de las posibles acciones.
-Dado que un resolvedor contiene las reglas de resolución de la acción, nos pareció lo más sensato que sean las instancias de la clase Simulador quiene usen las clases concretas de Resolvedor para obtener instancias.\\
+Dado que un resolvedor contiene las reglas de resolución de la acción, nos pareció que lo más sensato es que sean las instancias de la clase Simulador quienes usen las clases concretas de Resolvedor para obtener instancias.\\
 
-La desventaja del enfoque utilizado para modelor esto, es que al agregar acciones necesitaremos agregar una nueva clase de resolvedor, además de modificar la clase Simulador (otra opción sería subclasificar Simulador con los métodos correspondientes para instanciar los nuevos resolvedores).\\
+La desventaja del enfoque utilizado para modelar esto, es que al agregar acciones necesitaremos agregar una nueva clase de resolvedor, además de modificar la clase Simulador (otra opción sería subclasificar Simulador con los métodos correspondientes para instanciar los nuevos resolvedores).\\
 
 
-Veamos entonces como es que estas acciones se elijen y se ejecutan:
+Representaremos con un diagrama de secuencias, cómo es que estas acciones se eligen y ejecutan:
 \begin{center}
 \includegraphics[scale=0.35]{diseno/Elegir_y_ejecutar_acciones.png}
 \end{center}
-Queda entonces claro como es que el simulador se encarga de tomar la jugada que se esta realizando del contexto y solicitarle las acciones correspondientes a cada una de estas para, luego de recibidas, proceder a ejecutarlas.
+Queda entonces claro cómo es que el simulador se encarga de tomar del \textit{contexto} la jugada que se está realizando, y solicitarle las a ésta las acciones que la conforman para, luego de recibidas, proceder a ejecutarlas.
 
 \subsection{Jugadas y acciones}
-A continuación, presentamos entonces, como es que cada una de las acciones mencionadas en el apartado anterior, se integra con las jugadas defensivas/ofensivas, que componen los libros de los tecnicos.
+A continuación presentamos cómo cada una de las acciones mencionadas en el apartado anterior, se integra con los distintos tipos de jugadas (defensivas/ofensivas/rebote), que a su vez forman parte de los libros de jugadas de los tecnicos.
+
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/jugadasYAcciones.jpg}
 \end{center}
 
-En el siguiente diagrama de secuencia, podremos ver ademas, como estas distintas entidades encargadas de modelar las acciones de una jugada se relacionan con sus propios resolvedores. Estas ultimas son las entidades donde se calculan las distintas posibilidades de exito y fracaso para todas las interacciones entre dos jugadores. El hecho de que estos calculos no sean parte de las acciones en si, nos permite modificar los valores de las ecuaciones encargadas de calcular los resultados de cada accion de forma aislada y sin afectar al resto del modelo.
+En el siguiente diagrama de secuencia podremos ver, además, cómo estas distintas entidades encargadas de modelar las acciones de una jugada se relacionan con sus propios resolvedores. Estas ultimas son las entidades donde se calculan las distintas posibilidades de exito y fracaso para todas las interacciones entre dos jugadores. El hecho de que estos calculos no sean parte de las acciones en si, nos permite modificar los valores de las ecuaciones encargadas de calcular los resultados de cada accion de forma aislada y sin afectar al resto del modelo.
 
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/Ejecutar_acciones.png}
