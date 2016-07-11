@@ -12,10 +12,10 @@ unSimulador -> +colect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
 colect4pasesy3Ptos --> -unSimulador: unPaseDelBaseAlEscolta
 
 unSimulador -> +unContexto: jugadaDefensiva()
-unContexto --> -unSimulador: jugDefHombreAHombre
+unContexto --> -unSimulador: hombreAHombre
 
-unSimulador -> +jugDefHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
-jugDefHombreAHombre --> -unSimulador: unaIntercepcionDelBaseDeLosWarriors
+unSimulador -> +hombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
+hombreAHombre --> -unSimulador: unaIntercepcionDelBaseDeLosWarriors
 
 unSimulador -> +unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta, \nunaIntercepcionDelBaseDeLosWarriors, unTurno)
 

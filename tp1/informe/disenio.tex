@@ -86,13 +86,13 @@ Representaremos con un diagrama de secuencias, cómo es que estas acciones se el
 Queda entonces claro cómo es que el simulador se encarga de tomar del \textit{contexto} la jugada que se está realizando, y solicitarle las a ésta las acciones que la conforman para, luego de recibidas, proceder a ejecutarlas.
 
 \subsection{Jugadas y acciones}
-A continuación presentamos cómo cada una de las acciones mencionadas en el apartado anterior, se integra con los distintos tipos de jugadas (defensivas/ofensivas/rebote), que a su vez forman parte de los libros de jugadas de los tecnicos.
+A continuación presentamos cómo cada una de las acciones mencionadas en el apartado anterior, se integra con los distintos tipos de jugadas (defensivas/ofensivas/rebote), que a su vez forman parte de los libros de jugadas de los técnicos.
 
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/jugadasYAcciones.jpg}
 \end{center}
 
-En el siguiente diagrama de secuencia podremos ver, además, cómo estas distintas entidades encargadas de modelar las acciones de una jugada se relacionan con sus propios resolvedores. Estas ultimas son las entidades donde se calculan las distintas posibilidades de exito y fracaso para todas las interacciones entre dos jugadores. El hecho de que estos calculos no sean parte de las acciones en si, nos permite modificar los valores de las ecuaciones encargadas de calcular los resultados de cada accion de forma aislada y sin afectar al resto del modelo.
+En el siguiente diagrama de secuencia podremos ver, además, cómo las distintas entidades encargadas de modelar las acciones de una jugada, se relacionan con sus propios resolvedores. En éstos es donde se calculan las probabilidades de éxito y fracaso para todas las acciones de los jugadores. El hecho de que estos cálculos no formen parte de las acciones en sí (además de no ser una solución que conceptualmente nos satisfaciera, puesto que no parecería ser responsabilidad de una acción algo que se corresponde con una simulación/cálculo) agrega un componente de modificabilidad al diseño, puesto que se pueden modificar las ecuaciones encargadas de calcular los resultados de cada acción de manera aislada y sin afectar al resto del modelo.
 
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/Ejecutar_acciones.png}
@@ -101,7 +101,7 @@ En el siguiente diagrama de secuencia podremos ver, además, cómo estas distint
 
 \subsection{Apuestas}
 
-Modelamos las apuestas con una jerarquía polimórfica simple. La clase abstracta Apuesta se subclasifica en ApuestaNula (haciendo uso del NullObjectoPattern), que representa la ausencia de apuesta, y la Apuesta por fichas, que representa una ausencia en fichas. Modelamos la ApuestaNula teniendo en cuenta que es posible lanzar un desafío sin apuesta de fichas.\\
+Modelamos las apuestas con una jerarquía polimórfica simple. La clase abstracta Apuesta se subclasifica en ApuestaNula (haciendo uso del NullObjectPattern), que representa la ausencia de apuesta, y la ApuestaDeFichas, que representa una apuesta en fichas. La razón de ser de la ApuestaNula es la posibilidad de lanzar un desafío sin ninguna apuesta de fichas.\\
 \begin{center}
 \includegraphics[scale=0.4]{diseno/apuestas.jpg}
 \end{center}

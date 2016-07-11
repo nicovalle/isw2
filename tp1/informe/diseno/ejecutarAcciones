@@ -1,24 +1,24 @@
 title Ejecutar acciones
 
-sender -> +unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta,\n unaIntercepcionDelBaseDeLosWarriors, unTurno)
+sender -> +unSimulador: ejecutarAcciones\n(unPaseDelBaseAlEscolta,\n unaIntercepcionDelBaseDeLosWarriors,\n unTurno)
 
 unSimulador -> +unTurno: contexto()
 unTurno --> -unSimulador: unContexto
 
-unSimulador ->  +unPaseDelBaseAlEscolta: resolvedorPara(self)
-unPaseDelBaseAlEscolta --> -unSimulador: unResolvedorDePase
+unSimulador ->  +unPaseDel\nBaseAlEscolta: resolvedorPara(self)
+unPaseDel\nBaseAlEscolta --> -unSimulador: unResolvedorDePase
 
-unSimulador -> +unResolvedorDePase: resolver(unPaseDelBaseAlEscolta)
-unResolvedorDePase --> -unSimulador: true
+unSimulador -> +unResolvedor\nDePase: resolver(unPaseDelBaseAlEscolta)
+unResolvedor\nDePase --> -unSimulador: true
 
-unSimulador -> +unaIntercepcionDelBaseDeLosWarriors: resolvedorPara(self)
-unaIntercepcionDelBaseDeLosWarriors --> -unSimulador: unResolvedorDeIntercepcion
+unSimulador -> +unaIntercepcion\nDelBaseDe\nLosWarriors: resolvedorPara(self)
+unaIntercepcion\nDelBaseDe\nLosWarriors --> -unSimulador: unResolvedorDeIntercepcion
 
-unSimulador -> +unResolvedorDeIntercepcion: resolver(unaIntercepcionDelBaseDeLosWarriors)
-unResolvedorDeIntercepcion --> -unSimulador : false
+unSimulador -> +unResolvedor\nDeIntercepcion: resolver(unaIntercepcionDelBaseDeLosWarriors)
+unResolvedor\nDeIntercepcion --> -unSimulador : false
 
 ## gana ofensiva
-unSimulador -> +unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, unTurno, self)
+unSimulador -> +unResolvedor\nDePase: continuarConExito\n(unPaseDelBaseAlEscolta, unTurno, self)
 
 ## gana defensiva
 #unSimulador -> unResolvedorDeIntercepcion: continuarConExito(unaIntercepcionDelBaseDeLosWarriors, unTurno, self)
@@ -26,6 +26,6 @@ unSimulador -> +unResolvedorDePase: continuarConExito(unPaseDelBaseAlEscolta, un
 ## no gana nadie
 #unSimulador -> unResolvedorDePase:  return continuarConFallo(unTurno, self)
 
-unResolvedorDePase --> -unSimulador: unResultado
+unResolvedor\nDePase --> -unSimulador: unResultado
 
 unSimulador --> -sender: unResultado
