@@ -6,6 +6,10 @@ class OfensivaColectiva(Ofensiva):
     __metaclass__ = ABCMeta
 
     @abstractmethod
+    def nombre(self):
+        pass
+
+    @abstractmethod
     def __init__(self):
         pass
 

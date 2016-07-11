@@ -3,6 +3,7 @@ from resolvedor import *
 class ResolvedorBloqueo(Resolvedor):
     def continuarConExito(self, unBloqueo, unTurno, unSimulador):
         ''' Bloqueo exitoso, se rebotea.'''
+        unSimulador.logger().loggearBloqueoExitoso()
 #        unContexto = unTurno.contexto()
 #
 #        equipoAtacante = unContexto.equipoAtacante()
@@ -12,6 +13,7 @@ class ResolvedorBloqueo(Resolvedor):
 #        return unResultado
 
     def esExitoso(self, unBloqueo, unSimulador):
+
         numeroAleatorio = random.random()
         jugadorEjecutante = unBloqueo.jugadorEjecutante()
         estadisticasDeUnJugadorEjecutante = unSimulador.estadisticasDe(jugadorEjecutante)

@@ -4,18 +4,26 @@ class OfensivaColectiva2KPases(OfensivaColectiva):
     def __init__(self, cantPases):
         self._k = cantPases
         self._posicionesFinales = [posicion.AlaPivot(), posicion.Pivot()]
+        self._nombre = "Colectiva interna de 2 puntos luego de "+str(cantPases)+" pases"
+
+    def nombre(self):
+        return self._nombre
 
     def proximaAccionOfensiva(self, unContexto):
-        jugadorAtacante = unContexto.jugadorConPosesion()
         equipoAtacante = unContexto.equipoAtacante()
         pasoJugadaOfensiva = unContexto.pasoDeJugadaOfensiva()
-        cantidadPases = self._k
 
+        if(pasoJugadaOfensiva == 0):
+            unContexto.jugadorConPosesion(equipoAtacante.base())
+
+        jugadorAtacante = unContexto.jugadorConPosesion()
+
+        cantidadPases = self._k
         if(pasoJugadaOfensiva == (cantidadPases + 1)):
-            unaAccionOfensiva = accion.Tiro2Puntos(self, jugadorAtacante)
+            unaAccionOfensiva = accion.Tiro2Puntos(jugadorAtacante)
         else:
             if(pasoJugadaOfensiva < cantidadPases):
-                unJugadorReceptor = self.elegirJugadorDistintoA(self, jugadorAtacante, equipoAtacante)
+                unJugadorReceptor = self.elegirJugadorDistintoA(jugadorAtacante, equipoAtacante)
             elif(pasoJugadaOfensiva == cantidadPases):
                 unJugadorReceptor = self.elegirJugadorEntrePosiciones(self._posicionesFinales, equipoAtacante)
 

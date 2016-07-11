@@ -7,9 +7,9 @@ class Turno(object):
         return self._contexto
 
     def jugarPosesion(self, equipoAtacante, equipoDefensor, unSimulador):
-        iniciarPosesion(equipoAtacante, equipoDefensor)
+        self.iniciarPosesion(equipoAtacante, equipoDefensor)
 
-        unSimulador.elegirJugadasParaTurnos(self)
+        unSimulador.elegirJugadasParaTurno(self)
         unResultado = unSimulador.elegirYEjecutarAcciones(self)
 
         return unResultado

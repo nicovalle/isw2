@@ -1,37 +1,47 @@
 from resolvedores import resolvedor
+from resultado import *
+
+import random
+import sys
 
 class Simulador(object):
-    def __init__(self, unaListaDeEstadisticas):
-        self._estadisticasJugadores = unaListaDeEstadisticas
+    def __init__(self, unRegistroDeEstadisticas, unLogger):
+        self._estadisticasJugadores = unRegistroDeEstadisticas
+        self._logger = unLogger
 
     def estadisticasDe(self, unJugador):
-        return self._estadisticasJugadores.estadisticasDe(self, unJugador)
+        return self._estadisticasJugadores.estadisticasDe(unJugador)
+
+    def logger(self):
+        return self._logger
 
     ### Eleccion de jugadas
     def elegirJugadasParaTurno(self, unTurno):
         unContexto = unTurno.contexto()
 
-        unaJugadaOfensiva = obtenerJugadaOfensivaParaTurno(unTurno)
+        unaJugadaOfensiva = self.obtenerJugadaOfensivaParaTurno(unTurno)
         unContexto.jugadaOfensiva(unaJugadaOfensiva)
 
-        unaJugadaDefensiva = obtenerJugadaDefensivaParaTurno(unTurno)
+        unaJugadaDefensiva = self.obtenerJugadaDefensivaParaTurno(unTurno)
         unContexto.jugadaDefensiva(unaJugadaDefensiva)
 
     def obtenerJugadaOfensivaParaTurno(self, unTurno):
         unContexto = unTurno.contexto()
-        equipoAtacante = contexto.equipoAtacante()
+        equipoAtacante = unContexto.equipoAtacante()
 
         unTecnico = equipoAtacante.tecnico()
-        unaJugadaOfensiva = elegirJugadaOfensivaConTecnico(unTecnico)
+        unaJugadaOfensiva = self.elegirJugadaOfensivaConTecnico(unTecnico)
+        self._logger.loggearEleccionJugada(equipoAtacante, unaJugadaOfensiva)
 
         return unaJugadaOfensiva
 
     def obtenerJugadaDefensivaParaTurno(self, unTurno):
         unContexto = unTurno.contexto()
-        equipoDefensor = contexto.equipoDefensor()
+        equipoDefensor = unContexto.equipoDefensor()
 
         unTecnico = equipoDefensor.tecnico()
-        unaJugadaDefensiva = elegirJugadaDefensivaConTecnico(unTecnico)
+        unaJugadaDefensiva = self.elegirJugadaDefensivaConTecnico(unTecnico)
+        self._logger.loggearEleccionJugada(equipoDefensor, unaJugadaDefensiva)
 
         return unaJugadaDefensiva
 
@@ -40,8 +50,7 @@ class Simulador(object):
         unDiccDeJugadasConFrec = unLibroDeJugadas.jugadasOfensivasConFrecuencias()
 
         unaFrecuencia = random.random()
-
-        unaJugadaOfensiva = elegirJugadaConFrecuencia(unDiccDeJugadasConFrec, unaFrecuencia)
+        unaJugadaOfensiva = self.elegirJugadaConFrecuencia(unDiccDeJugadasConFrec, unaFrecuencia)
 
         return unaJugadaOfensiva
 
@@ -50,15 +59,17 @@ class Simulador(object):
         unDiccDeJugadasConFrec = unLibroDeJugadas.jugadasDefensivasConFrecuencias()
 
         unaFrecuencia = random.random()
-
-        unaJugadaDefensiva = elegirJugadaConFrecuencia(unDiccDeJugadasConFrec, unaFrecuencia)
+        unaJugadaDefensiva = self.elegirJugadaConFrecuencia(unDiccDeJugadasConFrec, unaFrecuencia)
 
         return unaJugadaDefensiva
 
     def elegirJugadaConFrecuencia(self, unDiccDeJugadasConFrec, unaFrecuencia):
-        # TODO
-        return false
-
+        acumulado = 0
+        for key in unDiccDeJugadasConFrec.keys():
+            acumulado += unDiccDeJugadasConFrec[key]
+            if(unaFrecuencia < acumulado):
+                return key
+        sys.exit("Simulador.elegirJugadaConFrecuencia(): no se pudo elegir jugada.")
 
     ### Ejecucion de jugadas
     def elegirYEjecutarAcciones(self, unTurno):
@@ -70,7 +81,7 @@ class Simulador(object):
         unaJugadaDefensiva = unContexto.jugadaDefensiva()
         unaAccionDefensiva = unaJugadaDefensiva.accionParaDefender(unaAccionOfensiva, unContexto)
 
-        unResultado = ejecutarAcciones(unaAccionOfensiva, unaAccionDefensiva, unTurno)
+        unResultado = self.ejecutarAcciones(unaAccionOfensiva, unaAccionDefensiva, unTurno)
 
         return unResultado
 
@@ -78,11 +89,11 @@ class Simulador(object):
         ''' Me fijo si la accion ofensiva o la defensiva tienen exito, y continua el juego en base a esos resultados.'''
         unContexto = unTurno.contexto()
 
-        unResolvedorDeAccionOfensiva = unaAccionOfensiva.resolvedorPara()
-        unResultadoOfensivo = unResolvedorDeAccionOfensiva.esExitoso(unaAccionOfensiva)
+        unResolvedorDeAccionOfensiva = unaAccionOfensiva.resolvedorPara(self)
+        unResultadoOfensivo = unResolvedorDeAccionOfensiva.esExitoso(unaAccionOfensiva, self)
 
-        unResolvedorDeAccionDefensiva = unaAccionDefensiva.resolvedorPara()
-        unResultadoDefensivo = unResolvedorDeAccionDefensiva.esExitoso(unaAccionDefensiva)
+        unResolvedorDeAccionDefensiva = unaAccionDefensiva.resolvedorPara(self)
+        unResultadoDefensivo = unResolvedorDeAccionDefensiva.esExitoso(unaAccionDefensiva, self)
 
         if(unResultadoDefensivo):
             unResultado = unResolvedorDeAccionDefensiva.continuarConExito(unaAccionDefensiva, unTurno, self)
@@ -111,12 +122,14 @@ class Simulador(object):
         unResolvedorDeTiro2Puntos = resolvedor.ResolvedorTiro2Puntos()
         return unResolvedorDeTiro2Puntos
 
-    def resolvedorParaTiro3Puntos(self, unTiro3Puntos):
+    def resolvedorParaTiro3Puntos(self):
         unResolvedorDeTiro3Puntos = resolvedor.ResolvedorTiro3Puntos()
         return unResolvedorDeTiro3Puntos
 
     ### Fin de turno
     def pelotaAfueraPara(self, unTurno):
+        self._logger.loggearPelotaAfuera()
+
         unContexto = unTurno.contexto()
         equipoAtacante = unContexto.equipoAtacante()
         equipoDefensor = unContexto.equipoDefensor()

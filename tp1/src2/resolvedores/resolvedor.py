@@ -15,5 +15,11 @@ class Resolvedor(object):
     def continuarConExito(self, unaAccion, unTurno, unSimulador):
         pass
 
-    def esExitoso(self, unSimulador):
+    def esExitoso(self, unaAccion, unSimulador):
         pass
+
+from resolvedorBloqueo import *
+from resolvedorIntercepcion import *
+from resolvedorPase import *
+from resolvedorTiro2Puntos import *
+from resolvedorTiro3Puntos import *

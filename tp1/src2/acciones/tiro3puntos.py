@@ -7,10 +7,10 @@ class Tiro3Puntos(AccionOfensiva):
     def jugadorEjecutante(self):
         return self._jugadorEjecutante
 
-    def resolvedorPara(unSimulador):
-        unResolvedorDeTiro3Puntos = unSimulador.resolvedorParaTiro3Puntos(self)
+    def resolvedorPara(self, unSimulador):
+        unResolvedorDeTiro3Puntos = unSimulador.resolvedorParaTiro3Puntos()
         return unResolvedorDeTiro3Puntos
 
-    def defenderCon(unaJugadaDefensiva, unJugadorDefensivo):
+    def defenderCon(self, unaJugadaDefensiva, unJugadorDefensivo):
         unaAccionDefensiva = unaJugadaDefensiva.defenderTiro(self, unJugadorDefensivo)
         return unaAccionDefensiva

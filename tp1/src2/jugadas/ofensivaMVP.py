@@ -1,11 +1,21 @@
 from ofensiva import *
 
 class OfensivaMVP(Ofensiva):
+    def __init__(self):
+        self._nombre = "MVP"
+
+    def nombre(self):
+        return self._nombre
+
     def proximaAccionOfensiva(self, unContexto):
-        jugadorAtacante = unContexto.jugadorConPosesion()
         equipoAtacante = unContexto.equipoAtacante()
-        jugadorEstrella = equipoAtacante.jugadorEstrella()
         pasoJugadaOfensiva = unContexto.pasoDeJugadaOfensiva()
+
+        if(pasoJugadaOfensiva == 0):
+            unContexto.jugadorConPosesion(equipoAtacante.base())
+
+        jugadorAtacante = unContexto.jugadorConPosesion()
+        jugadorEstrella = equipoAtacante.jugadorEstrella()
 
         if(pasoJugadaOfensiva == 0 and jugadorAtacante != jugadorEstrella):
             unaAccionOfensiva = accion.Pase(jugadorAtacante, jugadorEstrella)

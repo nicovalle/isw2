@@ -1,4 +1,4 @@
-from AccionDefensiva import *
+from accionDefensiva import *
 
 class Bloqueo(AccionDefensiva):
     def __init__(self, unJugador):
@@ -8,5 +8,5 @@ class Bloqueo(AccionDefensiva):
         return self._jugadorEjecutante
 
     def resolvedorPara(self, unSimulador):
-        unResolvedorDeBloqueo = unSimulador.resolvedorParaBloqueo(self)
+        unResolvedorDeBloqueo = unSimulador.resolvedorParaBloqueo()
         return unResolvedorDeBloqueo

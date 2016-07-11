@@ -1,11 +1,17 @@
 from defensiva import *
 
 class DefensivaHombreAHombre(Defensiva):
+    def __init__(self):
+        self._nombre = "Hombre a Hombre"
+
+    def nombre(self):
+        return self._nombre
+
     def accionParaDefender(self, unaAccionOfensiva, unContexto):
         equipoDefensor = unContexto.equipoDefensor()
         equipoAtacante = unContexto.equipoAtacante()
 
-        jugadorAtacante = unPase.jugadorEjecutante()
+        jugadorAtacante = unaAccionOfensiva.jugadorEjecutante()
         unaPosicion = equipoAtacante.posicionDe(jugadorAtacante)
         jugadorDefensor = equipoDefensor.jugadorEnPosicion(unaPosicion)
 
@@ -13,9 +19,9 @@ class DefensivaHombreAHombre(Defensiva):
         return unaAccionDefensiva
 
     def defenderPase(self, unPase, jugadorDefensor):
-        unaAccionDefensiva = Intercepcion(jugadorDefensor)
+        unaAccionDefensiva = accion.Intercepcion(jugadorDefensor)
         return unaAccionDefensiva
 
     def defenderTiro(self, unTiro, jugadorDefensor):
-        unaAccionDefensiva = Bloqueo(jugadorDefensor)
+        unaAccionDefensiva = accion.Bloqueo(jugadorDefensor)
         return unaAccionDefensiva

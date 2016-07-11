@@ -12,8 +12,8 @@ class Equipo(object):
 							(losJugadores[3], posicion.AlaPivot()),
 							(losJugadores[4], posicion.Pivot())]
 
-	def nombre(self):
-		return self._nombre
+    def nombre(self):
+        return self._nombre
 
     def tecnico(self):
         return self._tecnico

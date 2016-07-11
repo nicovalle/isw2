@@ -11,10 +11,10 @@ class Pase(AccionOfensiva):
     def jugadorReceptor(self):
         return self._jugadorReceptor
 
-    def resolvedorPara(unSimulador):
-        unResolvedorDePase = unSimulador.resolvedorParaPase(self)
+    def resolvedorPara(self, unSimulador):
+        unResolvedorDePase = unSimulador.resolvedorParaPase()
         return unResolvedorDePase
 
-    def defenderCon(unaJugadaDefensiva, unJugadorDefensivo):
+    def defenderCon(self, unaJugadaDefensiva, unJugadorDefensivo):
         unaAccionDefensiva = unaJugadaDefensiva.defenderPase(self, unJugadorDefensivo)
         return unaAccionDefensiva

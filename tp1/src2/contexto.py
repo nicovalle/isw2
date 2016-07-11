@@ -18,10 +18,13 @@ class Contexto(object):
             self._jugadorConPosesion = unJugadorOfensivo
 
     def pasoDeJugadaOfensiva(self, pasoJugadaOfensiva=None):
-        if(pasoDeJugadaOfensiva is None):
+        if(pasoJugadaOfensiva is None):
             return self._pasoDeJugadaOfensiva
         else:
             self._pasoDeJugadaOfensiva = pasoJugadaOfensiva
+
+    def incrementarPasoJugadaOfensiva(self):
+        self._pasoDeJugadaOfensiva += 1
 
     def jugadaOfensiva(self, unaJugadaOfensiva=None):
         if(unaJugadaOfensiva is None):
