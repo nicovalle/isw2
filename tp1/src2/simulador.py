@@ -1,17 +1,11 @@
 from resolvedores import resolvedor
 
 class Simulador(object):
-#    def __init__(self):
-#        return ""
+    def __init__(self, unaListaDeEstadisticas):
+        self._estadisticasJugadores = unaListaDeEstadisticas
 
-    def apellido(self):
-        return self._apellido
-
-    def nombreCompleto(self):
-        return self._nombre+" "+self._apellido
-
-    def libroDeJugadas(self):
-        return self._libroDeJugadas
+    def estadisticasDe(self, unJugador):
+        return self._estadisticasJugadores.estadisticasDe(self, unJugador)
 
     ### Eleccion de jugadas
     def elegirJugadasParaTurno(self, unTurno):
@@ -85,10 +79,10 @@ class Simulador(object):
         unContexto = unTurno.contexto()
 
         unResolvedorDeAccionOfensiva = unaAccionOfensiva.resolvedorPara()
-        unResultadoOfensivo = unResolvedorDeAccionOfensiva.resolver(unaAccionOfensiva)
+        unResultadoOfensivo = unResolvedorDeAccionOfensiva.esExitoso(unaAccionOfensiva)
 
         unResolvedorDeAccionDefensiva = unaAccionDefensiva.resolvedorPara()
-        unResultadoDefensivo = unResolvedorDeAccionDefensiva.resolver(unaAccionDefensiva)
+        unResultadoDefensivo = unResolvedorDeAccionDefensiva.esExitoso(unaAccionDefensiva)
 
         if(unResultadoDefensivo):
             unResultado = unResolvedorDeAccionDefensiva.continuarConExito(unaAccionDefensiva, unTurno, self)

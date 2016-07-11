@@ -1,8 +1,6 @@
 from resolvedor import *
 
 class ResolvedorPase(Resolvedor):
-    #def __init__(self):
-
     def continuarConFallo(self, unTurno, unSimulador):
         ''' Pase fallido, intercepcion fallida, la pelota sale de la cancha y termina el turno'''
         unResultado = unSimulador.pelotaAfueraPara(unTurno)
@@ -18,3 +16,12 @@ class ResolvedorPase(Resolvedor):
 
         unResultado = unSimulador.elegirYEjecutarAcciones(unTurno)
         return unResultado
+
+    def esExitoso(self, unPase, unSimulador):
+        numeroAleatorio = random.random()
+        jugadorEjecutante = unPase.jugadorEjecutante()
+        estadisticasDeUnJugadorEjecutante = unSimulador.estadisticasDe(jugadorEjecutante)
+
+        umbralDeExito = 1 - estadisticasDeUnJugadorEjecutante.to() * 0.1
+
+        return numeroAleatorio <= umbralDeExito

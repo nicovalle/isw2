@@ -5,42 +5,42 @@ from posiciones import posicion
 from jugadas import *
 from resolvedores import *
 from acciones import *
-from listaDeEstadisticas import *
+from registroDeEstadisticasDeJugador import *
 from estadisticas import *
 
-listaDeEstadisticas = ListaDeEstadisticas()
+regitroDeEstadisticasDeJugador = RegistroDeEstadisticasDeJugador()
 
 jugador1 = Jugador("manu", "ginobili")
 estadisticasDeJugador1 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador1, estadisticasDeJugador1)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador1, estadisticasDeJugador1)
 jugador2 = Jugador("pepe", "ginobili")
 estadisticasDeJugador2 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador2, estadisticasDeJugador2)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador2, estadisticasDeJugador2)
 jugador3 = Jugador("jose", "ginobili")
 estadisticasDeJugador3 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador3, estadisticasDeJugador3)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador3, estadisticasDeJugador3)
 jugador4 = Jugador("tim", "ginobili")
 estadisticasDeJugador4 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador4, estadisticasDeJugador4)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador4, estadisticasDeJugador4)
 jugador5 = Jugador("michael", "ginobili")
 estadisticasDeJugador5 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador5, estadisticasDeJugador5)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador5, estadisticasDeJugador5)
 
 jugador6 = Jugador("stephen", "curry")
 estadisticasDeJugador6 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador6, estadisticasDeJugador6)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador6, estadisticasDeJugador6)
 jugador7 = Jugador("pepper", "curry")
 estadisticasDeJugador7 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador7, estadisticasDeJugador7)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador7, estadisticasDeJugador7)
 jugador8 = Jugador("chicken", "curry")
 estadisticasDeJugador8 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador8, estadisticasDeJugador8)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador8, estadisticasDeJugador8)
 jugador9 = Jugador("rice", "curry")
 estadisticasDeJugador9 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador9, estadisticasDeJugador9)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador9, estadisticasDeJugador9)
 jugador10 = Jugador("uncurry", "curry")
 estadisticasDeJugador10 = Estadisticas(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8)
-listaDeEstadisticas.agregarEstadisticasDe(jugador10, estadisticasDeJugador10)
+regitroDeEstadisticasDeJugador.registrarEstadistica(jugador10, estadisticasDeJugador10)
 
 tecnico1 = Tecnico("pep", "guardiola", "unlibro")
 tecnico2 = Tecnico("carlo", "antilope", "otrolibro")

@@ -2,6 +2,8 @@ import os
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir)
 
+import random
+
 from abc import ABCMeta, abstractmethod
 
 class Resolvedor(object):
@@ -11,4 +13,7 @@ class Resolvedor(object):
         pass
 
     def continuarConExito(self, unaAccion, unTurno, unSimulador):
+        pass
+
+    def esExitoso(self, unSimulador):
         pass
