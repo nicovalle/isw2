@@ -52,11 +52,29 @@ Para ello, además, modelamos a las estadísticas como instancias de la clase Es
 
 
 \subsection{Acciones}
-Todas las jugadas que pueden desarrollarse durante la simulacion de un partido, se divide claramente en dos grupos. Aquellas que realiza el equipo que esta atacando, y aquellas que realiza aquel que esta defendiendo. En base a esta idea, planteamos nuestro diseño clasificando a todas las acciones que pueden realizarse dentro de una jugada, en alguno de estos dos grupos (Ofensivas y Defensivas) y sub clasificando luego, de acuerdo al tipo de accion.
-Este diseño, ademas de presentar de forma simple la realidad, nos permite extender el modelo con nuevas acciones tanto ofensivas como defensivas, de manera relativamente sencilla. Bastaria simplemente con declarar una nueva clase de herede de el tipo de clasificacion correspondiente de la accion. Por supuesto, la accion conoce al jugador que la esta ejecutando para poder mantener la informacion de la simulación de forma consistente.
+
+Diferenciamos principalmente dos tipos de acciones: las acciones ofensivas, como lo son los pases y los tiros al aro; y las defensivas, como el bloqueo y la intercepción.
+Hay además una acción especial, el rebote, que se utiliza cuando al simular el reboteo durante un turno y que no es ni ofensiva ni defensiva.\\
+Modelamos esto mediante la jerarquía de clases de Acciones. La clase abstracta Acciones define un protocolo abstracto de mensajes: jugadorEjecutante() y resolvedorPara(self). El primero viene a cuento de que en nuestro modelado de acciones, una acción conoce quién la va a ejecutar. Una acción colaborará con un simulador usando double dispatch para definir el resolvedor a usar para tal acción en el turno, que es el objeto que conoce las ecuaciones de resolución de las acciones.\\
+La clase abstracta Accion se subclasifica entones en dos clases abstractas AccionOfensiva, AccionDefensiva y Rebote. A su vez, la AccionOfensiva se subclasifica en Pase (que además del ejecutante de la acción sabe responder el receptor del pase), Tiro2Puntos y Tiro3Puntos; y AccionDefensiva se subclasifica en Bloqueo e Intercepción.
+
 \begin{center}
 \includegraphics[scale=0.35]{diseno/acciones.jpg}
 \end{center}
+
+Mencionamos que un Simulador colabora con la acción para obtener un resolvedor, que conoce las reglas de resolución de las acciones. El siguiente diagrama de clases muestra la relación entre el Simulador y los distintos Resolvedores.
+
+
+\begin{center}
+\includegraphics[scale=0.35, angle=90]{diseno/simuladorYResolvedor.jpg}
+\end{center}
+
+La clase abstracta Resolvedor representa a un resolvedor de acción, y conoce las reglas de resolución de la acción, al igual que hay acciones tomar en caso de éxito o fallo.\\
+Se subclasifica a Resolvedor con Resolvedores concretos para cada una de las posibles acciones.
+Dado que un resolvedor contiene las reglas de resolución de la acción, nos pareció lo más sensato que sean las instancias de la clase Simulador quiene usen las clases concretas de Resolvedor para obtener instancias.\\
+
+La desventaja del enfoque utilizado para modelor esto, es que al agregar acciones necesitaremos agregar una nueva clase de resolvedor, además de modificar la clase Simulador (otra opción sería subclasificar Simulador con los métodos correspondientes para instanciar los nuevos resolvedores).\\
+
 
 Veamos entonces como es que estas acciones se elijen y se ejecutan:
 \begin{center}
@@ -90,12 +108,6 @@ A continuación veremos como se integran el tecnico con su libro de jugadas para
 \includegraphics[scale=0.30]{diseno/Elegir_jugada_ofensiva.png} 
 \end{center}
 
-
-\subsection{Registro de estadisticas}
-Por ultimo, decidimos contar con una entidad encargada de llevar un registro de las estadisticas de cada uno de los jugadores porque no tenia sentido que un jugador sepa responder sus estadisticas. Esto nos permitia modelar la realidad de forma mas fehaciente, dejando abierta la posibilidad de cambios en las estadisticas de forma limpia para el futuro.
-\begin{center}
-\includegraphics[scale=0.4]{diseno/registroDeEstadisticas.jpg}
-\end{center}
 
 \subsection{Partido}
 Analicemos ahora el diagrama de clases de las entidades que componen un partido podemos ver, en un planteo un poco mas general, como se realiza tambien el loggeo de las distintas acciones que realizan los jugadores y como se integra la entidad resultado para poder dar cuenta de como finalizan las distintas acciones que mencionamos en secciones anteriores. Todo el loggeo de las distintas acciones se realiza mediante una clase abstracta que permite que, en un futuro en lugar de imprimir la salida por consola como sucede actualmente, la forma de logear los resultados pueda ser alterada con un minimo impacto en el resto del sistema, disminuyendo la complejidad.
