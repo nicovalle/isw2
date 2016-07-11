@@ -1,18 +1,10 @@
-# TODO -> PARA HACER
-class Tecnico(object):
-    def __init__(self, unNombre, unApellido, unLibroDeJugadas):
-        self._nombre = unNombre
-        self._apellido = unApellido
-        self._libroDeJugadas = unLibroDeJugadas
+# TODO -> NO IMPLEMENTADA
+class OfensivaContraataque(object):
+    def __init__(self):
+        self._nombre = "Contraataque"
 
     def nombre(self):
         return self._nombre
 
-    def apellido(self):
-        return self._apellido
-
-    def nombreCompleto(self):
-        return self._nombre+" "+self._apellido
-
-    def libroDeJugadas(self):
-        return self._libroDeJugadas
+    def proximaAccionOfensiva(self, unContexto):
+        return None
