@@ -6,6 +6,6 @@ class ResolvedorRebote(Resolvedor):
         jugadorEjecutante = unRebote.jugadorEjecutante()
         estadisticasDeUnJugadorEjecutante = unSimulador.estadisticasDe(jugadorEjecutante)
 
-        umbralDeExito = estadisticasDeUnJugadorEjecutante.spg() * 0.2 # + TODO MODIFICADORES
+        umbralDeExito = estadisticasDeUnJugadorEjecutante.rpg() * 0.05 # + TODO MODIFICADORES
 
         return numeroAleatorio <= umbralDeExito
