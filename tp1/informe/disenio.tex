@@ -17,7 +17,38 @@ Si bien ambas clases parecen representar conceptos parecidos, preferimos organiz
 \includegraphics[scale=0.4]{diseno/gestorDeCapYFichas.png} 
 \end{center}
 
-Finalmente, con el mismo argumento esgrimado en párrafos anteriores, no es esencial al participante conocer directamente sus equipos. Resolvimos esto de una manera similar, como explicaremos en la siguiente subsección.\\
+Finalmente, con el mismo argumento esgrimido en párrafos anteriores, no es esencial al participante conocer directamente sus equipos. Resolvimos esto de una manera similar, como explicaremos en la siguiente subsección.\\
+
+
+\subsection{Gestión de Equipos y Equipos}
+
+\subsubsection{Gestor de Equipos}
+Al no resultar esencial al participante conocer sus equipos, y no al no parecernos esencial al equipo conocer al participante, resolvimos diseñar una clase cuyas instancias proveen un protocolo para obtener los equipos de un participante, al igual que para crear, agregar y remover equipos para un participante dado.\\
+Este objeto, además, es el encargado de realizar las validaciones correspondientes a la hora de registrar un equipo para un participantes. Es por esta razón que posee como colaboradores internos al GestorDeCap de la sección anterior (con el objetivo de no permitir la creación de equipos que superen el presupuesto de un participante), al igual que un objeto de la clase ListaPreciosJugador, encargado de conocer los precios de cada uno de los jugadores que viven en el modelo.\\
+Esta última clases surgió también con un argumento similar a los expresados hasta ahora: no parecía ser ni esencial ni responsabilidad del jugador conocer su precio, sino que era un dato que se podría consultar a otra entidad.\\
+
+\begin{center}
+\includegraphics[scale=0.4]{diseno/gestorDeEquipos.jpg}
+\end{center}
+
+\subsubsection{Equipos}
+
+Un equipo está conformado por sus cinco jugadores, uno de los cuales es un jugador estrella, y un técnico.
+Lo primero a notar en nuestro modelado del equipo es que en realidad no debería ser esencial a un jugador su posición. La razón es simple: la posición en la que un jugador juega en un equipo es un componente estratégico, que incluso podría tener efectos a la hora de simular un partido. Por esta razón, es el equipo quien conoce la posición de un jugador dentro de sí mismo. Así, las instancias de la clases Equipo utilizarán las clases que subclasifican a la clase abstracta Posición. Modelar la posición con una jerarquía de clases cuyas instancias representarán los distintas posiciones nos permitirá que un equipo pueda responder con facilidad mensajes que devuelvan en qué posición juega un jugador en el equipo o qué jugador juega en el equipo en una posición dada, algo que resultó extremadamente útil a la hora de implementar la jugada defensiva Hombre a Hombre. Las posiciones y el equipo colaborarán en este caso en el contexto de un simulación haciendo uso del mecanismo de double dispatch, a fin de evitar la aparición de estructuras de control como if innecesariamente en el código fuente.\\
+Además, de la misma manera en que no es responsabilidad de un jugador conocer su precio, tampoco lo es conocer sus estadísticas. Los objetos de la clase RegistroDeEstadisticas es quien conoce las estadísticas de los jugadores, como veremos en secciones subsiguientes.\\
+Finalmente, un técnico conoce su nombre, su apellido, su nombre completo y su libro de jugadas de preferencia, esto último representado con instancias de la clase LibroDeJugadas, que hará uso de las clases JugadasOfensivas y JugadasDefensivas, a la vez que mantiene la frecuencia con la que se usa cada jugada, y que se usarán a la hora de elegir jugadas defensivas u ofensivas para el equipo según corresponda en el contexto de la simulación.\\
+\begin{center}
+\includegraphics[scale=0.30]{diseno/equipo.jpg} 
+\end{center}
+
+\subsection{Registro de estadísticas}
+Mencionamos en la sección anterior que no es responsabilidad de un jugador conocer sus estadísticas. Esta responsabilidad, entonces, recae en las instancias de la clase RegistroDeEstadísticas, que sabrán responder las estadísticas de un jugador dado, al igual que proveer un protocolo para actualizar las estadísticas de un jugador.\\
+El nombre de Registro tiene sentido si le piensa como una entidad donde se pueden consultar y registrar las estadísticas de un jugador.\\
+Para ello, además, modelamos a las estadísticas como instancias de la clase Estadística, que provee los mensajes necesarios para obtener las distintas estadísticas del jugador. Lo interesante de modelarla así es que en un futuro se podrán agregar nuevos tipos de estadísticas para el jugador de básquet: bastará con subclasificar la clase existente y definir los métodos a agregar.\\
+\begin{center}
+\includegraphics[scale=0.4]{diseno/registroDeEstadisticas.jpg}
+\end{center}
+
 
 
 \subsection{Acciones}
@@ -52,22 +83,13 @@ Decidimos que la mejor forma de clasificar las apuestas era mediante una jerarqu
 \includegraphics[scale=0.4]{diseno/apuestas.jpg}
 \end{center}
 
-\subsection{Equipo, jugadores y tecnico}
-Para modelar al equipo, decidimos que exista una clase abstracta posición donde se hereden cada una de las posibles posiciones que puede adoptar un jugador. Nos parecio que es la forma mas correcta de representar la realidad, y si bien es cierto que en el tiempo las posibles posiciones no vayan a variar, nos permite diferenciar a cada jugador de manera sencilla a la hora de saber su interaccion dentro de una jugada. El tecnico, a su vez, cuenta con un libro de jugadas que puede usar tanto ofensivas como defensivas. Una forma simple de representar y distinguir ambas formas de juego.
-\begin{center}
-\includegraphics[scale=0.30]{diseno/equipo.jpg} 
-\end{center}
+
 
 A continuación veremos como se integran el tecnico con su libro de jugadas para elegir una jugada (en este caso, una ofensiva) con la simulación. Notese que, dado que las jugadas se eligen en base a la frecuencia de las mismas, se necesito de un generador de numeros aleatorios para simular el comportamiento de aleatoriedad en la eleccion de las mismas.
 \begin{center}
 \includegraphics[scale=0.30]{diseno/Elegir_jugada_ofensiva.png} 
 \end{center}
 
-\subsection{Gestor de Equipos}
-El gesto de equipos es aquel encargado de dar de alta y realizar cada una de las validaciones necesarias para confirmar la creacion de un equipo. Es por eso que se necesita de un gestor de Cap y una entidad que represente una lista de cada uno de los posibles jugadores. Esta elección nos permite disminuir la cohesión del modelo, permitiendo asi que futuras validaciones o modificaciones a las ya existentes, se agreguen de forma simple y sin agregar complejidad.
-\begin{center}
-\includegraphics[scale=0.4]{diseno/gestorDeEquipos.jpg}
-\end{center}
 
 \subsection{Registro de estadisticas}
 Por ultimo, decidimos contar con una entidad encargada de llevar un registro de las estadisticas de cada uno de los jugadores porque no tenia sentido que un jugador sepa responder sus estadisticas. Esto nos permitia modelar la realidad de forma mas fehaciente, dejando abierta la posibilidad de cambios en las estadisticas de forma limpia para el futuro.
