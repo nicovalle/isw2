@@ -8,13 +8,13 @@ unTurno --> -unSimulador: unContexto
 unSimulador ->  +unPaseDel\nBaseAlEscolta: resolvedorPara(self)
 unPaseDel\nBaseAlEscolta --> -unSimulador: unResolvedorDePase
 
-unSimulador -> +unResolvedor\nDePase: resolver(unPaseDelBaseAlEscolta)
+unSimulador -> +unResolvedor\nDePase: esExitoso(unPaseDelBaseAlEscolta)
 unResolvedor\nDePase --> -unSimulador: true
 
 unSimulador -> +unaIntercepcion\nDelBaseDe\nLosWarriors: resolvedorPara(self)
 unaIntercepcion\nDelBaseDe\nLosWarriors --> -unSimulador: unResolvedorDeIntercepcion
 
-unSimulador -> +unResolvedor\nDeIntercepcion: resolver(unaIntercepcionDelBaseDeLosWarriors)
+unSimulador -> +unResolvedor\nDeIntercepcion: esExitoso(unaIntercepcionDelBaseDeLosWarriors)
 unResolvedor\nDeIntercepcion --> -unSimulador : false
 
 ## gana ofensiva
