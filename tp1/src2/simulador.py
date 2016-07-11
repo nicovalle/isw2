@@ -126,6 +126,10 @@ class Simulador(object):
         unResolvedorDeTiro3Puntos = resolvedor.ResolvedorTiro3Puntos()
         return unResolvedorDeTiro3Puntos
 
+    def resolvedorParaRebote(self):
+        unResolvedorDeRebote = resolvedor.ResolvedorRebote()
+        return unResolvedorDeRebote
+
     ### Fin de turno
     def pelotaAfueraPara(self, unTurno):
         self._logger.loggearPelotaAfuera()

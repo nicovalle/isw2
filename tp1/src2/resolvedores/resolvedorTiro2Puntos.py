@@ -6,7 +6,7 @@ class ResolvedorTiro2Puntos(Resolvedor):
         unSimulador.logger().loggearTiroFallido()
         unSimulador.logger().loggearReboteoInicio()
 
-        unReboteo = Reboteo()
+        unReboteo = reboteo.Reboteo()
         unResultado = unReboteo.ejecutarParaUnTurno(unTurno, unSimulador)
 
         return unResultado

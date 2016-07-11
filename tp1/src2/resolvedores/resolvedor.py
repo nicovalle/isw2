@@ -4,6 +4,8 @@ os.sys.path.insert(0,parentdir)
 
 import random
 
+from jugadas import reboteo
+
 from abc import ABCMeta, abstractmethod
 
 class Resolvedor(object):
@@ -23,3 +25,4 @@ from resolvedorIntercepcion import *
 from resolvedorPase import *
 from resolvedorTiro2Puntos import *
 from resolvedorTiro3Puntos import *
+from resolvedorRebote import *

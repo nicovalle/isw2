@@ -32,8 +32,8 @@ class Equipo(object):
     def jugadorEnPosicion(self, unaPosicion):
         return unaPosicion.jugadorConPosicion(self)
 
-    def jugadorEntrePosiciones(self, unaListaDePosiciones):
-        return random.choice([jugador[0] for jugador in filter(lambda x: x[1] in unaListaDePosiciones, self._jugadores)])
+    def jugadorEntrePosicionesDistintoA(self, unaListaDePosiciones, unJugador):
+        return random.choice([jugador[0] for jugador in filter(lambda x: x[1] in unaListaDePosiciones and x[0] != unJugador, self._jugadores)])
 
     def jugadorDistintoA(self, unJugador):
         return random.choice([jugador[0] for jugador in filter(lambda x: x[0] != unJugador, self._jugadores)])

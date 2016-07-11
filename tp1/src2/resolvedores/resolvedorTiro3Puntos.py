@@ -5,8 +5,8 @@ class ResolvedorTiro3Puntos(Resolvedor):
         ''' Tiro de 3 puntos fallido, se produce un reboteo'''
         unSimulador.logger().loggearTiroFallido()
         unSimulador.logger().loggearReboteoInicio()
-        
-        unReboteo = Reboteo()
+
+        unReboteo = reboteo.Reboteo()
         unResultado = unReboteo.ejecutarParaUnTurno(unTurno, unSimulador)
 
         return unResultado

@@ -23,11 +23,14 @@ class Partido(object):
             unContexto = Contexto()
             unTurno = Turno(unContexto, unLogger)
             unLogger.loggearInicioTurno(self._turnoNumero)
+            unLogger.loggearResultadoParcial(self._equipoA, self._equipoB, self._resultado.parcialDeEquipo(self._equipoA), self._resultado.parcialDeEquipo(self._equipoB))
 
             unResultadoParcial = unTurno.jugarPosesion(self.equipoSacador(), self.equipoNoSacador(), unSimulador)
             self._resultado = self._resultado.sumarA(unResultadoParcial)
             self._turnoNumero += 1
             self.invertirEquipos()
+
+        self._resultado = Resultado(self._equipoA, 0, self._equipoB, 0)
 
         while(self.empatado()):
             unLogger.loggearInicioTiempoExtra()
@@ -35,7 +38,9 @@ class Partido(object):
 
         equipoGanador = self.equipoQueVaGanando()
         equipoPerdedor = self.equipoQueNoVaGanando()
-        unLogger.loggearVictoria(equipoGanador, equipoPerdedor, self._resultado[equipoGanador], self._resultado[equipoPerdedor])
+        resultadoGanador = self._resultado.parcialDeEquipo(equipoGanador)
+        resultadoPerdedor = self._resultado.parcialDeEquipo(equipoPerdedor)
+        unLogger.loggearVictoria(equipoGanador, equipoPerdedor, resultadoGanador, resultadoPerdedor)
 
     def jugarTiempoExtra(self, unSimulador, unLogger):
         self._turnoExtra = 1
@@ -57,8 +62,8 @@ class Partido(object):
         return self._resultado.parcialDeEquipo(self._equipoA) == self._resultado.parcialDeEquipo(self._equipoB)
 
     def equipoQueVaGanando(self):
-        resultadoEquipoA = self._resultado(self._equipoA)
-        resultadoEquipoB = self._resultado(self._equipoB)
+        resultadoEquipoA = self._resultado.parcialDeEquipo(self._equipoA)
+        resultadoEquipoB = self._resultado.parcialDeEquipo(self._equipoB)
         if(resultadoEquipoA == resultadoEquipoB):
             return None
         elif(resultadoEquipoA > resultadoEquipoB):
@@ -67,7 +72,7 @@ class Partido(object):
             return self._equipoB
 
     def equipoQueNoVaGanando(self):
-        return self.otroEquipo(self.equipoQueVaGanando)
+        return self.otroEquipo(self.equipoQueVaGanando())
 
     def equipoSacador(self):
         return self._equipoSacador

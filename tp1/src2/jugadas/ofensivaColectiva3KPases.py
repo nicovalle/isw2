@@ -19,13 +19,13 @@ class OfensivaColectiva3KPases(OfensivaColectiva):
         jugadorAtacante = unContexto.jugadorConPosesion()
 
         cantidadPases = self._k
-        if(pasoJugadaOfensiva == (cantidadPases + 1)):
+        if(pasoJugadaOfensiva == cantidadPases):
             unaAccionOfensiva = accion.Tiro3Puntos(jugadorAtacante)
         else:
-            if(pasoJugadaOfensiva < cantidadPases):
+            if(pasoJugadaOfensiva < cantidadPases-1):
                 unJugadorReceptor = self.elegirJugadorDistintoA(jugadorAtacante, equipoAtacante)
-            elif(pasoJugadaOfensiva == cantidadPases):
-                unJugadorReceptor = self.elegirJugadorEntrePosiciones(self._posicionesFinales, equipoAtacante)
+            else:
+                unJugadorReceptor = self.elegirJugadorEntrePosicionesDistintoA(self._posicionesFinales, jugadorAtacante, equipoAtacante)
 
             unaAccionOfensiva = accion.Pase(jugadorAtacante, unJugadorReceptor)
 

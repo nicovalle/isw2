@@ -14,7 +14,7 @@ class Ofensiva(object):
     @abstractmethod
     def nombre(self):
         pass
-        
+
     @abstractmethod
     def proximaAccionOfensiva(self, unContexto):
         pass
@@ -22,8 +22,8 @@ class Ofensiva(object):
     def elegirJugadorDistintoA(self, unJugador, unEquipo):
         return unEquipo.jugadorDistintoA(unJugador)
 
-    def elegirJugadorEntrePosiciones(self, unaListaDePosiciones, unEquipo):
-        return unEquipo.jugadorEntrePosiciones(unaListaDePosiciones)
+    def elegirJugadorEntrePosicionesDistintoA(self, unaListaDePosiciones, unJugador, unEquipo):
+        return unEquipo.jugadorEntrePosicionesDistintoA(unaListaDePosiciones, unJugador)
 
 from ofensivaColectiva import *
 from ofensivaColectiva2KPases import *

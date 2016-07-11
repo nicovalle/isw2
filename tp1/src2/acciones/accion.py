@@ -21,3 +21,4 @@ from intercepcion import *
 from pase import *
 from tiro2puntos import *
 from tiro3puntos import *
+from rebote import *

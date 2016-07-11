@@ -3,14 +3,13 @@ from resolvedor import *
 class ResolvedorBloqueo(Resolvedor):
     def continuarConExito(self, unBloqueo, unTurno, unSimulador):
         ''' Bloqueo exitoso, se rebotea.'''
-        unSimulador.logger().loggearBloqueoExitoso()
-#        unContexto = unTurno.contexto()
-#
-#        equipoAtacante = unContexto.equipoAtacante()
-#        equipoDefensor = unContexto.equipoDefensor()
-#
-#        unResultado = unTurno.jugarPosesion(equipoDefensor, equipoAtacante, unSimulador)
-#        return unResultado
+        unSimulador.logger().loggearBloqueoExitoso(unBloqueo.jugadorEjecutante())
+        unSimulador.logger().loggearReboteoInicio()
+
+        unReboteo = reboteo.Reboteo()
+        unResultado = unReboteo.ejecutarParaUnTurno(unTurno, unSimulador)
+
+        return unResultado
 
     def esExitoso(self, unBloqueo, unSimulador):
 
