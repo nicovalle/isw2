@@ -86,12 +86,22 @@ Representaremos con un diagrama de secuencias, cómo es que estas acciones se el
 Queda entonces claro cómo es que el simulador se encarga de tomar del \textit{contexto} la jugada que se está realizando, y solicitarle las a ésta las acciones que la conforman para, luego de recibidas, proceder a ejecutarlas.
 
 \subsection{Jugadas y acciones}
-A continuación presentamos cómo cada una de las acciones mencionadas en el apartado anterior, se integra con los distintos tipos de jugadas (defensivas/ofensivas/rebote), que a su vez forman parte de los libros de jugadas de los técnicos.
+A continuación presentamos cómo cada una de las acciones mencionadas en el apartado anterior, se integra con los distintos tipos de jugadas (defensivas/ofensivas/rebote), que a su vez forman parte de los libros de jugadas de los técnicos. Cada \textit{Jugada} usa las \textit{Acciones} que la componen (Pase y Tiro en el caso de las Ofensivas; Bloqueo e Intercepción en el de las Defensivas; y Rebote en el caso de Reboteo).
+
+Como mencionamos previamente, la clase abstracta Jugada Ofensiva se subclasifica en tres tipos de jugadas, OfensivaMVP, OfensivaContraataque, y OfensivaColectiva, esta última también abstracta y que se subclasifica en OfensivaColectiva3KPases, y OfensivaColectiva2KPases.
+
+Las jugadas ofensivas son polimórficas. Saben decir, dado un contexto, cuál es la próxima acción ofensiva a ejecutar, y también saben elegir jugadores dentro de un equipo para que formen parte de las distintas acciones (siempre distintos a un jugador pasado por parámetro, y también se los puede buscar entre una lista de posiciones en particular, algo útil en el caso de las jugadas de tipo OfensivaColectiva).
+
+En el caso de las jugadas defensivas, sólo hereda de ella la jugada DefensivaHombreAHombre. No obstante, al seguir el mismo patrón que para JugadaOfensiva, es posible extender la cantidad de jugadas defensivas subclasificando la clase JugadaDefensiva. 
+
+Modelamos las jugadas defensivas como una respuesta a las jugadas ofensivas. Por esa razón, deben poder responder mensajes con la información de con qué acción defensiva hacen frente a una acción ofensiva. Este mecanismo, de double dispatch, se verá mejor en los diagramas de secuencia a continuación.
+
 
 \begin{center}
 \includegraphics[scale=0.4, angle=90]{diseno/jugadasYAcciones.jpg}
 \end{center}
 
+\subsubsection{Resolución de acciones}
 En el siguiente diagrama de secuencia podremos ver, además, cómo las distintas entidades encargadas de modelar las acciones de una jugada, se relacionan con sus propios resolvedores. En éstos es donde se calculan las probabilidades de éxito y fracaso para todas las acciones de los jugadores. El hecho de que estos cálculos no formen parte de las acciones en sí (además de no ser una solución que conceptualmente nos satisfaciera, puesto que no parecería ser responsabilidad de una acción algo que se corresponde con una simulación/cálculo) agrega un componente de modificabilidad al diseño, puesto que se pueden modificar las ecuaciones encargadas de calcular los resultados de cada acción de manera aislada y sin afectar al resto del modelo.
 
 \begin{center}
