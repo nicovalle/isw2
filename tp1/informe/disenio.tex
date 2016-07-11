@@ -96,7 +96,8 @@ En el siguiente diagrama de secuencia, podremos ver ademas, como estas distintas
 
 
 \subsection{Apuestas}
-Decidimos que la mejor forma de clasificar las apuestas era mediante una jerarquizacion, para poder representar de forma clara que existen aquellas en las que se pone en juego un numero X de fichas, pero tambien aquellas nulas en las que no hay cap apostado. Esta clasificación, si bien es posible que agregue mas complejidad al diseño que suponiendo que las apuestas nulas son aquellas con cantidad de fichas igual a cero, nos ahorra de tener que manejar un unico tipo de apuesta y preguntar por la cantidad de fichas apostados todo el tiempo, permitiendo alijerar el manejo de las apuestas.
+
+Modelamos las apuestas con una jerarquía polimórfica simple. La clase abstracta Apuesta se subclasifica en ApuestaNula (haciendo uso del NullObjectoPattern), que representa la ausencia de apuesta, y la Apuesta por fichas, que representa una ausencia en fichas. Modelamos la ApuestaNula teniendo en cuenta que es posible lanzar un desafío sin apuesta de fichas.\\
 \begin{center}
 \includegraphics[scale=0.4]{diseno/apuestas.jpg}
 \end{center}
