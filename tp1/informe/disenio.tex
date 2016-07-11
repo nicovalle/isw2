@@ -190,3 +190,6 @@ Es el partido el que va creando los distintos turnos, les da un contexto, y va a
 \end{center}
 
 
+Lo más notorio del enfoque utilizado a la hora de modelar una simulación es la existencia de la mencionada anteriormente clase Simulador que encapsula el comportamiento a seguir en la ejecución de un partido y un turno.
+De esta forma, las acciones no se ejecutan a sí mismas ni los jugadores las ejecutan, sino que el simulador es quien con la acción, el turno y el jugador colabora para simular la ejecución de la acción. Análogamente, el simulador sabe cómo se eligen las jugadas, cúando termina un turno y además posee la información de las estadísticas de los jugadores para el partido en ejecución.
+La analogía más clara para reflejar esto que decimos es pensar en el simulador como algo que mueve las piezas sobre un tablero. En este caso las piezas serían los distintos objetos que colaboran con el simulador para simular un partido.\\
