@@ -1,0 +1,20 @@
+title esExitoso
+
+sender->+unResolvedor: esExitoso(unTiroDe2Puntos, unSimulador)
+unResolvedor-->+GeneradorDeNumerosAleatorios: obtenerNumeroEntre(0,1)
+GeneradorDeNumerosAleatorios-->-unResolvedor: 0.456
+unResolvedor->+unSimulador: contexto()
+unSimulador-->-unResolvedor: unContexto
+unResolvedor->+unContexto: equipoAtacante()
+unContexto-->-unResolvedor: losSpurs
+unResolvedor->+unContexto: jugadorConPosesion()
+unContexto-->-unResolvedor: pivotDeLosSpurs
+unResolvedor->+unSimulador: estadisticasDe(pivotDeLosSpurs)
+unSimulador-->-unResolvedor: estadisticasDelPivotDeLosSpursUnJugador
+unResolvedor->+estadisticasDelPivotDeLosSpursUnJugador: getValue(FG%)
+estadisticasDelPivotDeLosSpursUnJugador-->-unResolvedor: 0.555
+unResolvedor->+estadisticasDelPivotDeLosSpursUnJugador: getValue(PPG)
+estadisticasDelPivotDeLosSpursUnJugador-->-unResolvedor: 20
+unResolvedor->+estadisticasDelPivotDeLosSpursUnJugador: getValue(APG)
+estadisticasDelPivotDeLosSpursUnJugador-->-unResolvedor: 5
+unResolvedor-->-sender: true
