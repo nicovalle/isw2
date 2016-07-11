@@ -6,16 +6,16 @@ unSimulador -> +unTurno: contexto()
 unTurno --> -unSimulador: unContexto
 
 unSimulador -> +unContexto: jugadaOfensiva()
-unContexto --> -unSimulador: jugadaOfensivaColect4pasesy3Ptos
+unContexto --> -unSimulador: colect4pasesy3Ptos
 
-unSimulador -> +jugadaOfensivaColect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
-jugadaOfensivaColect4pasesy3Ptos --> -unSimulador: unPaseDelBaseAlEscolta
+unSimulador -> +colect4pasesy3Ptos:proximaAccionOfensiva(unContexto)
+colect4pasesy3Ptos --> -unSimulador: unPaseDelBaseAlEscolta
 
 unSimulador -> +unContexto: jugadaDefensiva()
-unContexto --> -unSimulador: jugadaDefensivaHombreAHombre
+unContexto --> -unSimulador: jugDefHombreAHombre
 
-unSimulador -> +jugadaDefensivaHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
-jugadaDefensivaHombreAHombre --> -unSimulador: unaIntercepcionDelBaseDeLosWarriors
+unSimulador -> +jugDefHombreAHombre: accionParaDefender(unPaseDelBaseAlEscolta, unContexto)
+jugDefHombreAHombre --> -unSimulador: unaIntercepcionDelBaseDeLosWarriors
 
 unSimulador -> +unSimulador: ejecutarAcciones(unPaseDelBaseAlEscolta, \nunaIntercepcionDelBaseDeLosWarriors, unTurno)
 
