@@ -30,7 +30,7 @@ class Partido(object):
             self._turnoNumero += 1
             self.invertirEquipos()
 
-        self._resultado = Resultado(self._equipoA, 0, self._equipoB, 0)
+        #self._resultado = Resultado(self._equipoA, 0, self._equipoB, 0)
 
         while(self.empatado()):
             unLogger.loggearInicioTiempoExtra()
