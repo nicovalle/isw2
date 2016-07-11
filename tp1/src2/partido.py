@@ -30,6 +30,7 @@ class Partido(object):
             self._turnoNumero += 1
             self.invertirEquipos()
 
+        # se puede descomentar para forzar desempate
         #self._resultado = Resultado(self._equipoA, 0, self._equipoB, 0)
 
         while(self.empatado()):
