@@ -116,13 +116,43 @@ Como la jugada defensiva hombre a hombre es siempre en respuesta a una ofensiva,
 
 El double dispatch aparece por duplicado, en la interacción entre losWarriors y unaPosicionBase (para saber quién es el jugador de losWarriors que ocupa la posición de base), y luego entre la jugadaDefensivaHombreAHombre y la acción ofensiva unPaseDelBaseAlEscolta (para poder responder de qué manera la jugada defensiva hará frente a la acción ofensiva: mediante una intercepción).
 
-\subsubsection{Resolución de acciones}
-En el siguiente diagrama de secuencia podremos ver, además, cómo las distintas entidades encargadas de modelar las acciones de una jugada, se relacionan con sus propios resolvedores. En éstos es donde se calculan las probabilidades de éxito y fracaso para todas las acciones de los jugadores. El hecho de que estos cálculos no formen parte de las acciones en sí (además de no ser una solución que conceptualmente nos satisfaciera, puesto que no parecería ser responsabilidad de una acción algo que se corresponde con una simulación/cálculo) agrega un componente de modificabilidad al diseño, puesto que se pueden modificar las ecuaciones encargadas de calcular los resultados de cada acción de manera aislada y sin afectar al resto del modelo.
+\subsubsection{Ejecución de acciones}
+En el siguiente diagrama de secuencia se puede apreciar cómo el simulador realiza los pasos de las jugadas en un turno dado. Ya se dispone de una acción ofensiva y de otra ofensiva (elegido en los diagramas previos), por lo que el simulador ejecuta ambas acciones para un turno determinado. A cada una de las acciones le pide su resolvedor correspondiente, a los que les pregunta luego si la acción es exitosa, o no. En base a eso los resultados de las distintas acciones, decide el simulador cómo continúa.
+
+Podemos ver, además, cómo las distintas entidades encargadas de modelar las acciones de una jugada, se relacionan con sus propios resolvedores. En éstos es donde se calculan las probabilidades de éxito y fracaso para todas las acciones de los jugadores. El hecho de que estos cálculos no formen parte de las acciones en sí (además de no ser una solución que conceptualmente nos satisfaciera, puesto que no parecería ser responsabilidad de una acción algo que se corresponde con una simulación/cálculo) agrega un componente de modificabilidad al diseño, puesto que se pueden modificar las ecuaciones encargadas de calcular los resultados de cada acción de manera aislada y sin afectar al resto del modelo.
 
 \begin{center}
-\includegraphics[scale=0.4, angle=90]{diseno/Ejecutar_acciones.png}
+\includegraphics[scale=0.45, angle=90]{diseno/Ejecutar_acciones.png}
 \end{center}
 
+\subsubsection{Continuación de acciones}
+
+En el diagrama anterior se ve que una vez que se resolvió si fueron exitosas o no las distintas acciones, el simulador le dice al resolvedor correspondiente cómo debe proceder, si con éxito o con fallo. El resolvedor de cada acción es quien sabe cómo proceder el juego. 
+
+\begin{center}
+\includegraphics[scale=0.45]{diseno/Continuar_con_exito_pase.png}
+\end{center}
+
+Por ejemplo, en el caso de un pase exitoso, le avisa al contexto quién será el nuevo jugador con posesión de la pelota (el receptor del pase), e incrementa el paso de la jugada ofensiva. Finalmente, al tener el turno un nuevo contexto, realiza un llamado recursivo a elegirYEjecutarAcciones(). Eventualmente, cuando el turno llegue a su fin, se retornará un resultado parcial. Por ejemplo, cuando ocurra un tiro exitoso.
+
+\begin{center}
+\includegraphics[scale=0.45]{diseno/Continuar_con_exito_tiro_2_puntos.png}
+\end{center}
+
+El simulador sabe que cuando ocurre un tiro exitoso y sin intercepción debe procedor el tiro, y el resolvedor le avisa al simulador que debe encestar un doble.
+
+\begin{center}
+\includegraphics[scale=0.45]{diseno/Encestar_doble.png}
+\end{center}
+
+Aquí tenemos un ejemplo de cuándo termina un turno. El simulador crea un objeto de la clase resultado, con el resultado parcial del turno, y devuelve este resultado, que volverá a través de todos los llamados recursivos que se hicieron.
+
+
+\begin{center}
+\includegraphics[scale=0.45]{diseno/Continuar_con_exito_intercepcion.png}
+\end{center}
+
+Un caso levemente interesante para diagrama de secuencia, es una intercepción exitosa, no porque represente alguna complejidad especial, sino porque llama a jugarPosesion() de unTurno, que es el punto de partida de los turnos. Allí es donde se dice qué equipo es ahora el atacante, cuál el defensor, se eligen las respectivas jugadas, etc.
 
 \subsection{Apuestas}
 
