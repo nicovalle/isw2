@@ -1,13 +1,12 @@
 title Próxima Acción Defensiva
 
-
 sender -> +jugadaDefensiva\nHombreAHombre: accionParaDefender\n(unPaseDelBaseAlEscolta,\n unContexto)
 jugadaDefensiva\nHombreAHombre -> +unContexto: equipo\nDefensor()
-unContexto --> jugadaDefensiva\nHombreAHombre:  losWarriors
-jugadaDefensiva\nHombreAHombre -> unContexto: equipo\nAtacante()
+unContexto --> -jugadaDefensiva\nHombreAHombre:  losWarriors
+jugadaDefensiva\nHombreAHombre -> +unContexto: equipo\nAtacante()
 unContexto --> -jugadaDefensiva\nHombreAHombre : losSpurs
 jugadaDefensiva\nHombreAHombre -> +unPaseDel\nBaseAlEscolta : jugadorEjecutante()
-unPaseDel\nBaseAlEscolta --> jugadaDefensiva\nHombreAHombre: unBaseDeLosSpurs
+unPaseDel\nBaseAlEscolta --> -jugadaDefensiva\nHombreAHombre: unBaseDeLosSpurs
 jugadaDefensiva\nHombreAHombre -> +losSpurs: posicionDe(unBaseDeLosSpurs)
 losSpurs --> -jugadaDefensiva\nHombreAHombre : unaPosicionBase
 jugadaDefensiva\nHombreAHombre -> +losWarriors: jugadorEnPosicion(losWarriors, posicionBase)
@@ -16,7 +15,7 @@ unaPosicion\nBase -> +losWarriors : base()
 losWarriors --> -unaPosicion\nBase: elBaseDe\nLosWarriors
 unaPosicion\nBase --> -losWarriors: elBaseDe\nLosWarriors
 losWarriors --> -jugadaDefensiva\nHombreAHombre: elBaseDeLosWarriors
-jugadaDefensiva\nHombreAHombre -> unPaseDel\nBaseAlEscolta: defenderCon(self, \nelBaseDeLosWarriors)
+jugadaDefensiva\nHombreAHombre -> +unPaseDel\nBaseAlEscolta: defenderCon(self, \nelBaseDeLosWarriors)
 unPaseDel\nBaseAlEscolta -> +jugadaDefensiva\nHombreAHombre: defenderPase(self, \nelBaseDeLosWarriors)
 jugadaDefensiva\nHombreAHombre -> +Intercepcion : new(elBaseDeLosWarriors)
 Intercepcion --> -jugadaDefensiva\nHombreAHombre: unaIntercepcion\nDelBaseDeLosWarriors
