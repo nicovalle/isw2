@@ -1,0 +1,10 @@
+title jugarPosesion
+
+sender->+unTurno: jugarPosesion(losSpurs, losWarriors, unSimulador)
+unTurno->+unTurno: iniciarPosesion(losSpurs, losWarriors)
+unTurno-->-unTurno: 
+unTurno->+unSimulador: elegirJugadasParaTurnos(self)
+unSimulador-->-unTurno: 
+unTurno->+unSimulador: elegirYEjecutarAcciones(self)
+unSimulador-->-unTurno: unResultado
+unTurno->+sender: unResultado
