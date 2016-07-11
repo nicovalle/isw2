@@ -12,7 +12,7 @@ class ResolvedorBloqueo(Resolvedor):
         return unResultado
 
     def esExitoso(self, unBloqueo, unSimulador):
-
+        unSimulador.logger().loggearBloqueoIntento(unBloqueo.jugadorEjecutante())
         numeroAleatorio = random.random()
         jugadorEjecutante = unBloqueo.jugadorEjecutante()
         estadisticasDeUnJugadorEjecutante = unSimulador.estadisticasDe(jugadorEjecutante)

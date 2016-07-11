@@ -48,7 +48,7 @@ class Logger(object):
         print('\tEl pase fallo, y nadie logro interceptar la pelota.')
         return
 
-    def loggearBloqueoIntento(self, tirador, bloqueador):
+    def loggearBloqueoIntento(self, bloqueador):
         print('\t\t'+bloqueador.nombreCompleto() + ' intenta bloquear la pelota')
         return
 
